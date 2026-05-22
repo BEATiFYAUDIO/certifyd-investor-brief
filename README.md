@@ -5,7 +5,7 @@ Static GitHub Pages site for Certifyd's $5M infrastructure raise.
 Target domain:
 
 ```text
-infrastructure.certifyd.me
+investor.certifyd.me
 ```
 
 ## Files
@@ -25,7 +25,7 @@ infrastructure.certifyd.me
 
 GitHub Pages will publish the static site from `index.html`.
 
-## Configure DNS for `infrastructure.certifyd.me`
+## Configure DNS for `investor.certifyd.me`
 
 At the DNS provider for `certifyd.me`, create a CNAME record:
 
@@ -38,7 +38,7 @@ Value: BEATiFYAUDIO.github.io
 Keep the repository `CNAME` file set to:
 
 ```text
-infrastructure.certifyd.me
+investor.certifyd.me
 ```
 
 GitHub Pages uses that file to bind the custom domain to the site.
@@ -49,7 +49,7 @@ After DNS resolves:
 
 1. Open repository **Settings**.
 2. Go to **Pages**.
-3. Confirm the custom domain shows `infrastructure.certifyd.me`.
+3. Confirm the custom domain shows `investor.certifyd.me`.
 4. Wait for GitHub to issue the TLS certificate.
 5. Enable **Enforce HTTPS**.
 
