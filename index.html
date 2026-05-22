@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certifyd Infrastructure Raise | $5M Investor Brief</title>
+  <meta name="description" content="Certifyd is sovereign creator infrastructure for identity, publishing, attribution, receipts, splits, payouts, and Bitcoin/Lightning-native commerce." />
+  <meta property="og:title" content="Certifyd Infrastructure Raise" />
+  <meta property="og:description" content="$5M infrastructure raise for sovereign creator commerce, attribution, payouts, and AI discovery systems." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#050505" />
+  <style>
+    :root{
+      --bg:#050505;
+      --bg-2:#090b0f;
+      --panel:rgba(255,255,255,.045);
+      --panel-strong:rgba(255,255,255,.075);
+      --border:rgba(255,255,255,.12);
+      --border-gold:rgba(212,175,55,.36);
+      --gold:#d4af37;
+      --gold-2:#f5d976;
+      --orange:#ff9f0a;
+      --blue:#6fa8ff;
+      --text:#f5f5f5;
+      --muted:#a8b0bc;
+      --muted-2:#788292;
+      --shadow:0 28px 90px rgba(0,0,0,.45);
+      --radius:24px;
+      --wrap:1180px;
+      --pad:clamp(18px,4vw,46px);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; background:var(--bg); }
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(900px 540px at 16% -10%, rgba(212,175,55,.16), transparent 58%),
+        radial-gradient(760px 460px at 86% 4%, rgba(111,168,255,.10), transparent 56%),
+        radial-gradient(700px 500px at 68% 84%, rgba(255,159,10,.09), transparent 62%),
+        linear-gradient(180deg,#050505 0%,#080a0d 48%,#050505 100%);
+      color:var(--text);
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:-20%;
+      pointer-events:none;
+      opacity:.035;
+      z-index:0;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+      background-size:180px 180px;
+      mix-blend-mode:soft-light;
+      animation:grain 20s steps(10,end) infinite;
+    }
+    @keyframes grain{
+      0%{ transform:translate3d(-1%,-1%,0); background-position:0 0; }
+      50%{ transform:translate3d(1%,.8%,0); background-position:48px -36px; }
+      100%{ transform:translate3d(-1%,-1%,0); background-position:0 0; }
+    }
+    @media (prefers-reduced-motion:reduce){
+      html{ scroll-behavior:auto; }
+      body::before{ animation:none; }
+      *{ transition:none!important; }
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    p{ margin:0; color:var(--muted); }
+    strong{ color:var(--text); }
+    .wrap{ width:100%; max-width:var(--wrap); margin:0 auto; padding-inline:var(--pad); position:relative; z-index:1; }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(16px);
+      background:rgba(5,5,5,.74);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+    }
+    .brand-mark{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:
+        linear-gradient(135deg, rgba(212,175,55,.18), rgba(212,175,55,.03)),
+        radial-gradient(circle at 34% 30%, var(--gold-2), var(--gold) 42%, rgba(212,175,55,.15) 44%);
+      box-shadow:0 0 34px rgba(212,175,55,.20);
+      border:1px solid rgba(212,175,55,.34);
+    }
+    .nav-links{ display:flex; flex-wrap:wrap; gap:16px; color:var(--muted); font-size:.9rem; }
+    .nav-links a{ transition:color .2s ease; }
+    .nav-links a:hover{ color:var(--gold-2); }
+
+    .hero{ padding:clamp(56px,8vw,108px) 0 clamp(34px,5vw,72px); }
+    .eyebrow{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 12px;
+      border:1px solid var(--border-gold);
+      border-radius:999px;
+      color:var(--gold-2);
+      background:rgba(212,175,55,.07);
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-weight:800;
+    }
+    h1{
+      max-width:970px;
+      margin:22px 0 20px;
+      font-size:clamp(3rem,8vw,7.2rem);
+      line-height:.92;
+      letter-spacing:-.065em;
+    }
+    .gold{ color:var(--gold-2); }
+    .blue{ color:var(--blue); }
+    .orange{ color:var(--orange); }
+    .hero-lede{
+      max-width:820px;
+      color:#d6dbe4;
+      font-size:clamp(1.12rem,2vw,1.42rem);
+      line-height:1.55;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:24px;
+      align-items:stretch;
+      margin-top:34px;
+    }
+    .hero-card,
+    .panel{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg,var(--panel-strong),var(--panel));
+      box-shadow:var(--shadow);
+      border-radius:var(--radius);
+      backdrop-filter:blur(18px);
+    }
+    .hero-card{ padding:clamp(22px,3vw,34px); }
+    .hero-card h2{ margin:0 0 12px; font-size:clamp(1.4rem,3vw,2.25rem); letter-spacing:-.035em; }
+    .hero-stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:22px; }
+    .stat{
+      padding:16px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:18px;
+      background:rgba(255,255,255,.035);
+    }
+    .stat b{ display:block; font-size:1.55rem; line-height:1; color:var(--gold-2); }
+    .stat span{ display:block; margin-top:8px; color:var(--muted); font-size:.85rem; }
+    .raise-card{ padding:clamp(22px,3vw,30px); display:flex; flex-direction:column; justify-content:space-between; }
+    .raise-card .amount{ font-size:clamp(3rem,6vw,5.4rem); line-height:.9; letter-spacing:-.06em; color:var(--gold-2); font-weight:950; }
+    .raise-card .label{ margin-top:12px; color:#dfe4eb; font-size:1.15rem; }
+    .cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+    .btn{
+      display:inline-flex;
+      min-height:48px;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      padding:12px 18px;
+      border:1px solid rgba(255,255,255,.10);
+      font-weight:850;
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+    }
+    .btn-primary{ color:#080808; background:linear-gradient(135deg,var(--orange),#ffbd42); }
+    .btn-secondary{ color:#fff; background:rgba(255,255,255,.045); border-color:rgba(212,175,55,.34); }
+    .btn:hover{ transform:translateY(-2px); box-shadow:0 18px 42px rgba(212,175,55,.16); border-color:rgba(212,175,55,.55); }
+
+    section{ padding:clamp(38px,6vw,82px) 0; }
+    .section-head{ display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:20px; }
+    .kicker{ color:var(--gold-2); text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; font-weight:900; }
+    h2{ margin:4px 0 0; font-size:clamp(2rem,4vw,3.6rem); line-height:1; letter-spacing:-.052em; }
+    .section-copy{ max-width:720px; }
+
+    .grid{ display:grid; gap:16px; }
+    .grid-3{ grid-template-columns:repeat(3,1fr); }
+    .grid-2{ grid-template-columns:repeat(2,1fr); }
+    .panel{ padding:clamp(20px,2.6vw,30px); }
+    .panel h3{ margin:0 0 10px; font-size:1.12rem; }
+    .panel p{ font-size:.98rem; }
+    .number{ color:var(--gold-2); font-weight:950; font-size:1.8rem; line-height:1; margin-bottom:12px; }
+
+    .budget{
+      overflow:hidden;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.035);
+    }
+    .budget-row{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:18px;
+      padding:16px 18px;
+      border-bottom:1px solid rgba(255,255,255,.075);
+      align-items:center;
+    }
+    .budget-row:last-child{ border-bottom:0; }
+    .budget-row.total{ background:rgba(212,175,55,.09); font-weight:950; color:var(--gold-2); }
+    .budget-amount{ color:#fff; font-weight:850; white-space:nowrap; }
+    .budget-row.total .budget-amount{ color:var(--gold-2); }
+
+    .roadmap{ counter-reset:road; }
+    .roadmap .panel{ position:relative; overflow:hidden; }
+    .roadmap .panel::before{
+      counter-increment:road;
+      content:"0" counter(road);
+      position:absolute;
+      right:18px;
+      top:12px;
+      color:rgba(212,175,55,.16);
+      font-size:3rem;
+      font-weight:950;
+      line-height:1;
+    }
+
+    .leader{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    .avatar{
+      width:58px;
+      height:58px;
+      border-radius:18px;
+      background:linear-gradient(135deg,rgba(212,175,55,.25),rgba(111,168,255,.12));
+      border:1px solid rgba(212,175,55,.28);
+      display:grid;
+      place-items:center;
+      color:var(--gold-2);
+      font-weight:950;
+    }
+    .leader h3{ margin:0 0 4px; }
+    .role{ color:#dce2eb; font-weight:760; margin-bottom:8px; }
+
+    .contact{
+      border:1px solid var(--border-gold);
+      background:
+        radial-gradient(700px 260px at 82% 10%, rgba(212,175,55,.12), transparent 68%),
+        linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.035));
+      padding:clamp(26px,4vw,44px);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+    }
+    .contact h2{ max-width:800px; }
+    .contact p{ max-width:760px; margin-top:14px; }
+    .contact-links{ display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+
+    footer{ padding:28px 0 44px; color:var(--muted-2); border-top:1px solid rgba(255,255,255,.08); }
+
+    @media (max-width:860px){
+      .nav{ align-items:flex-start; flex-direction:column; padding-block:16px; }
+      .nav-links{ gap:12px; }
+      .hero-grid,.grid-3,.grid-2{ grid-template-columns:1fr; }
+      .hero-stat-grid{ grid-template-columns:1fr; }
+      .section-head{ display:block; }
+      .section-copy{ margin-top:12px; }
+      .budget-row{ grid-template-columns:1fr; gap:6px; }
+      .budget-amount{ white-space:normal; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Certifyd investor brief home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Certifyd</span>
+      </a>
+      <nav class="nav-links" aria-label="Investor brief navigation">
+        <a href="#problem">Problem</a>
+        <a href="#platform">Platform</a>
+        <a href="#funds">Use of Funds</a>
+        <a href="#model">Model</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow">$5M Infrastructure Raise</span>
+        <h1>Sovereign creator infrastructure for the <span class="gold">AI-native</span> content economy.</h1>
+        <p class="hero-lede">Certifyd is not another creator platform. It is sovereign creator infrastructure for identity, publishing, attribution, receipts, splits, payouts, and Bitcoin/Lightning-native commerce.</p>
+
+        <div class="hero-grid">
+          <article class="hero-card">
+            <h2>Built infrastructure, not rented platform space.</h2>
+            <p>Certifyd gives creators and partners a commerce layer they can operate from their own public origin: official work pages, attribution receipts, split-aware payouts, proof trails, creator graph discovery, and direct fan access without platform custody.</p>
+            <div class="hero-stat-grid" aria-label="Certifyd infrastructure pillars">
+              <div class="stat"><b>Identity</b><span>Creator-owned public profiles and trust posture.</span></div>
+              <div class="stat"><b>Commerce</b><span>Bitcoin/Lightning-native unlocks, support, and receipts.</span></div>
+              <div class="stat"><b>Rights</b><span>Attribution, splits, lineage, derivatives, and proof context.</span></div>
+            </div>
+          </article>
+          <aside class="raise-card panel" aria-label="Raise summary">
+            <div>
+              <div class="amount">$5M</div>
+              <div class="label">Infrastructure raise to scale the network, engineering, security, AI discovery, reliability, and creator growth.</div>
+            </div>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#funds">View use of funds</a>
+              <a class="btn btn-secondary" href="#contact">Investor contact</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Problem</div>
+            <h2>The creator economy runs on platforms creators do not control.</h2>
+          </div>
+          <p class="section-copy">Creators publish everywhere, but the economic and identity rails are fragmented, opaque, and platform-owned. Attribution breaks, payment flows disappear behind intermediaries, split participants wait, and official provenance is hard to verify across the open web.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="panel"><div class="number">01</div><h3>Ownership is separated from distribution.</h3><p>Creators need broad distribution without surrendering their official commerce, identity, and IP context to a single platform.</p></div>
+          <div class="panel"><div class="number">02</div><h3>Attribution is not payment-aware.</h3><p>Credits, derivatives, collaborators, receipts, and payouts are usually separate systems that drift apart over time.</p></div>
+          <div class="panel"><div class="number">03</div><h3>AI discovery needs reliable source context.</h3><p>As AI discovery grows, creators need durable, machine-readable provenance and commercial truth attached to their works.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="platform">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Platform Already Built</div>
+            <h2>Certifyd has the core authority systems in place.</h2>
+          </div>
+          <p class="section-copy">The raise accelerates infrastructure already operating across the ContentBox and Certified Fan ecosystem, not a blank-sheet concept.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="panel"><h3>Creator identity and public origins</h3><p>Public creator profiles, trusted origin context, health posture, and creator-owned storefront surfaces.</p></div>
+          <div class="panel"><h3>Publishing and official work pages</h3><p>Content-type agnostic official pages for music, video, images, files, documents, digital products, derivatives, and future content types.</p></div>
+          <div class="panel"><h3>Attribution, lineage, and proof</h3><p>Relationship context for creators, collaborators, upstream works, derivative lineage, manifest/proof state, and provenance summaries.</p></div>
+          <div class="panel"><h3>Splits and payout routing</h3><p>Split-aware participant identity, accepted collaborator state, payout destination resolution, and direct Lightning remittance flows.</p></div>
+          <div class="panel"><h3>Receipts and unlock commerce</h3><p>Public buy routes, receipts, access records, unlock state, and payment confirmation paths without turning discovery into authority.</p></div>
+          <div class="panel"><h3>Certified Fan discovery</h3><p>A relationship-native fan surface for creator ecosystems, connected works, contributor context, and public-safe momentum signals.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="funds">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">$5M Use of Funds</div>
+            <h2>Capital allocation for infrastructure scale.</h2>
+          </div>
+          <p class="section-copy">The budget prioritizes founder IP recovery, engineering expansion, AI discovery infrastructure, security, reliability, DevOps, legal structure, partnerships, and runway.</p>
+        </div>
+        <div class="budget" aria-label="$5M use of funds budget">
+          <div class="budget-row"><span>Founder IP Recovery &amp; Deferred Compensation</span><span class="budget-amount">$1,250,000</span></div>
+          <div class="budget-row"><span>Core Engineering Expansion</span><span class="budget-amount">$1,100,000</span></div>
+          <div class="budget-row"><span>AI Infrastructure / Tokens / Discovery Systems</span><span class="budget-amount">$500,000</span></div>
+          <div class="budget-row"><span>Security Audits / Penetration Testing / Hardening</span><span class="budget-amount">$450,000</span></div>
+          <div class="budget-row"><span>QA / Reliability / Testing Infrastructure</span><span class="budget-amount">$300,000</span></div>
+          <div class="budget-row"><span>Infrastructure / Hosting / Scaling / DevOps</span><span class="budget-amount">$500,000</span></div>
+          <div class="budget-row"><span>Legal / Compliance / Corporate Structure</span><span class="budget-amount">$250,000</span></div>
+          <div class="budget-row"><span>Strategic Partnerships / Creator Growth</span><span class="budget-amount">$350,000</span></div>
+          <div class="budget-row"><span>Operating Reserve / Runway</span><span class="budget-amount">$300,000</span></div>
+          <div class="budget-row total"><span>Total Raise</span><span class="budget-amount">$5,000,000</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="model">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Commercial Model</div>
+            <h2>Creator infrastructure with multiple revenue surfaces.</h2>
+          </div>
+          <p class="section-copy">Certifyd is designed to monetize through infrastructure services, commerce flows, AI-native discovery, professional creator tooling, and partner network expansion.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="panel"><h3>Commerce rails</h3><p>Unlocks, purchases, support, tipping, receipt services, and official work-page commerce paths.</p></div>
+          <div class="panel"><h3>Creator and operator plans</h3><p>Infrastructure tiers for creators, teams, labels, publishers, agencies, and certified network operators.</p></div>
+          <div class="panel"><h3>Discovery and context services</h3><p>Public-safe creator graph context, relationship discovery, AI-ready provenance, and fan exploration surfaces.</p></div>
+          <div class="panel"><h3>Enterprise and partner integrations</h3><p>White-label publishing, attribution, receipt, and payout infrastructure for established media and creator businesses.</p></div>
+          <div class="panel"><h3>Proof and rights metadata</h3><p>Read-side provenance, proof bundles, attribution context, derivative lineage, and public trust signals.</p></div>
+          <div class="panel"><h3>Network growth</h3><p>More creator origins, more public catalogs, more relationships, and more commerce endpoints compound discovery value.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Scaling Roadmap</div>
+            <h2>From working infrastructure to durable network scale.</h2>
+          </div>
+          <p class="section-copy">The roadmap expands engineering capacity, hardens the network, improves public discovery, and brings strategic creator ecosystems online.</p>
+        </div>
+        <div class="grid grid-2 roadmap">
+          <div class="panel"><h3>Stabilize and harden authority systems</h3><p>Security audits, pen testing, uptime work, QA automation, remittance reliability, and strict separation of discovery from authority systems.</p></div>
+          <div class="panel"><h3>Expand engineering and DevOps</h3><p>Dedicated engineers for API reliability, dashboard workflows, Fan PWA surfaces, deployment automation, and multi-origin operations.</p></div>
+          <div class="panel"><h3>Scale AI-native discovery</h3><p>Creator graph context, relationship rails, provenance-aware discovery, attribution-aware content exploration, and public-safe momentum signals.</p></div>
+          <div class="panel"><h3>Grow creator and partner networks</h3><p>Strategic creator onboarding, business development, label/publisher relationships, and network expansion through certified public origins.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Leadership</div>
+            <h2>Founder-led, partnership-driven.</h2>
+          </div>
+          <p class="section-copy">Certifyd combines founder-built technical infrastructure with creator relations, strategic partnerships, and network expansion leadership.</p>
+        </div>
+        <div class="grid grid-2">
+          <article class="panel leader">
+            <div class="avatar">DH</div>
+            <div>
+              <h3>Darryl Hillock</h3>
+              <div class="role">Founder &amp; CEO, founding architect, primary developer</div>
+              <p>Darryl leads product architecture, protocol design, engineering execution, creator identity, commerce authority, and the long-term Certifyd infrastructure vision.</p>
+            </div>
+          </article>
+          <article class="panel leader">
+            <div class="avatar">VB</div>
+            <div>
+              <h3>Vassal Benford</h3>
+              <div class="role">President, strategic partnerships, creator relations, business development, network expansion</div>
+              <p>Vassal leads partner development, creator relationships, market expansion, business strategy, and institutional network growth.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div class="kicker">Investor Contact</div>
+          <h2>Certifyd is raising $5M to scale sovereign creator commerce infrastructure.</h2>
+          <p>For investor materials, diligence access, partnership conversations, or strategic introductions, contact the Certifyd leadership team.</p>
+          <div class="contact-links">
+            <a class="btn btn-primary" href="mailto:investors@certifyd.me?subject=Certifyd%20Infrastructure%20Raise">Email investor relations</a>
+            <a class="btn btn-secondary" href="https://certifyd.me">Visit Certifyd</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Certifyd. Sovereign creator infrastructure for the open web.</div>
+  </footer>
+</body>
+</html>
