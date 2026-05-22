@@ -165,6 +165,7 @@
     .grid { display: grid; gap: 18px; }
     .grid.three { grid-template-columns: repeat(3, 1fr); }
     .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .grid.four { grid-template-columns: repeat(4, 1fr); }
 
     .card {
       background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
@@ -228,6 +229,28 @@
       gap: 14px;
     }
 
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .flow-step {
+      position: relative;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-weight: 900;
+      z-index: 2;
+    }
+
     .phase {
       border-left: 3px solid var(--gold);
       padding: 8px 0 8px 18px;
@@ -240,7 +263,8 @@
 
     @media (max-width: 850px) {
       .navlinks { display: none; }
-      .section-title, .grid.three, .grid.two, .timeline { grid-template-columns: 1fr; }
+      .section-title, .grid.three, .grid.two, .grid.four, .timeline, .flow { grid-template-columns: 1fr; }
+      .flow-step:not(:last-child)::after { display: none; }
       .hero { padding-top: 72px; }
       table { font-size: 14px; }
       th, td { padding: 13px; }
@@ -266,10 +290,26 @@
       <div class="wrap">
         <div class="eyebrow">$5M Infrastructure Raise · Bitcoin/Lightning Creator Commerce</div>
         <h1>Sovereign creator infrastructure for the next era of digital commerce.</h1>
-        <p>Certifyd is infrastructure for creator-owned commerce, attribution, payments, receipts, splits, payouts, and provenance — giving creators and partners the rails to run direct economic activity without depending on a centralized platform.</p>
+        <p>Certifyd is infrastructure for creator-owned commerce, attribution, payments, receipts, splits, payouts, and provenance. <strong>Certifyd earns infrastructure revenue from economic activity flowing through the network.</strong></p>
         <div class="hero-actions">
           <a class="btn" href="#budget">View $5M Budget</a>
           <a class="btn secondary" href="#platform">See What Is Built</a>
+          <a class="btn secondary" href="https://certifyd.me" target="_blank" rel="noopener">View Certifyd in Production</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="live-production">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Live in production.</h2>
+          <p>Certifyd is already operating as live infrastructure: creator profiles, content pages, commerce flows, attribution, receipts, splits, payouts, and discovery surfaces are functioning today.</p>
+        </div>
+        <div class="grid four">
+          <a class="card gold" href="https://certifyd.me" target="_blank" rel="noopener"><h3>Live creator profiles</h3><p>Public creator identity and official profile surfaces for creator-owned commerce.</p></a>
+          <a class="card" href="https://mission.certifyd.me" target="_blank" rel="noopener"><h3>Discovery / live network</h3><p>Certified Fan discovery exposes public works, creators, relationship context, and network activity.</p></a>
+          <a class="card" href="https://certifyd.beatifygroup.com" target="_blank" rel="noopener"><h3>Commerce surfaces</h3><p>Official work pages, premium access, storefront context, and direct creator commerce flows.</p></a>
+          <a class="card" href="https://certifyd.beatifygroup.com" target="_blank" rel="noopener"><h3>Attribution and provenance</h3><p>Public-safe attribution, contributors, lineage, receipts, split context, and payout-backed examples.</p></a>
         </div>
       </div>
     </section>
@@ -278,16 +318,14 @@
       <div class="wrap">
         <div class="section-title">
           <h2>The economic engine is infrastructure participation.</h2>
-          <p>Certifyd is designed to participate economically in creator commerce flowing through the network. Every sale, unlock, premium drop, collaboration, split, receipt, payout, licensing flow, provider-node activity, and campaign can create infrastructure revenue.</p>
+          <p>Certifyd participates in economic activity flowing through creator-owned networks. Sales, unlocks, premium releases, collaborations, licensing, provider-node activity, and campaigns can create infrastructure revenue.</p>
         </div>
-        <div class="grid three">
-          <div class="card gold"><h3>Commerce enters the network</h3><p>Creators, labels, agencies, brands, educators, filmmakers, podcasters, and communities publish premium releases, exclusive drops, paid access, collaborations, and direct-to-fan offers.</p></div>
-          <div class="card"><h3>Certifyd rails execute the flow</h3><p>Identity, official work pages, payment routing, receipts, attribution, splits, payouts, provenance, and public context make creator commerce auditable and portable.</p></div>
-          <div class="card"><h3>Infrastructure revenue compounds</h3><p>Small percentages across large creator-commerce volume become the scalable model: transaction participation, provider-node economics, hosting fees, tooling, and enterprise deployments.</p></div>
-        </div>
-        <div class="card" style="margin-top:18px;">
-          <h3>Simple flow</h3>
-          <p><strong>Creator commerce</strong> → Certifyd rails → receipts, splits, payouts, and provenance → <strong>infrastructure fees and network revenue</strong>.</p>
+        <div class="flow">
+          <div class="card gold flow-step"><h3>Creator commerce</h3><p>Creators and partners bring paid access, releases, collaborations, licensing, and campaigns into the network.</p></div>
+          <div class="card flow-step"><h3>Certifyd rails</h3><p>Identity, publishing, payment routing, attribution, receipts, provenance, and access context execute the flow.</p></div>
+          <div class="card flow-step"><h3>Splits and payouts</h3><p>Commerce activity can resolve contributors, receipts, split context, remittance, and public-safe proof.</p></div>
+          <div class="card flow-step"><h3>Provider nodes</h3><p>Operators expand the network without Certifyd managing every creator relationship centrally.</p></div>
+          <div class="card flow-step"><h3>Network revenue</h3><p>Small infrastructure percentages across large creator-commerce volume create scalable upside.</p></div>
         </div>
       </div>
     </section>
@@ -306,6 +344,20 @@
       </div>
     </section>
 
+    <section id="why-now">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Why now.</h2>
+          <p>Creators are more dependent on centralized platforms at the same time that AI makes attribution, provenance, and direct commerce more important. The market needs portable infrastructure, not another destination app.</p>
+        </div>
+        <div class="grid three">
+          <div class="card"><h3>Platform lock-in is expensive</h3><p>Audiences, payment flows, discovery, and receipts are fragmented across systems creators do not control.</p></div>
+          <div class="card"><h3>AI raises the value of provenance</h3><p>Source context, attribution, rights metadata, and public proof become more valuable as content discovery becomes machine-assisted.</p></div>
+          <div class="card"><h3>Direct commerce is expanding</h3><p>Creators, agencies, brands, educators, filmmakers, podcasters, and communities need portable commerce infrastructure that can follow their audience.</p></div>
+        </div>
+      </div>
+    </section>
+
     <section id="platform">
       <div class="wrap">
         <div class="section-title">
@@ -316,6 +368,12 @@
           <div class="card"><div class="stat">01</div><h3>Identity + publishing</h3><p>Creator profiles, content publishing, manifests, attribution, provenance, and portable creator presence.</p></div>
           <div class="card"><div class="stat">02</div><h3>Commerce + payments</h3><p>Bitcoin/Lightning-native payment flows, receipts, deterministic splits, payout semantics, and seller-of-record logic.</p></div>
           <div class="card"><div class="stat">03</div><h3>Distributed network</h3><p>Creator origins, fan discovery, provider-node concepts, public content surfaces, and network expansion architecture.</p></div>
+        </div>
+        <div class="grid four" style="margin-top:18px;">
+          <div class="card"><h3>Certifyd</h3><p>The infrastructure and network company behind creator-owned commerce rails.</p></div>
+          <div class="card"><h3>Certifyd Creator</h3><p>The creator product surface for official profiles, publishing, commerce, attribution, and ownership context.</p></div>
+          <div class="card"><h3>Certifyd Discovery / Fan</h3><p>The read-side discovery surface for public works, creator relationships, and fan exploration.</p></div>
+          <div class="card"><h3>Provider nodes</h3><p>The network expansion layer for partners operating creator infrastructure and commerce access.</p></div>
         </div>
       </div>
     </section>
@@ -363,6 +421,20 @@
           <div class="card"><h3>White-label and enterprise deployments</h3><p>Agencies, labels, brands, creator groups, educators, filmmakers, and communities can deploy sovereign commerce stacks under their own brands.</p></div>
           <div class="card"><h3>Premium creator commerce tooling</h3><p>Dashboards, paid access tooling, campaign management, collaboration workflows, direct-to-fan sales, and Bitcoin-native creator commerce operations.</p></div>
           <div class="card"><h3>Campaign and attribution infrastructure</h3><p>Future upside includes campaign rails, licensing context, attribution systems, AI provenance, partner dashboards, and network analytics.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bitcoin">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Why Bitcoin/Lightning matters.</h2>
+          <p>Bitcoin/Lightning is a strategic settlement foundation, not a crypto marketing layer. Payment rails can evolve, but Certifyd benefits from a global, neutral, instant settlement network today.</p>
+        </div>
+        <div class="grid three">
+          <div class="card"><h3>Instant global settlement</h3><p>Creators can move value without platform payout queues or geography-bound banking assumptions.</p></div>
+          <div class="card"><h3>Programmable commerce flows</h3><p>Receipts, split execution, remittance logic, and creator-controlled commerce can operate close to the transaction.</p></div>
+          <div class="card"><h3>Neutral foundation</h3><p>Certifyd can support future rails while using Bitcoin/Lightning as the settlement base for direct creator commerce.</p></div>
         </div>
       </div>
     </section>
