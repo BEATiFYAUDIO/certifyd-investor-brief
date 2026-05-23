@@ -219,6 +219,16 @@
     .card h3 { margin: 0 0 10px; font-size: 21px; }
     .card p { margin: 0; color: var(--muted); }
 
+    .profile-link {
+      display: inline-flex;
+      margin-top: 16px;
+      color: var(--gold);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .profile-link:hover { color: #f3d37a; }
+
     .stat {
       font-size: 42px;
       font-weight: 900;
@@ -247,6 +257,10 @@
     td { color: var(--text); }
     td:nth-child(2) { white-space: nowrap; font-weight: 800; }
     tr:last-child td { border-bottom: none; }
+
+    .budget-summary {
+      margin-bottom: 22px;
+    }
 
     .quote {
       font-size: clamp(28px, 4vw, 52px);
@@ -303,7 +317,35 @@
       .flow-step:not(:last-child)::after { display: none; }
       .hero { padding-top: 72px; }
       table { font-size: 14px; }
-      th, td { padding: 13px; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      table {
+        border: none;
+        background: transparent;
+        overflow: visible;
+      }
+      tr {
+        margin-bottom: 14px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255,255,255,.035);
+        overflow: hidden;
+      }
+      td {
+        padding: 13px 14px;
+        border-bottom: 1px solid var(--line);
+      }
+      td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 4px;
+        color: var(--gold);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+      td:nth-child(2) { white-space: normal; }
     }
   </style>
 </head>
@@ -314,8 +356,9 @@
       <nav class="navlinks">
         <a href="#opportunity">Opportunity</a>
         <a href="#platform">Platform</a>
-        <a href="#budget">Use of Funds</a>
         <a href="#team">Leadership</a>
+        <a href="#budget">Use of Funds</a>
+        <a href="#contact">Investor Contact</a>
       </nav>
       <a class="btn" href="mailto:darryl@beatifygroup.com?subject=Certifyd Investor Brief">Investor Contact</a>
     </div>
@@ -413,6 +456,27 @@
       </div>
     </section>
 
+    <section id="team">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Leadership.</h2>
+          <p>Certifyd combines founder-built infrastructure with entertainment, creator, partnership, and commercialization reach.</p>
+        </div>
+        <div class="grid two">
+          <div class="card gold">
+            <h3>Darryl Hillock — Founder &amp; CEO</h3>
+            <p>Founder, CEO, founding architect, and primary developer of Certifyd. Darryl leads product vision, infrastructure architecture, creator-commerce strategy, fundraising, and ecosystem development. His background spans creator platforms, music technology, product systems, direct-to-fan commerce, and operational growth.</p>
+            <a class="profile-link" href="https://darrylhillock.com" target="_blank" rel="noopener">Visit darrylhillock.com →</a>
+          </div>
+          <div class="card">
+            <h3>Vassal Benford — President</h3>
+            <p>President of Certifyd and a strategic commercial partner focused on creator relationships, entertainment partnerships, business development, provider relationships, commercialization, and network expansion.</p>
+            <a class="profile-link" href="https://vassalbenford.com" target="_blank" rel="noopener">Visit vassalbenford.com →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="wrap">
         <p class="quote">“We are not asking investors to fund feasibility. We are raising to harden, secure, scale, and commercialize a functioning infrastructure layer built to participate in creator-commerce volume.”</p>
@@ -422,22 +486,26 @@
     <section id="budget">
       <div class="wrap">
         <div class="section-title">
-          <h2>Use of funds: $5M raise.</h2>
-          <p>The budget is focused on operationalizing the network: founder IP recovery, engineering expansion, AI infrastructure, security, QA, scaling, legal, partnerships, and reserve runway.</p>
+          <h2>Use of funds: $5M infrastructure raise.</h2>
+          <p>The raise is designed to turn founder-built infrastructure into a hardened, secure, commercial network.</p>
+        </div>
+        <div class="card gold budget-summary">
+          <h3>Investment logic</h3>
+          <p>Capital goes toward engineering, security, QA, infrastructure, commercialization, partnerships, legal readiness, and strategic platform/IP consolidation.</p>
         </div>
         <table>
           <thead><tr><th>Category</th><th>Allocation</th><th>Purpose</th></tr></thead>
           <tbody>
-            <tr><td>Founder IP Recovery & Deferred Compensation</td><td>$1,250,000</td><td>Founder repayment, IP recovery, and years of uncompensated development.</td></tr>
-            <tr><td>Core Engineering Expansion</td><td>$1,100,000</td><td>Backend systems, infrastructure scaling, distributed systems, APIs, and commerce rails.</td></tr>
-            <tr><td>AI Infrastructure / Tokens / Discovery Systems</td><td>$500,000</td><td>LLM infrastructure, AI compute, discovery systems, graph intelligence, and token support.</td></tr>
-            <tr><td>Security Audits / Penetration Testing / Hardening</td><td>$450,000</td><td>Security reviews, audits, threat modeling, payment hardening, and penetration testing.</td></tr>
-            <tr><td>QA / Reliability / Testing Infrastructure</td><td>$300,000</td><td>Regression testing, onboarding testing, payout verification, reliability, and load testing.</td></tr>
-            <tr><td>Infrastructure / Hosting / Scaling / DevOps</td><td>$500,000</td><td>Cloud infrastructure, monitoring, uptime, deployment systems, and provider-node operations.</td></tr>
-            <tr><td>Legal / Compliance / Corporate Structure</td><td>$250,000</td><td>Corporate structure, legal, compliance, agreements, contracts, and investor documentation.</td></tr>
-            <tr><td>Strategic Partnerships / Creator Growth</td><td>$350,000</td><td>Creator onboarding, partnership development, commercialization, and network expansion.</td></tr>
-            <tr><td>Operating Reserve / Runway</td><td>$300,000</td><td>Operational runway, risk buffer, and emergency reserve.</td></tr>
-            <tr><td><strong>Total Raise</strong></td><td><strong>$5,000,000</strong></td><td><strong>Scale capital for Certifyd infrastructure.</strong></td></tr>
+            <tr><td data-label="Category">Foundational IP &amp; Platform Consolidation</td><td data-label="Allocation">$1,250,000</td><td data-label="Purpose">Strategic consolidation of founder-built platform IP, core architecture, prior development investment, and deferred infrastructure compensation.</td></tr>
+            <tr><td data-label="Category">Core Engineering Expansion</td><td data-label="Allocation">$1,100,000</td><td data-label="Purpose">Backend systems, infrastructure scaling, distributed systems, APIs, and commerce rails.</td></tr>
+            <tr><td data-label="Category">Discovery, AI &amp; Creator Graph Infrastructure</td><td data-label="Allocation">$500,000</td><td data-label="Purpose">Discovery systems, creator graph intelligence, AI-assisted attribution context, compute, and token/infrastructure support.</td></tr>
+            <tr><td data-label="Category">Security Audits / Penetration Testing / Hardening</td><td data-label="Allocation">$450,000</td><td data-label="Purpose">Security reviews, audits, threat modeling, payment hardening, and penetration testing.</td></tr>
+            <tr><td data-label="Category">QA / Reliability / Testing Infrastructure</td><td data-label="Allocation">$300,000</td><td data-label="Purpose">Regression testing, onboarding testing, payout verification, reliability, and load testing.</td></tr>
+            <tr><td data-label="Category">Infrastructure / Hosting / Scaling / DevOps</td><td data-label="Allocation">$500,000</td><td data-label="Purpose">Cloud infrastructure, monitoring, uptime, deployment systems, and provider-node operations.</td></tr>
+            <tr><td data-label="Category">Legal / Compliance / Corporate Structure</td><td data-label="Allocation">$250,000</td><td data-label="Purpose">Corporate structure, legal, compliance, agreements, contracts, and investor documentation.</td></tr>
+            <tr><td data-label="Category">Strategic Partnerships / Creator Growth</td><td data-label="Allocation">$350,000</td><td data-label="Purpose">Creator onboarding, partnership development, commercialization, and network expansion.</td></tr>
+            <tr><td data-label="Category">Operating Reserve / Runway</td><td data-label="Allocation">$300,000</td><td data-label="Purpose">Operational runway, risk buffer, and emergency reserve.</td></tr>
+            <tr><td data-label="Category"><strong>Total Raise</strong></td><td data-label="Allocation"><strong>$5,000,000</strong></td><td data-label="Purpose"><strong>Scale capital for Certifyd infrastructure.</strong></td></tr>
           </tbody>
         </table>
       </div>
@@ -485,19 +553,6 @@
           <div class="phase"><strong>3–6 months</strong><span>Engineering hires, creator onboarding, paid release workflows, collaboration commerce, and improved node deployment flow.</span></div>
           <div class="phase"><strong>6–12 months</strong><span>Provider-node program, AI discovery systems, partnership pilots, revenue instrumentation, and campaign infrastructure.</span></div>
           <div class="phase"><strong>12–18 months</strong><span>White-label deployments, enterprise tooling, scaled creator network, attribution systems, and infrastructure revenue growth.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="team">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Leadership.</h2>
-          <p>The current leadership structure combines deep technical execution with industry access, partnerships, creator relationships, and commercial expansion.</p>
-        </div>
-        <div class="grid two">
-          <div class="card gold"><h3>Darryl Hillock — Founder & CEO</h3><p>Founder, CEO, founding architect, and primary developer of Certifyd. Leads vision, architecture, infrastructure direction, fundraising, and ecosystem strategy.</p></div>
-          <div class="card"><h3>Vassal Benford — President</h3><p>Leads strategic partnerships, creator relations, business development, commercialization, provider relationships, and network expansion.</p></div>
         </div>
       </div>
     </section>
