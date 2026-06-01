@@ -13,11 +13,14 @@
       --bg: #070707;
       --panel: #111;
       --panel-soft: #171717;
-      --gold: #d6a735;
-      --gold-soft: rgba(214, 167, 53, 0.14);
+      --accent-orange: #e98c3a;
+      --accent-orange-soft: rgba(233, 140, 58, 0.14);
+      --brand-blue: #6fa8ff;
+      --brand-periwinkle: #9bb2ff;
       --text: #f4f1e8;
       --muted: #b7b0a2;
-      --line: rgba(255,255,255,0.11);
+      --line: rgba(155,178,255,0.22);
+      --line-soft: rgba(111,168,255,0.16);
       --danger: #ffcf6a;
       --green: #86efac;
       --max: 1180px;
@@ -29,7 +32,8 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 20% 0%, rgba(214,167,53,.18), transparent 30%),
+        radial-gradient(circle at 20% 0%, rgba(111,168,255,.16), transparent 30%),
+        radial-gradient(circle at 46% -8%, rgba(155,178,255,.09), transparent 35%),
         radial-gradient(circle at 90% 15%, rgba(255,255,255,.08), transparent 22%),
         var(--bg);
       line-height: 1.5;
@@ -68,7 +72,7 @@
       width: 148px;
       height: auto;
       display: block;
-      filter: drop-shadow(0 0 24px rgba(214,167,53,.26));
+      filter: drop-shadow(0 0 24px rgba(111,168,255,.26));
     }
 
     .navlinks {
@@ -89,12 +93,12 @@
       min-height: 44px;
       padding: 0 18px;
       border-radius: 999px;
-      border: 1px solid rgba(214,167,53,.42);
-      background: var(--gold);
+      border: 1px solid rgba(233,140,58,.45);
+      background: var(--accent-orange);
       color: #120d03;
       font-weight: 800;
       text-decoration: none;
-      box-shadow: 0 12px 40px rgba(214,167,53,.18);
+      box-shadow: 0 12px 40px rgba(233,140,58,.18);
     }
 
     .btn.secondary {
@@ -113,10 +117,10 @@
       gap: 10px;
       align-items: center;
       padding: 8px 12px;
-      border: 1px solid rgba(214,167,53,.26);
+      border: 1px solid rgba(233,140,58,.28);
       border-radius: 999px;
-      color: var(--gold);
-      background: var(--gold-soft);
+      color: var(--accent-orange);
+      background: var(--accent-orange-soft);
       font-weight: 700;
       font-size: 13px;
       margin-bottom: 22px;
@@ -190,9 +194,9 @@
 
     a.card:hover {
       transform: translateY(-2px);
-      border-color: rgba(214,167,53,.52);
-      background: linear-gradient(180deg, rgba(214,167,53,.10), rgba(255,255,255,.032));
-      box-shadow: 0 18px 54px rgba(214,167,53,.10);
+      border-color: rgba(111,168,255,.52);
+      background: linear-gradient(180deg, rgba(111,168,255,.10), rgba(255,255,255,.032));
+      box-shadow: 0 18px 54px rgba(111,168,255,.10);
     }
 
     .card-cta {
@@ -200,20 +204,20 @@
       align-items: center;
       gap: 6px;
       margin-top: 14px;
-      color: var(--gold);
+      color: var(--accent-orange);
       font-weight: 850;
       text-decoration: none;
       transition: color .2s ease, transform .2s ease;
     }
 
     a.card:hover .card-cta {
-      color: #f3d37a;
+      color: #ffb06f;
       transform: translateX(2px);
     }
 
     .card.gold {
-      border-color: rgba(214,167,53,.32);
-      background: linear-gradient(180deg, rgba(214,167,53,.13), rgba(255,255,255,.025));
+      border-color: rgba(233,140,58,.32);
+      background: linear-gradient(180deg, rgba(233,140,58,.13), rgba(255,255,255,.025));
     }
 
     .card h3 { margin: 0 0 10px; font-size: 21px; }
@@ -222,18 +226,18 @@
     .profile-link {
       display: inline-flex;
       margin-top: 16px;
-      color: var(--gold);
+      color: var(--accent-orange);
       font-weight: 800;
       text-decoration: none;
     }
 
-    .profile-link:hover { color: #f3d37a; }
+    .profile-link:hover { color: #ffb06f; }
 
     .stat {
       font-size: 42px;
       font-weight: 900;
       letter-spacing: -.04em;
-      color: var(--gold);
+      color: var(--accent-orange);
       margin-bottom: 8px;
     }
 
@@ -253,7 +257,7 @@
       vertical-align: top;
     }
 
-    th { color: var(--gold); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+    th { color: var(--accent-orange); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
     td { color: var(--text); }
     td:nth-child(2) { white-space: nowrap; font-weight: 800; }
     tr:last-child td { border-bottom: none; }
@@ -271,7 +275,7 @@
     }
 
     .muted { color: var(--muted); }
-    .goldtext { color: var(--gold); }
+    .goldtext { color: var(--accent-orange); }
 
     .timeline {
       display: grid;
@@ -296,13 +300,13 @@
       right: -14px;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--gold);
+      color: var(--accent-orange);
       font-weight: 900;
       z-index: 2;
     }
 
     .phase {
-      border-left: 3px solid var(--gold);
+      border-left: 3px solid var(--brand-blue);
       padding: 8px 0 8px 18px;
     }
 
@@ -339,7 +343,7 @@
         content: attr(data-label);
         display: block;
         margin-bottom: 4px;
-        color: var(--gold);
+        color: var(--brand-periwinkle);
         font-size: 11px;
         font-weight: 800;
         letter-spacing: .08em;
@@ -352,7 +356,7 @@
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand"><img class="brand-logo" src="assets/certifyd-logo.png" alt="Certifyd" /></div>
+      <div class="brand"><img class="brand-logo" src="assets/certifyd-logo-long.svg" alt="Certifyd" /></div>
       <nav class="navlinks">
         <a href="#opportunity">Opportunity</a>
         <a href="#platform">Platform</a>
