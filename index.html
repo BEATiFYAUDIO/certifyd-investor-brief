@@ -461,25 +461,29 @@
       }
 
       .property-group {
-        margin-top: 54px;
+        margin-top: 76px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(139, 183, 255, 0.18);
       }
 
       .property-group:first-of-type {
         margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
       }
 
       .group-label {
         display: flex;
         align-items: center;
-        gap: 14px;
-        margin-bottom: 18px;
+        gap: 18px;
+        margin-bottom: 24px;
       }
 
       .group-label h3 {
         margin: 0;
-        color: var(--muted);
-        font-size: 0.86rem;
-        letter-spacing: 0.18em;
+        color: var(--text);
+        font-size: clamp(1.12rem, 1.6vw, 1.42rem);
+        letter-spacing: -0.02em;
         text-transform: uppercase;
       }
 
@@ -487,7 +491,7 @@
         content: "";
         height: 1px;
         flex: 1;
-        background: linear-gradient(90deg, var(--line), transparent);
+        background: linear-gradient(90deg, rgba(255, 159, 28, 0.52), rgba(139, 183, 255, 0.16), transparent);
       }
 
       .product-grid {
