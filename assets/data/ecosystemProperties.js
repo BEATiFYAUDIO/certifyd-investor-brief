@@ -50,7 +50,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     url: "https://vassalbenford.com",
     actionLabel: "Visit Website",
     summary:
-      "Vassal Benford’s professional website, providing external founder, career and business context.",
+      "Vassal Benford’s professional website, connecting music, entertainment and business experience to the Certifyd story.",
     signals: ["Artist identity", "Public career context", "Independent web presence"],
     screenshot: "assets/screenshots/desktop/vassalbenford.png",
     imagePosition: "center 20%",
