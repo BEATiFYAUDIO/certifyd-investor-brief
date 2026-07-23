@@ -1222,6 +1222,7 @@
               </div>
             </article>
           </div>
+          <div id="networkProduct"></div>
         </div>
       </section>
 
@@ -1431,9 +1432,13 @@
       if (propertyGroups) {
         propertyGroups.innerHTML = [
           renderGroup("Applications", ["certifyd-site", "fan", "awards"]),
-          renderGroup("Network", ["network"]),
           renderGroup("People", ["vassal-certifyd", "vassalbenford", "darrylhillock"]),
         ].join("");
+      }
+
+      const networkProduct = document.querySelector("#networkProduct");
+      if (networkProduct) {
+        networkProduct.innerHTML = renderGroup("Network Product", ["network"]);
       }
 
       const thesisGrid = document.querySelector("#thesisGrid");
