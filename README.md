@@ -1,6 +1,6 @@
 # Certifyd Investor Brief
 
-Static GitHub Pages site for Certifyd's $5M infrastructure raise.
+Static GitHub Pages site for Certifyd's private investor portal.
 
 Target domain:
 
@@ -10,7 +10,9 @@ investor.certifyd.me
 
 ## Files
 
-- `index.html` — single-page investor website, plain HTML/CSS only.
+- `index.html` — single-page investor portal, plain HTML/CSS only.
+- `assets/data/ecosystemProperties.js` — typed public property data used by the homepage.
+- `assets/screenshots/` — local screenshots captured from verified public URLs.
 - `CNAME` — custom GitHub Pages domain.
 - `README.md` — deployment notes.
 
@@ -31,7 +33,7 @@ At the DNS provider for `certifyd.me`, create a CNAME record:
 
 ```text
 Type:  CNAME
-Name:  infrastructure
+Name:  investor
 Value: BEATiFYAUDIO.github.io
 ```
 

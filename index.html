@@ -1,583 +1,1570 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/svg+xml" href="assets/certifyd-tab-icon.svg" />
-  <link rel="icon" type="image/png" href="assets/certifyd-tab-icon.png" />
-  <link rel="shortcut icon" type="image/svg+xml" href="assets/certifyd-tab-icon.svg" />
-  <link rel="apple-touch-icon" href="assets/certifyd-tab-icon.png" />
-  <title>Certifyd Investor Brief</title>
-  <meta name="description" content="Certifyd is sovereign creator infrastructure for identity, publishing, payments, attribution, receipts, splits, and payouts — built on Bitcoin/Lightning." />
-  <style>
-    :root {
-      --bg: #070707;
-      --panel: #111;
-      --panel-soft: #171717;
-      --accent-orange: #e98c3a;
-      --accent-orange-soft: rgba(233, 140, 58, 0.14);
-      --brand-blue: #6fa8ff;
-      --brand-periwinkle: #9bb2ff;
-      --text: #f4f1e8;
-      --muted: #b7b0a2;
-      --line: rgba(155,178,255,0.22);
-      --line-soft: rgba(111,168,255,0.16);
-      --danger: #ffcf6a;
-      --green: #86efac;
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(111,168,255,.16), transparent 30%),
-        radial-gradient(circle at 46% -8%, rgba(155,178,255,.09), transparent 35%),
-        radial-gradient(circle at 90% 15%, rgba(255,255,255,.08), transparent 22%),
-        var(--bg);
-      line-height: 1.5;
-    }
-
-    a { color: inherit; }
-
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 22px; }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(7,7,7,.76);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: .02em;
-    }
-
-    .brand-logo {
-      width: 148px;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 0 24px rgba(111,168,255,.26));
-    }
-
-    .navlinks {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .navlinks a { text-decoration: none; }
-    .navlinks a:hover { color: var(--text); }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(233,140,58,.45);
-      background: var(--accent-orange);
-      color: #120d03;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 12px 40px rgba(233,140,58,.18);
-    }
-
-    .btn.secondary {
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      border-color: var(--line);
-      box-shadow: none;
-    }
-
-    .hero {
-      padding: 96px 0 72px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      padding: 8px 12px;
-      border: 1px solid rgba(233,140,58,.28);
-      border-radius: 999px;
-      color: var(--accent-orange);
-      background: var(--accent-orange-soft);
-      font-weight: 700;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      max-width: 930px;
-      font-size: clamp(46px, 7vw, 88px);
-      line-height: .96;
-      letter-spacing: -.06em;
-      margin: 0 0 26px;
-    }
-
-    .hero p {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 21px;
-      margin: 0 0 34px;
-    }
-
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-
-    section { padding: 74px 0; border-top: 1px solid var(--line); }
-
-    .section-title {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 34px;
-      align-items: start;
-      margin-bottom: 34px;
-    }
-
-    h2 {
-      font-size: clamp(30px, 4vw, 52px);
-      line-height: 1;
-      letter-spacing: -.04em;
-      margin: 0;
-    }
-
-    .section-title p, .lead {
-      color: var(--muted);
-      font-size: 18px;
-      margin: 0;
-    }
-
-    .grid { display: grid; gap: 18px; }
-    .grid.three { grid-template-columns: repeat(3, 1fr); }
-    .grid.two { grid-template-columns: repeat(2, 1fr); }
-    .grid.four { grid-template-columns: repeat(4, 1fr); }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      padding: 24px;
-      min-height: 160px;
-      transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease;
-    }
-
-    a.card {
-      display: block;
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a.card h3,
-    a.card p,
-    a.card strong {
-      text-decoration: none;
-    }
-
-    a.card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(111,168,255,.52);
-      background: linear-gradient(180deg, rgba(111,168,255,.10), rgba(255,255,255,.032));
-      box-shadow: 0 18px 54px rgba(111,168,255,.10);
-    }
-
-    .card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 14px;
-      color: var(--accent-orange);
-      font-weight: 850;
-      text-decoration: none;
-      transition: color .2s ease, transform .2s ease;
-    }
-
-    a.card:hover .card-cta {
-      color: #ffb06f;
-      transform: translateX(2px);
-    }
-
-    .card.gold {
-      border-color: rgba(233,140,58,.32);
-      background: linear-gradient(180deg, rgba(233,140,58,.13), rgba(255,255,255,.025));
-    }
-
-    .card h3 { margin: 0 0 10px; font-size: 21px; }
-    .card p { margin: 0; color: var(--muted); }
-
-    .profile-link {
-      display: inline-flex;
-      margin-top: 16px;
-      color: var(--accent-orange);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .profile-link:hover { color: #ffb06f; }
-
-    .stat {
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: -.04em;
-      color: var(--accent-orange);
-      margin-bottom: 8px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: rgba(255,255,255,.035);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      overflow: hidden;
-    }
-
-    th, td {
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--line);
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th { color: var(--accent-orange); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
-    td { color: var(--text); }
-    td:nth-child(2) { white-space: nowrap; font-weight: 800; }
-    tr:last-child td { border-bottom: none; }
-
-    .budget-summary {
-      margin-bottom: 22px;
-    }
-
-    .quote {
-      font-size: clamp(28px, 4vw, 52px);
-      line-height: 1.08;
-      letter-spacing: -.04em;
-      max-width: 980px;
-      margin: 0;
-    }
-
-    .muted { color: var(--muted); }
-    .goldtext { color: var(--accent-orange); }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-      align-items: stretch;
-    }
-
-    .flow-step {
-      position: relative;
-    }
-
-    .flow-step:not(:last-child)::after {
-      content: "→";
-      position: absolute;
-      right: -14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--accent-orange);
-      font-weight: 900;
-      z-index: 2;
-    }
-
-    .phase {
-      border-left: 3px solid var(--brand-blue);
-      padding: 8px 0 8px 18px;
-    }
-
-    .phase strong { display: block; margin-bottom: 6px; }
-    .phase span { color: var(--muted); font-size: 14px; }
-
-    footer { padding: 52px 0; color: var(--muted); border-top: 1px solid var(--line); }
-
-    @media (max-width: 850px) {
-      .navlinks { display: none; }
-      .section-title, .grid.three, .grid.two, .grid.four, .timeline, .flow { grid-template-columns: 1fr; }
-      .flow-step:not(:last-child)::after { display: none; }
-      .hero { padding-top: 72px; }
-      table { font-size: 14px; }
-      table, thead, tbody, tr, th, td { display: block; }
-      thead { display: none; }
-      table {
-        border: none;
-        background: transparent;
-        overflow: visible;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Certifyd Investor Portal</title>
+    <meta
+      name="description"
+      content="Private investor portal for reviewing the public Certifyd ecosystem, product surfaces, leadership and execution."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:title" content="Certifyd Investor Portal" />
+    <meta
+      property="og:description"
+      content="A private executive overview of the Certifyd ecosystem and its public products."
+    />
+    <meta property="og:image" content="assets/hero/certifyd-monetization-ecosystem.png" />
+    <link rel="icon" type="image/svg+xml" href="assets/brand/certifyd-tab-icon.svg" />
+    <script src="assets/data/ecosystemProperties.js"></script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #05070c;
+        --panel: rgba(10, 13, 20, 0.86);
+        --panel-strong: rgba(12, 16, 25, 0.96);
+        --line: rgba(170, 192, 230, 0.16);
+        --line-strong: rgba(255, 174, 54, 0.34);
+        --text: #f7f8ff;
+        --muted: rgba(235, 240, 252, 0.72);
+        --quiet: rgba(235, 240, 252, 0.52);
+        --gold: #ff9f1c;
+        --gold-soft: #f3c66a;
+        --blue: #8bb7ff;
+        --green: #9fd8b6;
+        --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+        --shadow-lg: 0 44px 140px rgba(0, 0, 0, 0.54);
+        --radius-xl: 36px;
+        --radius-lg: 26px;
+        --radius-md: 18px;
+        --max: 1200px;
       }
-      tr {
-        margin-bottom: 14px;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: rgba(255,255,255,.035);
-        overflow: hidden;
+
+      * {
+        box-sizing: border-box;
       }
-      td {
-        padding: 13px 14px;
-        border-bottom: 1px solid var(--line);
+
+      html {
+        scroll-behavior: smooth;
       }
-      td::before {
-        content: attr(data-label);
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 18% 0%, rgba(57, 100, 167, 0.15), transparent 28rem),
+          radial-gradient(circle at 88% 8%, rgba(255, 159, 28, 0.09), transparent 24rem),
+          linear-gradient(180deg, #07101a 0%, var(--bg) 36%, #02040a 100%);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.5;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        opacity: 0.11;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+        background-size: 88px 88px;
+        mask-image: linear-gradient(to bottom, black, transparent 72%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
         display: block;
-        margin-bottom: 4px;
-        color: var(--brand-periwinkle);
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: .08em;
+        max-width: 100%;
+      }
+
+      .shell {
+        width: min(calc(100% - 48px), var(--max));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        border-bottom: 1px solid var(--line);
+        background: rgba(5, 7, 12, 0.82);
+        backdrop-filter: blur(22px);
+      }
+
+      .nav {
+        min-height: 74px;
+        display: grid;
+        grid-template-columns: 190px 1fr 180px;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .brand img {
+        width: 164px;
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .nav-links a,
+      .menu-button {
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 10px 12px;
+        color: var(--muted);
+        background: transparent;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 760;
+        cursor: pointer;
+        transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible,
+      .menu-button:hover,
+      .menu-button:focus-visible {
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.055);
+        color: var(--text);
+        outline: none;
+      }
+
+      .portal-badge,
+      .eyebrow,
+      .status-badge,
+      .chip {
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        font-weight: 850;
+      }
+
+      .portal-badge {
+        justify-self: end;
+        width: max-content;
+        border: 1px solid rgba(255, 159, 28, 0.36);
+        border-radius: 999px;
+        padding: 10px 13px;
+        color: var(--gold-soft);
+        background: rgba(255, 159, 28, 0.07);
+      }
+
+      .menu-button {
+        display: none;
+        justify-self: end;
+      }
+
+      .mobile-menu {
+        display: none;
+        border-top: 1px solid var(--line);
+        padding: 12px 24px 18px;
+        background: rgba(5, 7, 12, 0.96);
+      }
+
+      .mobile-menu.is-open {
+        display: grid;
+        gap: 8px;
+      }
+
+      .mobile-menu a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 10px 12px;
+        color: var(--muted);
+      }
+
+      .hero {
+        padding: 112px 0 92px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.02fr 0.98fr;
+        gap: clamp(36px, 7vw, 92px);
+        align-items: end;
+      }
+
+      .hero-grid > *,
+      .surface,
+      .hero-card,
+      .section-head,
+      .product-card,
+      .leader-card,
+      .evidence-card {
+        min-width: 0;
+      }
+
+      .hero-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        padding: clamp(28px, 5vw, 58px);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.022));
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: var(--gold);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+        overflow-wrap: break-word;
+      }
+
+      h1 {
+        margin-bottom: 24px;
+        font-size: clamp(4.8rem, 10vw, 9.6rem);
+        line-height: 0.82;
+        letter-spacing: -0.085em;
+      }
+
+      h1 span {
+        display: block;
+      }
+
+      .hero-subtitle {
+        margin-bottom: 18px;
+        font-size: clamp(1.7rem, 3.2vw, 3.1rem);
+        line-height: 1.04;
+        letter-spacing: -0.055em;
+        overflow-wrap: anywhere;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: clamp(1.08rem, 1.6vw, 1.28rem);
+      }
+
+      .hero-note {
+        max-width: 460px;
+        color: var(--quiet);
+      }
+
+      .hero-card p {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .button,
+      .text-link {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 12px 17px;
+        color: var(--text);
+        font-weight: 850;
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible,
+      .text-link:hover,
+      .text-link:focus-visible {
+        transform: translateY(-1px);
+        border-color: rgba(255, 255, 255, 0.32);
+        background: rgba(255, 255, 255, 0.07);
+        outline: none;
+      }
+
+      .button.primary {
+        border-color: transparent;
+        color: #07080b;
+        background: linear-gradient(135deg, #f7d477, var(--gold));
+        box-shadow: 0 20px 50px rgba(255, 159, 28, 0.18);
+      }
+
+      .external-icon {
+        font-size: 0.95em;
+        line-height: 1;
+      }
+
+      section {
+        scroll-margin-top: 94px;
+        padding: 92px 0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 28px;
+        margin-bottom: 36px;
+      }
+
+      .section-head h2 {
+        max-width: 870px;
+        margin-bottom: 12px;
+        font-size: clamp(2.8rem, 5.6vw, 5.9rem);
+        line-height: 0.88;
+        letter-spacing: -0.07em;
+      }
+
+      .section-head p {
+        max-width: 660px;
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .surface {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.058), rgba(255, 255, 255, 0.024)), var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .vassal-feature {
+        display: grid;
+        grid-template-columns: 1.14fr 0.86fr;
+        min-height: 620px;
+      }
+
+      .feature-media,
+      .product-media,
+      .leader-media,
+      .evidence-media {
+        position: relative;
+        overflow: hidden;
+        background: #05070d;
+      }
+
+      .feature-media img,
+      .product-media img,
+      .leader-media img,
+      .evidence-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .feature-media::after,
+      .product-media::after,
+      .leader-media::after,
+      .evidence-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(180deg, transparent 48%, rgba(5, 7, 12, 0.55));
+      }
+
+      .feature-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(32px, 5vw, 62px);
+      }
+
+      .feature-copy h3 {
+        margin-bottom: 18px;
+        font-size: clamp(2.6rem, 5vw, 5.1rem);
+        line-height: 0.9;
+        letter-spacing: -0.065em;
+      }
+
+      .feature-copy p,
+      .product-body p,
+      .leader-copy p,
+      .thesis-card p,
+      .evidence-copy p {
+        color: var(--muted);
+      }
+
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 20px 0 26px;
+      }
+
+      .chip,
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        width: max-content;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 10px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .status-live {
+        border-color: rgba(159, 216, 182, 0.34);
+        color: var(--green);
+        background: rgba(159, 216, 182, 0.07);
+      }
+
+      .ecosystem-art {
+        padding: 22px;
+      }
+
+      .ecosystem-button {
+        width: 100%;
+        display: block;
+        padding: 0;
+        cursor: zoom-in;
+        border: 1px solid rgba(139, 183, 255, 0.24);
+        border-radius: 30px;
+        overflow: hidden;
+        background: #02050d;
+        box-shadow: 0 36px 120px rgba(26, 87, 165, 0.18), var(--shadow-lg);
+      }
+
+      .ecosystem-button img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .caption {
+        max-width: 760px;
+        margin: 22px auto 0;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      .property-group {
+        margin-top: 54px;
+      }
+
+      .property-group:first-of-type {
+        margin-top: 0;
+      }
+
+      .group-label {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .group-label h3 {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
       }
-      td:nth-child(2) { white-space: normal; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap nav">
-      <div class="brand"><img class="brand-logo" src="assets/certifyd-logo-long.svg" alt="Certifyd" /></div>
-      <nav class="navlinks">
-        <a href="#opportunity">Opportunity</a>
-        <a href="#platform">Platform</a>
-        <a href="#team">Leadership</a>
-        <a href="#budget">Use of Funds</a>
-        <a href="#contact">Investor Contact</a>
+
+      .group-label::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        background: linear-gradient(90deg, var(--line), transparent);
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .product-card {
+        transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+      }
+
+      .product-card:hover,
+      .product-card:focus-within,
+      .evidence-card:hover,
+      .evidence-card:focus-within {
+        transform: translateY(-4px);
+        border-color: rgba(255, 159, 28, 0.28);
+        box-shadow: 0 34px 94px rgba(0, 0, 0, 0.44);
+      }
+
+      .product-card:hover img,
+      .product-card:focus-within img,
+      .vassal-feature:hover img,
+      .leader-card:hover img,
+      .evidence-card:hover img {
+        transform: scale(1.028);
+      }
+
+      .product-media {
+        display: block;
+        aspect-ratio: 16 / 10;
+      }
+
+      .product-body {
+        padding: 24px;
+      }
+
+      .product-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .product-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .product-logo {
+        width: 38px;
+        height: 38px;
+        flex: 0 0 auto;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 7px;
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .product-title h3 {
+        margin: 0 0 4px;
+        font-size: 1.55rem;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .relationship {
+        color: var(--gold-soft);
+        font-size: 0.92rem;
+        font-weight: 820;
+      }
+
+      .product-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .foundation-grid,
+      .network-grid {
+        display: grid;
+        grid-template-columns: 0.86fr 1.14fr;
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .foundation-copy,
+      .architecture-card {
+        padding: clamp(26px, 4vw, 44px);
+      }
+
+      .foundation-copy h3,
+      .architecture-card h3 {
+        margin-bottom: 14px;
+        font-size: clamp(2.25rem, 4.8vw, 4.6rem);
+        line-height: 0.9;
+        letter-spacing: -0.065em;
+      }
+
+      .managed-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 28px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .managed-grid li,
+      .architecture-pill,
+      .thesis-node {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 12px 14px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.035);
+        font-weight: 780;
+      }
+
+      .core-visual {
+        display: grid;
+        min-height: 520px;
+        place-items: center;
+        padding: clamp(28px, 5vw, 68px);
+        background:
+          radial-gradient(circle at 52% 42%, rgba(139, 183, 255, 0.24), transparent 36%),
+          radial-gradient(circle at 72% 74%, rgba(255, 159, 28, 0.14), transparent 34%),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+      }
+
+      .core-mark {
+        display: grid;
+        width: min(56%, 320px);
+        aspect-ratio: 1;
+        place-items: center;
+        border: 1px solid rgba(139, 183, 255, 0.28);
+        border-radius: 42px;
+        background: rgba(3, 6, 13, 0.64);
+        box-shadow: 0 48px 150px rgba(37, 99, 235, 0.2);
+      }
+
+      .core-mark img {
+        width: 62%;
+        height: auto;
+      }
+
+      .architecture-stack {
+        display: grid;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .architecture-layer {
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .architecture-layer strong {
+        display: block;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+      }
+
+      .architecture-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+      }
+
+      .architecture-connector,
+      .thesis-arrow {
+        color: var(--gold);
+        text-align: center;
+        font-weight: 900;
+      }
+
+      .thesis-arrow {
+        display: grid;
+        align-items: center;
+        font-size: 1.4rem;
+      }
+
+      .thesis-grid {
+        display: flex;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .thesis-card {
+        flex: 1;
+        min-height: 230px;
+        padding: 26px;
+      }
+
+      .thesis-card h3 {
+        margin-bottom: 14px;
+        font-size: 1.45rem;
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+      }
+
+      .core-note {
+        margin-top: 20px;
+        padding: 22px;
+        border-color: var(--line-strong);
+      }
+
+      .execution-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .execution-list strong {
+        display: block;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 24px;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.035);
+        font-size: clamp(1.45rem, 2.8vw, 2.55rem);
+        line-height: 0.95;
+        letter-spacing: -0.055em;
+      }
+
+      .leaders-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .leader-card {
+        display: grid;
+        grid-template-columns: 0.9fr 1fr;
+        min-height: 460px;
+      }
+
+      .leader-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 30px;
+      }
+
+      .leader-copy h3 {
+        margin-bottom: 8px;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 0.92;
+        letter-spacing: -0.055em;
+      }
+
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .evidence-card {
+        transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+      }
+
+      .evidence-media {
+        display: block;
+        aspect-ratio: 16 / 9;
+      }
+
+      .evidence-copy {
+        padding: 22px;
+      }
+
+      .evidence-copy h3 {
+        margin-bottom: 10px;
+        font-size: 1.25rem;
+        letter-spacing: -0.03em;
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--line);
+        padding: 38px 0 48px;
+        color: var(--quiet);
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .footer-links a {
+        color: var(--muted);
+      }
+
+      .footer-links a:hover,
+      .footer-links a:focus-visible {
+        color: var(--text);
+      }
+
+      dialog {
+        width: min(96vw, 1280px);
+        max-height: 92vh;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        overflow: hidden;
+        background: #02050d;
+        color: var(--text);
+        box-shadow: var(--shadow-lg);
+      }
+
+      dialog::backdrop {
+        background: rgba(0, 0, 0, 0.78);
+        backdrop-filter: blur(8px);
+      }
+
+      .dialog-inner {
+        position: relative;
+        max-height: 92vh;
+        overflow: auto;
+      }
+
+      .dialog-close {
+        position: sticky;
+        top: 14px;
+        left: calc(100% - 92px);
+        z-index: 2;
+        margin: 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 12px;
+        color: var(--text);
+        background: rgba(5, 7, 12, 0.86);
+        cursor: pointer;
+      }
+
+      .fade-up {
+        opacity: 1;
+        transform: none;
+      }
+
+      .fade-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 580ms ease, transform 580ms ease;
+      }
+
+      :focus-visible {
+        outline: 2px solid rgba(139, 183, 255, 0.78);
+        outline-offset: 3px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.001ms !important;
+        }
+
+        .fade-up {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @media (max-width: 1020px) {
+        .shell {
+          width: calc(100vw - 48px);
+          max-width: calc(100vw - 48px);
+          margin-inline: 24px;
+        }
+
+        .nav {
+          grid-template-columns: 1fr auto;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .menu-button {
+          display: inline-flex;
+        }
+
+        .portal-badge {
+          display: none;
+        }
+
+        .hero-grid,
+        .vassal-feature,
+        .leader-card {
+          grid-template-columns: 1fr;
+        }
+
+        .product-grid,
+        .leaders-grid,
+        .evidence-grid,
+        .foundation-grid,
+        .network-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .thesis-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .thesis-arrow {
+          min-height: 18px;
+          transform: rotate(90deg);
+        }
+
+        h1,
+        .hero-subtitle,
+        .lead,
+        .hero-note {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .shell {
+          width: calc(100vw - 28px);
+          max-width: calc(100vw - 28px);
+          margin-inline: 14px;
+        }
+
+        .nav {
+          min-height: 66px;
+          grid-template-columns: 1fr auto;
+        }
+
+        .brand img {
+          width: 132px;
+        }
+
+        .hero {
+          padding: 66px 0 60px;
+        }
+
+        .hero-card {
+          padding: 22px;
+        }
+
+        h1 {
+          font-size: clamp(3.1rem, 15vw, 4.25rem);
+          overflow-wrap: anywhere;
+        }
+
+        .hero-subtitle {
+          font-size: clamp(1.05rem, 5vw, 1.35rem);
+          line-height: 1.12;
+          max-width: 320px;
+        }
+
+        .lead,
+        .hero-note {
+          font-size: 1rem;
+        }
+
+        .actions,
+        .product-actions {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 66px 0;
+        }
+
+        .section-head {
+          display: block;
+          margin-bottom: 24px;
+        }
+
+        .section-head h2 {
+          font-size: clamp(2.45rem, 13vw, 4.15rem);
+        }
+
+        .feature-media {
+          min-height: 320px;
+        }
+
+        .feature-copy,
+        .foundation-copy,
+        .architecture-card,
+        .product-body,
+        .leader-copy,
+        .thesis-card,
+        .evidence-copy {
+          padding: 22px;
+        }
+
+        .product-media {
+          aspect-ratio: 4 / 3;
+        }
+
+        .leader-media {
+          min-height: 340px;
+        }
+
+        .ecosystem-art {
+          padding: 10px;
+        }
+
+        .ecosystem-button {
+          border-radius: 20px;
+        }
+
+        .managed-grid,
+        .execution-list {
+          grid-template-columns: 1fr;
+        }
+
+        .core-visual {
+          min-height: 340px;
+        }
+
+        .footer-row {
+          display: grid;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .shell {
+          width: min(calc(100vw - 28px), 362px);
+          max-width: min(calc(100vw - 28px), 362px);
+          margin-left: 14px;
+          margin-right: auto;
+        }
+
+        .hero-card .lead,
+        .hero-note {
+          max-width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell nav">
+        <a class="brand" href="#top" aria-label="Certifyd Investor Portal">
+          <img src="assets/brand/certifyd-logo-long.svg" alt="Certifyd" />
+        </a>
+        <nav class="nav-links" aria-label="Investor portal sections">
+          <a href="#top">Overview</a>
+          <a href="#vassal">Vassal</a>
+          <a href="#ecosystem">Ecosystem</a>
+          <a href="#foundation">Core</a>
+          <a href="#network">Network</a>
+          <a href="#products">Products</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#evidence">Evidence</a>
+        </nav>
+        <span class="portal-badge">Private Investor Portal</span>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobileMenu">
+          Menu
+        </button>
+      </div>
+      <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile investor portal sections">
+        <a href="#top">Overview</a>
+        <a href="#vassal">Vassal</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#foundation">Core</a>
+        <a href="#network">Network</a>
+        <a href="#products">Products</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#evidence">Evidence</a>
       </nav>
-      <a class="btn" href="mailto:darryl@beatifygroup.com?subject=Certifyd Investor Brief">Investor Contact</a>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <div class="eyebrow">$5M Infrastructure Raise · Bitcoin/Lightning Creator Commerce</div>
-        <h1>Sovereign creator infrastructure for the next era of digital commerce.</h1>
-        <p>Certifyd is infrastructure for creator-owned commerce, attribution, payments, receipts, splits, payouts, and provenance. <strong>Certifyd earns infrastructure revenue from economic activity flowing through the network.</strong></p>
-        <div class="hero-actions">
-          <a class="btn" href="#budget">View $5M Budget</a>
-          <a class="btn secondary" href="#platform">See What Is Built</a>
-          <a class="btn secondary" href="https://certifyd.me" target="_blank" rel="noopener">View Certifyd in Production</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="live-production">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Live in production.</h2>
-          <p>Certifyd is already operating through live public creator and discovery surfaces. Internal infrastructure layers — including commerce operations, payout systems, provider-node tooling, attribution systems, and administrative infrastructure — are demonstrated privately through guided investor demos.</p>
-        </div>
-        <div class="grid two">
-          <a class="card gold" href="https://certifyd.me" target="_blank" rel="noopener"><h3>Certifyd Creator</h3><p>Public creator-facing surface for Certifyd: ownership positioning, creator onboarding, storefront presence, and sovereign creator infrastructure.</p><span class="card-cta">Open certifyd.me →</span></a>
-          <a class="card" href="https://fan.certifyd.me" target="_blank" rel="noopener"><h3>Certifyd Fan / Discovery</h3><p>Public discovery surface for the Certifyd network: creator discovery, content relationships, attribution context, and network activity.</p><span class="card-cta">Open fan.certifyd.me →</span></a>
-        </div>
-        <p style="margin-top:18px;"><a class="goldtext" href="#contact">Request infrastructure demo</a></p>
-      </div>
-    </section>
-
-    <section id="economic-engine">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>The economic engine is infrastructure participation.</h2>
-          <p>Certifyd participates in economic activity flowing through creator-owned networks. Sales, unlocks, premium releases, collaborations, licensing, provider-node activity, and campaigns can create infrastructure revenue.</p>
-        </div>
-        <div class="flow">
-          <div class="card gold flow-step"><h3>Creator commerce</h3><p>Creators and partners bring paid access, releases, collaborations, licensing, and campaigns into the network.</p></div>
-          <div class="card flow-step"><h3>Certifyd rails</h3><p>Identity, publishing, payment routing, attribution, receipts, provenance, and access context execute the flow.</p></div>
-          <div class="card flow-step"><h3>Splits and payouts</h3><p>Commerce activity can resolve contributors, receipts, split context, remittance, and public-safe proof.</p></div>
-          <div class="card flow-step"><h3>Provider nodes</h3><p>Operators expand the network without Certifyd managing every creator relationship centrally.</p></div>
-          <div class="card flow-step"><h3>Network revenue</h3><p>Small infrastructure percentages across large creator-commerce volume create scalable upside.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="opportunity">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>The creator economy has a platform-dependence problem.</h2>
-          <p>Creators build audiences, content libraries, collaborations, and revenue streams inside platforms they do not control. Certifyd shifts the center of gravity back to the creator by making commerce, attribution, payments, receipts, splits, and payouts portable infrastructure that can operate across the open web.</p>
-        </div>
-        <div class="grid three">
-          <div class="card"><h3>Platforms own the relationship</h3><p>Audience access, payments, discovery, and receipts are usually controlled by centralized intermediaries.</p></div>
-          <div class="card"><h3>Creators need portable commerce</h3><p>Identity, content, splits, provenance, receipts, and payout context should travel with the creator across the web.</p></div>
-          <div class="card gold"><h3>Certifyd becomes the rail</h3><p>Ownership creates the conditions for transaction flow, infrastructure revenue, and network effects across creator-owned commerce.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="why-now">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Why now.</h2>
-          <p>Creators are more dependent on centralized platforms at the same time that AI makes attribution, provenance, and direct commerce more important. The market needs portable infrastructure, not another destination app.</p>
-        </div>
-        <div class="grid three">
-          <div class="card"><h3>Platform lock-in is expensive</h3><p>Audiences, payment flows, discovery, and receipts are fragmented across systems creators do not control.</p></div>
-          <div class="card"><h3>AI raises the value of provenance</h3><p>Source context, attribution, rights metadata, and public proof become more valuable as content discovery becomes machine-assisted.</p></div>
-          <div class="card"><h3>Direct commerce is expanding</h3><p>Creators, agencies, brands, educators, filmmakers, podcasters, and communities need portable commerce infrastructure that can follow their audience.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="platform">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Built before institutional capital.</h2>
-          <p>Certifyd was independently architected and developed over multiple years by founder and CEO Darryl Hillock, materially reducing technical and execution risk before scaling investment. The near-term objective is direct: get creators making real money through Certifyd commerce now.</p>
-        </div>
-        <div class="grid three">
-          <div class="card"><div class="stat">01</div><h3>Identity + publishing</h3><p>Creator profiles, content publishing, manifests, attribution, provenance, and portable creator presence.</p></div>
-          <div class="card"><div class="stat">02</div><h3>Commerce + payments</h3><p>Bitcoin/Lightning-native payment flows, receipts, deterministic splits, payout semantics, and seller-of-record logic.</p></div>
-          <div class="card"><div class="stat">03</div><h3>Distributed network</h3><p>Creator origins, fan discovery, provider-node concepts, public content surfaces, and network expansion architecture.</p></div>
-        </div>
-        <div class="grid four" style="margin-top:18px;">
-          <div class="card"><h3>Certifyd</h3><p>The infrastructure and network company behind creator-owned commerce rails.</p></div>
-          <div class="card"><h3>Certifyd Creator</h3><p>The creator product surface for official profiles, publishing, commerce, attribution, and ownership context.</p></div>
-          <div class="card"><h3>Certifyd Discovery / Fan</h3><p>The read-side discovery surface for public works, creator relationships, and fan exploration.</p></div>
-          <div class="card"><h3>Provider nodes</h3><p>The network expansion layer for partners operating creator infrastructure and commerce access.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="team">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Leadership.</h2>
-          <p>Certifyd combines founder-built infrastructure with entertainment, creator, partnership, and commercialization reach.</p>
-        </div>
-        <div class="grid two">
-          <div class="card">
-            <h3>Vassal Benford — Founder &amp; President</h3>
-            <p>President of Certifyd and a strategic commercial partner focused on creator relationships, entertainment partnerships, business development, provider relationships, commercialization, and network expansion.</p>
-            <a class="profile-link" href="https://vassalbenford.com" target="_blank" rel="noopener">Visit vassalbenford.com →</a>
+    <main id="top">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="shell hero-grid">
+          <div>
+            <p class="eyebrow fade-up">Certifyd · Private Investor Portal</p>
+            <h1 id="heroTitle" class="fade-up">
+              <span>The</span>
+              <span>infrastructure</span>
+              <span>creators own.</span>
+            </h1>
+            <p class="hero-subtitle fade-up">
+              Creator-owned infrastructure for identity, publishing, discovery, recognition and commerce.
+            </p>
           </div>
-          <div class="card gold">
-            <h3>Darryl Hillock — Founder &amp; CEO</h3>
-            <p>Founder, CEO, founding architect, and primary developer of Certifyd. Darryl leads product vision, infrastructure architecture, creator-commerce strategy, fundraising, and ecosystem development. His background spans creator platforms, music technology, product systems, direct-to-fan commerce, and operational growth.</p>
-            <a class="profile-link" href="https://darrylhillock.com" target="_blank" rel="noopener">Visit darrylhillock.com →</a>
+          <div class="hero-card fade-up">
+            <p class="lead">
+              At its foundation is Certifyd Core: the creator node engine powering the Certifyd
+              Network and every public application built above it.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="#ecosystem">Explore the Ecosystem</a>
+              <a class="button" href="#products">Inspect the Products</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div class="wrap">
-        <p class="quote">“We are not asking investors to fund feasibility. We are raising to harden, secure, scale, and commercialize a functioning infrastructure layer built to participate in creator-commerce volume.”</p>
-      </div>
-    </section>
+      <section id="vassal" aria-labelledby="vassalTitle">
+        <div class="shell">
+          <div class="section-head fade-up">
+            <div>
+              <p class="eyebrow">Featured Partner</p>
+              <h2 id="vassalTitle">Vassal Benford</h2>
+              <p>
+                Vassal Benford is a strategic partner whose public presence demonstrates the type
+                of creator ecosystem Certifyd is building.
+              </p>
+            </div>
+          </div>
+          <div id="vassalFeature"></div>
+        </div>
+      </section>
 
-    <section id="budget">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Use of funds: $5M infrastructure raise.</h2>
-          <p>The raise is designed to turn founder-built infrastructure into a hardened, secure, commercial network.</p>
+      <section id="ecosystem" aria-labelledby="ecosystemTitle">
+        <div class="shell">
+          <div class="section-head fade-up">
+            <div>
+              <p class="eyebrow">The Certifyd Ecosystem</p>
+              <h2 id="ecosystemTitle">One infrastructure. Multiple products.</h2>
+              <p>
+                The Certifyd ecosystem combines creator infrastructure, network services and
+                public applications into a single connected platform.
+              </p>
+            </div>
+          </div>
+          <figure class="surface ecosystem-art fade-up">
+            <button class="ecosystem-button" type="button" data-open-ecosystem>
+              <img
+                src="assets/hero/certifyd-monetization-ecosystem.png"
+                alt="Certifyd monetization ecosystem diagram showing products, revenue streams, network nodes and value flow"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <figcaption class="caption">
+              Click the diagram to enlarge.
+            </figcaption>
+          </figure>
         </div>
-        <div class="card gold budget-summary">
-          <h3>Investment logic</h3>
-          <p>Capital goes toward engineering, security, QA, infrastructure, commercialization, partnerships, legal readiness, and strategic platform/IP consolidation.</p>
-        </div>
-        <table>
-          <thead><tr><th>Category</th><th>Allocation</th><th>Purpose</th></tr></thead>
-          <tbody>
-            <tr><td data-label="Category">Foundational IP &amp; Platform Consolidation</td><td data-label="Allocation">$1,250,000</td><td data-label="Purpose">Strategic consolidation of founder-built platform IP, core architecture, prior development investment, and deferred infrastructure compensation.</td></tr>
-            <tr><td data-label="Category">Core Engineering Expansion</td><td data-label="Allocation">$1,100,000</td><td data-label="Purpose">Backend systems, infrastructure scaling, distributed systems, APIs, and commerce rails.</td></tr>
-            <tr><td data-label="Category">Discovery, AI &amp; Creator Graph Infrastructure</td><td data-label="Allocation">$500,000</td><td data-label="Purpose">Discovery systems, creator graph intelligence, AI-assisted attribution context, compute, and token/infrastructure support.</td></tr>
-            <tr><td data-label="Category">Security Audits / Penetration Testing / Hardening</td><td data-label="Allocation">$450,000</td><td data-label="Purpose">Security reviews, audits, threat modeling, payment hardening, and penetration testing.</td></tr>
-            <tr><td data-label="Category">QA / Reliability / Testing Infrastructure</td><td data-label="Allocation">$300,000</td><td data-label="Purpose">Regression testing, onboarding testing, payout verification, reliability, and load testing.</td></tr>
-            <tr><td data-label="Category">Infrastructure / Hosting / Scaling / DevOps</td><td data-label="Allocation">$500,000</td><td data-label="Purpose">Cloud infrastructure, monitoring, uptime, deployment systems, and provider-node operations.</td></tr>
-            <tr><td data-label="Category">Legal / Compliance / Corporate Structure</td><td data-label="Allocation">$250,000</td><td data-label="Purpose">Corporate structure, legal, compliance, agreements, contracts, and investor documentation.</td></tr>
-            <tr><td data-label="Category">Strategic Partnerships / Creator Growth</td><td data-label="Allocation">$350,000</td><td data-label="Purpose">Creator onboarding, partnership development, commercialization, and network expansion.</td></tr>
-            <tr><td data-label="Category">Operating Reserve / Runway</td><td data-label="Allocation">$300,000</td><td data-label="Purpose">Operational runway, risk buffer, and emergency reserve.</td></tr>
-            <tr><td data-label="Category"><strong>Total Raise</strong></td><td data-label="Allocation"><strong>$5,000,000</strong></td><td data-label="Purpose"><strong>Scale capital for Certifyd infrastructure.</strong></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Commercial model.</h2>
-          <p>Certifyd monetizes infrastructure activity instead of owning creators. The model is based on percentage participation and infrastructure fees across creator commerce flowing through Certifyd rails.</p>
+      <section id="foundation" aria-labelledby="foundationTitle">
+        <div class="shell">
+          <div class="section-head fade-up">
+            <div>
+              <p class="eyebrow">The Foundation</p>
+              <h2 id="foundationTitle">Certifyd Core</h2>
+              <p>The creator node engine.</p>
+            </div>
+          </div>
+          <div class="foundation-grid">
+            <article class="surface foundation-copy fade-up" id="coreEngineNote"></article>
+            <figure class="surface core-visual fade-up" aria-label="Certifyd Core visual">
+              <div class="core-mark">
+                <img src="assets/brand/certifyd-tab-icon.svg" alt="" loading="lazy" decoding="async" />
+              </div>
+            </figure>
+          </div>
         </div>
-        <div class="grid three">
-          <div class="card"><h3>Transaction infrastructure fees</h3><p>Participation in sales, unlocks, premium drops, paid access, receipts, payout execution, and other commerce events flowing through the network.</p></div>
-          <div class="card"><h3>Provider-node economics</h3><p>Provider nodes expand the network without Certifyd operating every creator relationship centrally, while infrastructure participation scales with node activity.</p></div>
-          <div class="card"><h3>Hosting and infrastructure fees</h3><p>Creator origins, public catalogs, commerce hosting, reliability, deployment, and operational infrastructure for creators and operators.</p></div>
-          <div class="card"><h3>White-label and enterprise deployments</h3><p>Agencies, labels, brands, creator groups, educators, filmmakers, and communities can deploy sovereign commerce stacks under their own brands.</p></div>
-          <div class="card"><h3>Premium creator commerce tooling</h3><p>Dashboards, paid access tooling, campaign management, collaboration workflows, direct-to-fan sales, and Bitcoin-native creator commerce operations.</p></div>
-          <div class="card"><h3>Campaign and attribution infrastructure</h3><p>Future upside includes campaign rails, licensing context, attribution systems, AI provenance, partner dashboards, and network analytics.</p></div>
+      </section>
+
+      <section id="network" aria-labelledby="networkTitle">
+        <div class="shell">
+          <div class="section-head fade-up">
+            <div>
+              <p class="eyebrow">The Network</p>
+              <h2 id="networkTitle">Certifyd Network</h2>
+              <p>
+                Independent creator and operator nodes connect to form the Certifyd Network.
+                The network provides shared identity, discovery, routing and publishing
+                infrastructure used by every public Certifyd application.
+              </p>
+            </div>
+          </div>
+          <div class="network-grid">
+            <article class="surface architecture-card fade-up">
+              <p class="eyebrow">Architecture</p>
+              <h3>Shared infrastructure beneath every application.</h3>
+              <div class="architecture-stack" aria-label="Certifyd architecture layers">
+                <div class="architecture-layer">
+                  <strong>Applications</strong>
+                  <div class="architecture-pills">
+                    <span class="architecture-pill">Fan</span>
+                    <span class="architecture-pill">Awards</span>
+                    <span class="architecture-pill">Profiles</span>
+                    <span class="architecture-pill">Commerce</span>
+                  </div>
+                </div>
+                <div class="architecture-connector">↓</div>
+                <div class="architecture-layer">
+                  <strong>Certifyd Network</strong>
+                  <div class="architecture-pills">
+                    <span class="architecture-pill">Identity</span>
+                    <span class="architecture-pill">Discovery</span>
+                    <span class="architecture-pill">Routing</span>
+                    <span class="architecture-pill">Publishing</span>
+                  </div>
+                </div>
+                <div class="architecture-connector">↓</div>
+                <div class="architecture-layer">
+                  <strong>Certifyd Core</strong>
+                  <div class="architecture-pills">
+                    <span class="architecture-pill">Creator nodes</span>
+                    <span class="architecture-pill">Operator nodes</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="surface architecture-card fade-up">
+              <p class="eyebrow">Network Services</p>
+              <h3>Built for a multi-node creator economy.</h3>
+              <p class="lead">
+                Certifyd is positioned as infrastructure first. Public products create demand;
+                Core and Network services make the system reusable across creators, operators and
+                future applications.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" aria-labelledby="productsTitle">
+        <div class="shell">
+          <div class="section-head fade-up">
+            <div>
+              <p class="eyebrow">Products</p>
+              <h2 id="productsTitle">Products built on the network.</h2>
+              <p>
+                Rather than operating as isolated websites, every Certifyd product builds on the
+                same shared infrastructure.
+              </p>
+            </div>
+          </div>
+          <div id="propertyGroups"></div>
+        </div>
+      </section>
+
+      <section id="thesis" aria-labelledby="thesisTitle">
+        <div class="shell">
+          <div class="section-head fade-up">
+            <div>
+              <p class="eyebrow">Investment Thesis</p>
+              <h2 id="thesisTitle">Reusable infrastructure. Expanding products.</h2>
+              <p>
+                Certifyd is designed as a technology platform, not a single application. Every new
+                product extends the value of the underlying infrastructure instead of requiring an
+                entirely new platform.
+              </p>
+            </div>
+          </div>
+          <div class="thesis-grid" id="thesisGrid"></div>
+        </div>
+      </section>
+
+      <section id="leadership" aria-labelledby="leadershipTitle">
+        <div class="shell">
+          <div class="section-head fade-up">
+            <div>
+              <p class="eyebrow">Leadership</p>
+              <h2 id="leadershipTitle">Experience across technology, music and creator infrastructure.</h2>
+              <p>
+                Strategic and founder experience connected to the product, network and creator
+                economy being built.
+              </p>
+            </div>
+          </div>
+          <div class="leaders-grid" id="leaderGrid"></div>
+        </div>
+      </section>
+
+      <section id="evidence" aria-labelledby="evidenceTitle">
+        <div class="shell">
+          <div class="section-head fade-up">
+            <div>
+              <p class="eyebrow">Evidence of Execution</p>
+              <h2 id="evidenceTitle">Inspect the ecosystem.</h2>
+              <p>
+                Everything presented throughout this portal links to working products, public
+                websites or active product surfaces.
+              </p>
+            </div>
+          </div>
+          <div class="execution-list fade-up" aria-label="Execution summary">
+            <strong>No concept artwork.</strong>
+            <strong>No mockups.</strong>
+            <strong>Real execution.</strong>
+          </div>
+          <div class="evidence-grid" id="evidenceGrid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-row">
+        <div>
+          <strong>Certifyd Investor Portal</strong>
+          <div>Private executive overview of the Certifyd ecosystem.</div>
+        </div>
+        <div class="footer-links" aria-label="Primary public links">
+          <a href="https://certifyd.me" target="_blank" rel="noopener noreferrer">Certifyd</a>
+          <a href="https://fan.certifyd.me" target="_blank" rel="noopener noreferrer">Fan</a>
+          <a href="https://awards.certifyd.me" target="_blank" rel="noopener noreferrer">Awards</a>
         </div>
       </div>
-    </section>
+    </footer>
 
-    <section id="bitcoin">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Why Bitcoin/Lightning matters.</h2>
-          <p>Bitcoin/Lightning is a strategic settlement foundation, not a crypto marketing layer. Payment rails can evolve, but Certifyd benefits from a global, neutral, instant settlement network today.</p>
-        </div>
-        <div class="grid three">
-          <div class="card"><h3>Instant global settlement</h3><p>Creators can move value without platform payout queues or geography-bound banking assumptions.</p></div>
-          <div class="card"><h3>Programmable commerce flows</h3><p>Receipts, split execution, remittance logic, and creator-controlled commerce can operate close to the transaction.</p></div>
-          <div class="card"><h3>Neutral foundation</h3><p>Certifyd can support future rails while using Bitcoin/Lightning as the settlement base for direct creator commerce.</p></div>
-        </div>
+    <dialog id="ecosystemDialog" aria-label="Certifyd monetization ecosystem enlarged">
+      <div class="dialog-inner">
+        <button class="dialog-close" type="button" data-close-ecosystem>Close</button>
+        <img
+          src="assets/hero/certifyd-monetization-ecosystem.png"
+          alt="Certifyd monetization ecosystem diagram enlarged"
+        />
       </div>
-    </section>
+    </dialog>
 
-    <section>
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Scaling roadmap.</h2>
-          <p>The $5M raise turns founder-built infrastructure into an operational network with dedicated engineering, security, QA, AI, partnerships, and commercial execution. Bitcoin/Lightning matters strategically because it provides a global, neutral, instant settlement layer, while Certifyd's commerce rails can evolve over time.</p>
-        </div>
-        <div class="timeline">
-          <div class="phase"><strong>0–90 days</strong><span>Security review, QA plan, infrastructure hardening, and commercial packaging around premium drops and direct-to-fan sales.</span></div>
-          <div class="phase"><strong>3–6 months</strong><span>Engineering hires, creator onboarding, paid release workflows, collaboration commerce, and improved node deployment flow.</span></div>
-          <div class="phase"><strong>6–12 months</strong><span>Provider-node program, AI discovery systems, partnership pilots, revenue instrumentation, and campaign infrastructure.</span></div>
-          <div class="phase"><strong>12–18 months</strong><span>White-label deployments, enterprise tooling, scaled creator network, attribution systems, and infrastructure revenue growth.</span></div>
-        </div>
-      </div>
-    </section>
+    <script>
+      const properties = window.CERTIFYD_ECOSYSTEM_PROPERTIES || [];
+      const thesisPillars = window.CERTIFYD_THESIS_PILLARS || [];
+      const coreEngine = window.CERTIFYD_CORE_ENGINE;
+      const brandIcon = "assets/brand/certifyd-tab-icon.svg";
+      const byId = Object.fromEntries(properties.map((property) => [property.id, property]));
 
-    <section id="contact">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>The ask.</h2>
-          <p class="lead"><span class="goldtext">Certifyd is raising $5M</span> to scale sovereign creator infrastructure into a hardened, secure, operational network for creator-owned commerce, transaction participation, provider-node economics, and public-safe attribution systems.</p>
-        </div>
-        <a class="btn" href="mailto:darryl@beatifygroup.com?subject=Certifyd Investor Brief">Request Investor Brief</a>
-      </div>
-    </section>
-  </main>
+      const publicLink = (property, label) => `
+        ${
+          property.url
+            ? `<a class="button primary" href="${property.url}" target="_blank" rel="noopener noreferrer">
+          ${label} <span class="external-icon" aria-hidden="true">↗</span>
+        </a>`
+            : ""
+        }
+      `;
 
-  <footer>
-    <div class="wrap">
-      <strong>Certifyd</strong><br />
-      Sovereign creator infrastructure · Bitcoin/Lightning commerce · Attribution · Receipts · Splits · Payouts
-    </div>
-  </footer>
-</body>
+      const textPublicLink = (property, label) => `
+        ${
+          property.url
+            ? `<a class="text-link" href="${property.url}" target="_blank" rel="noopener noreferrer">
+          ${label} <span class="external-icon" aria-hidden="true">↗</span>
+        </a>`
+            : ""
+        }
+      `;
+
+      const pictureMarkup = (property) => `
+        <picture>
+          ${
+            property.mobileScreenshot
+              ? `<source media="(max-width: 720px)" srcset="${property.mobileScreenshot}">`
+              : ""
+          }
+          <img
+            src="${property.screenshot}"
+            alt="Screenshot of ${property.name}"
+            loading="lazy"
+            decoding="async"
+            style="object-position: ${property.imagePosition || "center top"}"
+          >
+        </picture>
+      `;
+
+      const statusBadge = (property) =>
+        property.status ? `<span class="status-badge status-live">${property.status}</span>` : "";
+
+      const mediaMarkup = (property, className) =>
+        property.url
+          ? `<a class="${className}" href="${property.url}" target="_blank" rel="noopener noreferrer">${pictureMarkup(property)}</a>`
+          : `<div class="${className}">${pictureMarkup(property)}</div>`;
+
+      const productCard = (property) => `
+        <article class="surface product-card fade-up">
+          ${mediaMarkup(property, "product-media")}
+          <div class="product-body">
+            <div class="product-top">
+              <div class="product-title">
+                <img class="product-logo" src="${brandIcon}" alt="" loading="lazy">
+                <div>
+                  <h3>${property.name}</h3>
+                  <span class="relationship">${property.category}</span>
+                </div>
+              </div>
+              ${statusBadge(property)}
+            </div>
+            <p class="relationship">${property.relationshipLabel}</p>
+            <p>${property.summary}</p>
+            <div class="product-actions">
+              ${publicLink(property, property.actionLabel)}
+            </div>
+          </div>
+        </article>
+      `;
+
+      const renderGroup = (label, ids) => `
+        <div class="property-group">
+          <div class="group-label"><h3>${label}</h3></div>
+          <div class="product-grid">
+            ${ids.map((id) => productCard(byId[id])).join("")}
+          </div>
+        </div>
+      `;
+
+      const vassalFeature = document.querySelector("#vassalFeature");
+      if (vassalFeature) {
+        const cert = byId["vassal-certifyd"];
+        const site = byId["vassalbenford"];
+        vassalFeature.innerHTML = `
+          <article class="surface vassal-feature fade-up">
+            ${mediaMarkup(site, "feature-media")}
+            <div class="feature-copy">
+              <p class="eyebrow">Featured Partner</p>
+              <h3>Strategic creator context.</h3>
+              <p>
+                His public website provides professional context while his Certifyd presence
+                showcases the future of creator-owned identity and publishing.
+              </p>
+              <div class="product-actions">
+                ${cert.url ? publicLink(cert, "View Vassal on Certifyd") : ""}
+                ${publicLink(site, "Visit VassalBenford.com")}
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      const propertyGroups = document.querySelector("#propertyGroups");
+      if (propertyGroups) {
+        propertyGroups.innerHTML = [
+          renderGroup("Applications", ["certifyd-site", "fan", "awards"]),
+          renderGroup("Network", ["network"]),
+          renderGroup("People", ["vassal-certifyd", "vassalbenford", "darrylhillock"]),
+        ].join("");
+      }
+
+      const thesisGrid = document.querySelector("#thesisGrid");
+      if (thesisGrid) {
+        thesisGrid.innerHTML = thesisPillars
+          .map(
+            (pillar, index) => `
+              <article class="surface thesis-card fade-up">
+                <h3>${pillar.title}</h3>
+                <p>${pillar.body}</p>
+              </article>
+              ${index < thesisPillars.length - 1 ? '<div class="thesis-arrow" aria-hidden="true">→</div>' : ""}
+            `,
+          )
+          .join("");
+      }
+
+      const coreNote = document.querySelector("#coreEngineNote");
+      if (coreNote && coreEngine) {
+        coreNote.innerHTML = `
+          <p class="eyebrow">${coreEngine.label}</p>
+          <h3>${coreEngine.name}</h3>
+          <p class="lead">${coreEngine.headline}</p>
+          <p>${coreEngine.summary}</p>
+          <ul class="managed-grid">
+            ${coreEngine.manages.map((item) => `<li>${item}</li>`).join("")}
+          </ul>
+          <p>${coreEngine.availability}</p>
+        `;
+      }
+
+      const leaderGrid = document.querySelector("#leaderGrid");
+      if (leaderGrid) {
+        leaderGrid.innerHTML = ["vassalbenford", "darrylhillock"]
+          .map((id) => {
+            const property = byId[id];
+            const isVassal = id === "vassalbenford";
+            const bio = isVassal
+              ? "Strategic partner bringing decades of experience in music, entertainment and business."
+              : "Founder of Certifyd, focused on creator identity, decentralized publishing and direct creator commerce.";
+            const action = isVassal ? "View Public Website" : "View Founder Profile";
+            return `
+              <article class="surface leader-card fade-up">
+                ${mediaMarkup(property, "leader-media")}
+                <div class="leader-copy">
+                  <p class="eyebrow">Leadership</p>
+                  <h3>${property.name}</h3>
+                  <p class="relationship">${property.relationshipLabel}</p>
+                  <p>${bio}</p>
+                  ${textPublicLink(property, action)}
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
+      const evidenceGrid = document.querySelector("#evidenceGrid");
+      if (evidenceGrid) {
+        evidenceGrid.innerHTML = ["certifyd-site", "fan", "network", "awards", "darrylhillock"]
+          .map((id) => {
+            const property = byId[id];
+            return `
+              <article class="surface evidence-card fade-up">
+                ${mediaMarkup(property, "evidence-media")}
+                <div class="evidence-copy">
+                  <h3>${property.name}</h3>
+                  <p>${property.displayUrl || property.url.replace("https://", "")}</p>
+                  <p class="relationship">${property.category}</p>
+                  <div class="meta-row">
+                    ${statusBadge(property)}
+                  </div>
+                  ${textPublicLink(property, "Open")}
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
+      const menuButton = document.querySelector(".menu-button");
+      const mobileMenu = document.querySelector("#mobileMenu");
+      const closeMenu = () => {
+        mobileMenu?.classList.remove("is-open");
+        menuButton?.setAttribute("aria-expanded", "false");
+      };
+      menuButton?.addEventListener("click", () => {
+        const isOpen = mobileMenu?.classList.toggle("is-open");
+        menuButton.setAttribute("aria-expanded", String(Boolean(isOpen)));
+        if (isOpen) mobileMenu?.querySelector("a")?.focus();
+      });
+      mobileMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+          document.querySelector("#ecosystemDialog")?.close();
+        }
+      });
+
+      const dialog = document.querySelector("#ecosystemDialog");
+      const openEcosystem = document.querySelector("[data-open-ecosystem]");
+      const closeEcosystem = document.querySelector("[data-close-ecosystem]");
+      openEcosystem?.addEventListener("click", () => {
+        if (dialog?.showModal) dialog.showModal();
+      });
+      closeEcosystem?.addEventListener("click", () => dialog?.close());
+      dialog?.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const fadeItems = document.querySelectorAll(".fade-up");
+      if (prefersReducedMotion) {
+        fadeItems.forEach((element) => element.classList.add("is-visible"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.12 },
+        );
+        fadeItems.forEach((element, index) => {
+          element.style.transitionDelay = `${Math.min(index * 34, 170)}ms`;
+          observer.observe(element);
+        });
+      }
+    </script>
+  </body>
 </html>
