@@ -398,8 +398,7 @@
 
       .feature-copy p,
       .product-body p,
-      .leader-copy p,
-      .thesis-card p {
+      .leader-copy p {
         color: var(--muted);
       }
 
@@ -610,8 +609,7 @@
       }
 
       .managed-grid li,
-      .architecture-pill,
-      .thesis-node {
+      .architecture-pill {
         border: 1px solid var(--line);
         border-radius: 999px;
         padding: 12px 14px;
@@ -666,8 +664,7 @@
         gap: 9px;
       }
 
-      .architecture-connector,
-      .thesis-arrow {
+      .architecture-connector {
         color: var(--gold);
         text-align: center;
         font-weight: 900;
@@ -697,31 +694,6 @@
       .network-media:hover img,
       .network-media:focus-visible img {
         transform: scale(1.025);
-      }
-
-      .thesis-arrow {
-        display: grid;
-        align-items: center;
-        font-size: 1.4rem;
-      }
-
-      .thesis-grid {
-        display: flex;
-        align-items: stretch;
-        gap: 12px;
-      }
-
-      .thesis-card {
-        flex: 1;
-        min-height: 230px;
-        padding: 26px;
-      }
-
-      .thesis-card h3 {
-        margin-bottom: 14px;
-        font-size: 1.45rem;
-        line-height: 1.05;
-        letter-spacing: -0.04em;
       }
 
       .core-note {
@@ -1020,16 +992,6 @@
           grid-template-columns: 1fr;
         }
 
-        .thesis-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-        }
-
-        .thesis-arrow {
-          min-height: 18px;
-          transform: rotate(90deg);
-        }
-
         h1,
         .hero-subtitle,
         .lead,
@@ -1105,8 +1067,7 @@
         .foundation-copy,
         .architecture-card,
         .product-body,
-        .leader-copy,
-        .thesis-card {
+        .leader-copy {
           padding: 22px;
         }
 
@@ -1197,13 +1158,12 @@
               <span>creators own.</span>
             </h1>
             <p class="hero-subtitle fade-up">
-              Creator-owned infrastructure for identity, publishing, discovery, recognition and commerce.
+              Creator-owned infrastructure for identity, publishing, discovery and commerce.
             </p>
           </div>
           <div class="hero-card fade-up">
             <p class="lead">
-              At its foundation is Certifyd Core: the creator node engine powering the Certifyd
-              Network and every public application built above it.
+              Certifyd gives creators and operators their own nodes, then connects those nodes through shared network services.
             </p>
             <div class="actions">
               <a class="button primary" href="#ecosystem">Explore the Ecosystem</a>
@@ -1234,10 +1194,9 @@
           <div class="section-head fade-up">
             <div>
               <p class="eyebrow">The Certifyd Ecosystem</p>
-              <h2 id="ecosystemTitle">One infrastructure. Multiple products.</h2>
+              <h2 id="ecosystemTitle">Creator infrastructure built as a network.</h2>
               <p>
-                The Certifyd ecosystem combines creator infrastructure, network services and
-                public applications into a single connected platform.
+                Certifyd combines creator-owned nodes, public applications and network services into one connected system.
               </p>
             </div>
           </div>
@@ -1263,7 +1222,7 @@
             <div>
               <p class="eyebrow">The Foundation</p>
               <h2 id="foundationTitle">Certifyd Core</h2>
-              <p>The creator node engine.</p>
+              <p>Software for running a creator node.</p>
             </div>
           </div>
           <div class="foundation-grid">
@@ -1287,8 +1246,7 @@
               <p class="eyebrow">The Network</p>
               <h2 id="networkTitle">Certifyd Network</h2>
               <p>
-                Certifyd Network connects creator and operator nodes. It provides the shared
-                identity, discovery, routing and publishing layer used by Certifyd applications.
+                Certifyd Network connects creator and operator nodes so content, identity and commerce can move across the open web.
               </p>
             </div>
           </div>
@@ -1303,10 +1261,9 @@
           <div class="section-head fade-up">
             <div>
               <p class="eyebrow">Products</p>
-              <h2 id="productsTitle">Working products, public surfaces and infrastructure.</h2>
+              <h2 id="productsTitle">What is already live.</h2>
               <p>
-                Certifyd already operates across creator nodes, public applications, founder
-                profiles and product surfaces investors can open.
+                The core system and public apps are already available to inspect.
               </p>
             </div>
           </div>
@@ -1319,32 +1276,14 @@
         </div>
       </section>
 
-      <section id="thesis" aria-labelledby="thesisTitle">
-        <div class="shell">
-          <div class="section-head fade-up">
-            <div>
-              <p class="eyebrow">Investment Thesis</p>
-              <h2 id="thesisTitle">Reusable infrastructure. Expanding products.</h2>
-              <p>
-                Certifyd is designed as a technology platform, not a single application. Every new
-                product extends the value of the underlying infrastructure instead of requiring an
-                entirely new platform.
-              </p>
-            </div>
-          </div>
-          <div class="thesis-grid" id="thesisGrid"></div>
-        </div>
-      </section>
-
       <section id="leadership" aria-labelledby="leadershipTitle">
         <div class="shell">
           <div class="section-head fade-up">
             <div>
               <p class="eyebrow">Leadership</p>
-              <h2 id="leadershipTitle">Experience across technology, music and creator infrastructure.</h2>
+              <h2 id="leadershipTitle">Founder experience.</h2>
               <p>
-                Founder experience across music, product systems, creator infrastructure and
-                direct creator commerce.
+                Music, product, infrastructure and direct creator commerce experience.
               </p>
             </div>
           </div>
@@ -1359,9 +1298,7 @@
               <p class="eyebrow">The Ask</p>
               <h2 id="contactTitle">$5M to scale Certifyd infrastructure.</h2>
               <p>
-                Certifyd is raising $5M to scale creator-owned infrastructure into a hardened,
-                secure, operational network for direct creator commerce, transaction
-                participation, provider-node economics and public attribution systems.
+                Certifyd is raising $5M to turn the working system into secure, reliable commercial infrastructure.
               </p>
             </div>
             <div class="actions">
@@ -1400,7 +1337,6 @@
 
     <script>
       const properties = window.CERTIFYD_ECOSYSTEM_PROPERTIES || [];
-      const thesisPillars = window.CERTIFYD_THESIS_PILLARS || [];
       const coreEngine = window.CERTIFYD_CORE_ENGINE;
       const brandIcon = "assets/brand/certifyd-tab-icon.svg";
       const byId = Object.fromEntries(properties.map((property) => [property.id, property]));
@@ -1526,11 +1462,9 @@
           <div class="network-showcase">
             <div class="network-copy">
               <p class="eyebrow">Architecture</p>
-              <h3>Shared infrastructure beneath every application.</h3>
+              <h3>Many nodes. One connected network.</h3>
               <p class="lead">
-                Certifyd is infrastructure first. Public products create demand while Core and
-                Network services make the platform reusable across creators, operators and future
-                applications.
+                The public products are the front end. The real leverage is the node network underneath them.
               </p>
               <div class="architecture-stack" aria-label="Certifyd architecture layers">
                 <div class="architecture-layer">
@@ -1566,21 +1500,6 @@
             ${mediaMarkup(network, "network-media")}
           </div>
         `;
-      }
-
-      const thesisGrid = document.querySelector("#thesisGrid");
-      if (thesisGrid) {
-        thesisGrid.innerHTML = thesisPillars
-          .map(
-            (pillar, index) => `
-              <article class="surface thesis-card fade-up">
-                <h3>${pillar.title}</h3>
-                <p>${pillar.body}</p>
-              </article>
-              ${index < thesisPillars.length - 1 ? '<div class="thesis-arrow" aria-hidden="true">→</div>' : ""}
-            `,
-          )
-          .join("");
       }
 
       const coreNote = document.querySelector("#coreEngineNote");

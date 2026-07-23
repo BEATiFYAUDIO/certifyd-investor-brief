@@ -396,7 +396,6 @@
       .feature-copy p,
       .product-body p,
       .leader-copy p,
-      .thesis-card p,
       .evidence-copy p {
         color: var(--muted);
       }
@@ -611,8 +610,7 @@
       }
 
       .managed-grid li,
-      .architecture-pill,
-      .thesis-node {
+      .architecture-pill {
         border: 1px solid var(--line);
         border-radius: 999px;
         padding: 12px 14px;
@@ -667,8 +665,7 @@
         gap: 9px;
       }
 
-      .architecture-connector,
-      .thesis-arrow {
+      .architecture-connector {
         color: var(--gold);
         text-align: center;
         font-weight: 900;
@@ -698,31 +695,6 @@
       .network-media:hover img,
       .network-media:focus-visible img {
         transform: scale(1.025);
-      }
-
-      .thesis-arrow {
-        display: grid;
-        align-items: center;
-        font-size: 1.4rem;
-      }
-
-      .thesis-grid {
-        display: flex;
-        align-items: stretch;
-        gap: 12px;
-      }
-
-      .thesis-card {
-        flex: 1;
-        min-height: 230px;
-        padding: 26px;
-      }
-
-      .thesis-card h3 {
-        margin-bottom: 14px;
-        font-size: 1.45rem;
-        line-height: 1.05;
-        letter-spacing: -0.04em;
       }
 
       .core-note {
@@ -1047,15 +1019,6 @@
           grid-template-columns: 1fr;
         }
 
-        .thesis-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-        }
-
-        .thesis-arrow {
-          min-height: 18px;
-          transform: rotate(90deg);
-        }
 
         h1,
         .hero-subtitle,
@@ -1133,7 +1096,6 @@
         .architecture-card,
         .product-body,
         .leader-copy,
-        .thesis-card,
         .evidence-copy {
           padding: 22px;
         }
@@ -1217,10 +1179,10 @@
           <div>
             <p class="eyebrow fade-up">Certifyd · Investment Ask</p>
             <h1 id="heroTitle" class="fade-up"><span>$5M to scale</span><span>creator-owned infrastructure.</span></h1>
-            <p class="hero-subtitle fade-up">Capital to harden, secure and commercialize Certifyd Core, the Certifyd Network and the applications built on top.</p>
+            <p class="hero-subtitle fade-up">Capital to harden, secure and commercialize creator-owned infrastructure.</p>
           </div>
           <div class="hero-card fade-up">
-            <p class="lead">This page reconciles the market opportunity, economic engine, commercial model, roadmap and use of funds behind the raise.</p>
+            <p class="lead">The short version: Certifyd gives creators infrastructure they can own, monetize and connect across the open web.</p>
             <div class="actions"><a class="button primary" href="#contact">View the Ask</a><a class="button" href="index.html">Back to Ecosystem</a></div>
           </div>
         </div>
@@ -1228,96 +1190,86 @@
 
       <section id="market" aria-labelledby="marketTitle">
         <div class="shell">
-          <div class="section-head fade-up"><div><p class="eyebrow">Market Opportunity</p><h2 id="marketTitle">Why now.</h2><p>Creators are more dependent on centralized platforms at the same time that AI makes attribution, provenance and direct commerce more important. The market needs portable infrastructure, not another destination app.</p></div></div>
+          <div class="section-head fade-up"><div><p class="eyebrow">Why This Matters</p><h2 id="marketTitle">Creators need infrastructure they can own.</h2><p>Creators depend on centralized platforms for audience access, publishing, discovery and payments. Certifyd moves those pieces closer to creators and operators, then connects them through a shared network.</p></div></div>
           <div class="investor-grid">
-            <article class="surface investor-card fade-up"><h3>Platform lock-in is expensive.</h3><p>Audiences, payment flows, discovery and receipts are fragmented across systems creators do not control.</p></article>
-            <article class="surface investor-card fade-up"><h3>AI raises the value of provenance.</h3><p>Source context, attribution, rights metadata and public-safe records become more valuable as content discovery becomes machine-assisted.</p></article>
-            <article class="surface investor-card fade-up"><h3>Direct commerce is expanding.</h3><p>Creators, agencies, brands, educators, filmmakers, podcasters and communities need portable commerce infrastructure that can follow their audience.</p></article>
+            <article class="surface investor-card fade-up"><h3>The old model.</h3><p>One platform hosts everything, pays for everything and controls the relationship.</p></article>
+            <article class="surface investor-card fade-up"><h3>The Certifyd model.</h3><p>Creators and operators run their own nodes while Certifyd connects identity, discovery and commerce.</p></article>
+            <article class="surface investor-card fade-up"><h3>The upside.</h3><p>Self-hosting is one advantage: creators can own more of their presence without leaving the network.</p></article>
           </div>
         </div>
       </section>
 
       <section id="built" aria-labelledby="builtTitle">
         <div class="shell">
-          <div class="section-head fade-up"><div><p class="eyebrow">Built Before Institutional Capital</p><h2 id="builtTitle">The product foundation already exists.</h2><p>Certifyd was independently architected and developed over multiple years by founder and CEO Darryl Hillock, materially reducing technical and execution risk before scaling investment.</p></div></div>
+          <div class="section-head fade-up"><div><p class="eyebrow">What Exists Now</p><h2 id="builtTitle">Certifyd is already built enough to inspect.</h2><p>Core, Fan, Awards, creator profiles and network tools already exist. The raise is to harden and scale the system, not prove the idea.</p></div></div>
           <div class="investor-grid">
-            <article class="surface investor-card fade-up"><p class="eyebrow">01</p><h3>Identity and publishing.</h3><p>Creator profiles, content publishing, manifests, attribution and portable creator presence.</p></article>
-            <article class="surface investor-card fade-up"><p class="eyebrow">02</p><h3>Commerce and payments.</h3><p>Bitcoin/Lightning-native payment flows, receipts, deterministic splits, payout semantics and seller-of-record logic.</p></article>
-            <article class="surface investor-card fade-up"><p class="eyebrow">03</p><h3>Distributed network.</h3><p>Creator origins, fan discovery, provider-node concepts, public content surfaces and network expansion architecture.</p></article>
+            <article class="surface investor-card fade-up"><h3>Identity and publishing.</h3><p>Creator profiles, catalogs, manifests and attribution.</p></article>
+            <article class="surface investor-card fade-up"><h3>Commerce and payments.</h3><p>Paid access, receipts, splits and Lightning-enabled payment flows.</p></article>
+            <article class="surface investor-card fade-up"><h3>Network operations.</h3><p>Creator nodes, provider nodes, discovery and public content surfaces.</p></article>
           </div>
         </div>
       </section>
 
       <section id="engine" aria-labelledby="engineTitle">
         <div class="shell">
-          <div class="section-head fade-up"><div><p class="eyebrow">Economic Engine</p><h2 id="engineTitle">Money flows through the network.</h2><p>Certifyd creates places for creator commerce to happen, then participates in the infrastructure activity that moves through those places.</p></div></div>
+          <div class="section-head fade-up"><div><p class="eyebrow">How Money Moves</p><h2 id="engineTitle">Creators publish. Fans discover. Commerce flows.</h2><p>Certifyd provides the rails that connect identity, publishing, discovery, access, receipts and payments.</p></div></div>
           <figure class="surface ecosystem-art fade-up">
             <img src="assets/hero/certifyd-money-cycle.png" alt="Certifyd monetization ecosystem diagram showing revenue streams, network nodes and value flow" loading="lazy" decoding="async" />
-            <figcaption class="caption">Revenue enters through products and services. Value flows through Certifyd rails, provider nodes and creator-owned commerce.</figcaption>
+            <figcaption class="caption">Simple version: money comes in through creator activity, moves through Certifyd rails, and supports creators, operators and the network.</figcaption>
           </figure>
           <div class="investor-grid" style="margin-top: 24px;">
-            <article class="surface investor-card fade-up"><h3>1. Creators sell.</h3><p>Creators and partners bring paid access, releases, collaborations, licensing and campaigns into Certifyd.</p></article>
-            <article class="surface investor-card fade-up"><h3>2. Certifyd routes.</h3><p>Identity, publishing, payment routing, receipts, access and attribution travel through Certifyd rails.</p></article>
-            <article class="surface investor-card fade-up"><h3>3. Contributors get paid.</h3><p>Commerce can resolve split context, remittance and public-safe records for creators and collaborators.</p></article>
-            <article class="surface investor-card fade-up"><h3>4. Nodes expand the network.</h3><p>Operators can run infrastructure for more creators without Certifyd managing every relationship centrally.</p></article>
-            <article class="surface investor-card fade-up"><h3>5. Certifyd participates.</h3><p>Small infrastructure percentages across many creator-commerce events create scalable upside.</p></article>
+            <article class="surface investor-card fade-up"><h3>Revenue comes in.</h3><p>Fans, buyers, partners and campaigns pay for creator access, services and products.</p></article>
+            <article class="surface investor-card fade-up"><h3>Certifyd handles the flow.</h3><p>Identity, access, receipts, attribution, splits and payments move through Certifyd infrastructure.</p></article>
+            <article class="surface investor-card fade-up"><h3>Value flows back up.</h3><p>More usage creates more creator revenue, node activity and infrastructure upside.</p></article>
           </div>
         </div>
       </section>
 
       <section id="commercial" aria-labelledby="commercialTitle">
         <div class="shell">
-          <div class="section-head fade-up"><div><p class="eyebrow">Commercial Model</p><h2 id="commercialTitle">Multiple revenue streams. One creator economy.</h2><p>The model is simple: more creator activity creates more infrastructure usage. Certifyd can earn through transactions, services, tools and network operations.</p></div></div>
+          <div class="section-head fade-up"><div><p class="eyebrow">Business Model</p><h2 id="commercialTitle">Certifyd earns when the network is used.</h2><p>The model is not to own creators or host everything centrally. The model is to participate when commerce uses Certifyd infrastructure.</p></div></div>
           <div class="investor-grid two">
-            <article class="surface investor-card fade-up"><h3>Transactions.</h3><p>Sales, unlocks, premium drops, paid access, receipts and payout execution.</p></article>
-            <article class="surface investor-card fade-up"><h3>Network services.</h3><p>Provider nodes, creator origins, public catalogs, commerce hosting and reliability.</p></article>
-            <article class="surface investor-card fade-up"><h3>Creator tools.</h3><p>Dashboards, paid access tooling, campaign management, collaboration workflows and direct-to-fan operations.</p></article>
-            <article class="surface investor-card fade-up"><h3>Enterprise deployments.</h3><p>Agencies, labels, brands, creator groups and communities can run Certifyd-powered commerce stacks.</p></article>
-            <article class="surface investor-card fade-up"><h3>Awards and recognition.</h3><p>Registrations, campaigns and recognition products can add additional revenue streams.</p></article>
-            <article class="surface investor-card fade-up"><h3>Developer and ecosystem tools.</h3><p>Future upside includes APIs, SDKs, integrations, analytics and partner dashboards.</p></article>
+            <article class="surface investor-card fade-up"><h3>Commerce activity.</h3><p>Unlocks, paid drops, subscriptions, licensing, campaigns and payouts.</p></article>
+            <article class="surface investor-card fade-up"><h3>Network services.</h3><p>Creator nodes, provider nodes, hosting, reliability and public catalogs.</p></article>
+            <article class="surface investor-card fade-up"><h3>Creator tools.</h3><p>Dashboards, paid access, collaboration workflows and direct-to-fan operations.</p></article>
+            <article class="surface investor-card fade-up"><h3>Enterprise use.</h3><p>Labels, agencies, brands, educators and creator groups running Certifyd-powered stacks.</p></article>
           </div>
         </div>
       </section>
 
       <section id="settlement" aria-labelledby="settlementTitle">
         <div class="shell">
-          <div class="section-head fade-up"><div><p class="eyebrow">Settlement Layer</p><h2 id="settlementTitle">Why Bitcoin and Lightning matter.</h2><p>Bitcoin and Lightning are strategic settlement infrastructure, not a crypto marketing layer. Payment rails can evolve, but Certifyd benefits from a global, neutral and instant settlement network today.</p></div></div>
+          <div class="section-head fade-up"><div><p class="eyebrow">Payments</p><h2 id="settlementTitle">Bitcoin and Lightning are payment infrastructure.</h2><p>They give Certifyd a global, neutral and fast settlement layer today. The platform can still support other payment rails over time.</p></div></div>
           <div class="investor-grid">
-            <article class="surface investor-card fade-up"><h3>Instant global settlement.</h3><p>Creators can move value without platform payout queues or geography-bound banking assumptions.</p></article>
-            <article class="surface investor-card fade-up"><h3>Programmable commerce flows.</h3><p>Receipts, split execution, remittance logic and creator-controlled commerce can operate close to the transaction.</p></article>
-            <article class="surface investor-card fade-up"><h3>Neutral foundation.</h3><p>Certifyd can support future rails while using Bitcoin and Lightning as the settlement base for direct creator commerce.</p></article>
+            <article class="surface investor-card fade-up"><h3>Fast settlement.</h3><p>Creators can receive value without platform payout queues.</p></article>
+            <article class="surface investor-card fade-up"><h3>Programmable flows.</h3><p>Receipts, splits and remittance can happen close to the transaction.</p></article>
+            <article class="surface investor-card fade-up"><h3>Neutral base.</h3><p>Certifyd can use Lightning now while keeping the rails flexible.</p></article>
           </div>
         </div>
       </section>
 
       <section id="roadmap" aria-labelledby="roadmapTitle">
         <div class="shell">
-          <div class="section-head fade-up"><div><p class="eyebrow">Scaling Roadmap</p><h2 id="roadmapTitle">From founder-built infrastructure to commercial network.</h2><p>The raise funds dedicated engineering, security, QA, AI, partnerships and commercial execution.</p></div></div>
+          <div class="section-head fade-up"><div><p class="eyebrow">What The Raise Funds</p><h2 id="roadmapTitle">Turn the working system into a commercial network.</h2><p>The $5M raise funds the practical work required to make Certifyd reliable, secure and ready for more creators and partners.</p></div></div>
           <div class="roadmap-grid">
-            <article class="surface roadmap-phase fade-up"><strong>0–90 days</strong><p>Security review, QA plan, infrastructure hardening and commercial packaging around premium drops and direct-to-fan sales.</p></article>
-            <article class="surface roadmap-phase fade-up"><strong>3–6 months</strong><p>Engineering hires, creator onboarding, paid release workflows, collaboration commerce and improved node deployment.</p></article>
-            <article class="surface roadmap-phase fade-up"><strong>6–12 months</strong><p>Provider-node program, AI discovery systems, partnership pilots, revenue instrumentation and campaign infrastructure.</p></article>
-            <article class="surface roadmap-phase fade-up"><strong>12–18 months</strong><p>White-label deployments, enterprise tooling, scaled creator network, attribution systems and infrastructure revenue growth.</p></article>
+            <article class="surface roadmap-phase fade-up"><strong>0–90 days</strong><p>Security review, QA plan, infrastructure hardening and commercial packaging.</p></article>
+            <article class="surface roadmap-phase fade-up"><strong>3–6 months</strong><p>Engineering hires, creator onboarding, paid release workflows and node deployment.</p></article>
+            <article class="surface roadmap-phase fade-up"><strong>6–12 months</strong><p>Provider-node program, AI discovery, partnership pilots and revenue instrumentation.</p></article>
+            <article class="surface roadmap-phase fade-up"><strong>12–18 months</strong><p>White-label deployments, enterprise tooling, larger creator network and attribution systems.</p></article>
           </div>
         </div>
       </section>
 
       <section id="funds" aria-labelledby="fundsTitle">
         <div class="shell">
-          <div class="section-head fade-up"><div><p class="eyebrow">Use of Funds</p><h2 id="fundsTitle">$5M infrastructure raise.</h2><p>The raise is designed to turn founder-built infrastructure into a hardened, secure, commercial network.</p></div></div>
-          <article class="surface ask-card fade-up"><div><p class="eyebrow">Investment Logic</p><h3>Capital goes toward the systems required to commercialize the network.</h3><p>Engineering, security, QA, infrastructure, commercialization, partnerships, legal readiness and strategic platform/IP consolidation.</p></div><a class="button primary" href="#contact">The Ask</a></article>
-          <div class="surface funds-table-wrap fade-up" style="margin-top: 18px;"><table class="funds-table"><thead><tr><th>Category</th><th>Allocation</th><th>Purpose</th></tr></thead><tbody>
-            <tr><td>Foundational IP &amp; Platform Consolidation</td><td>$1,250,000</td><td>Founder-built platform IP, core architecture, prior development investment and deferred infrastructure compensation.</td></tr>
-            <tr><td>Core Engineering Expansion</td><td>$1,100,000</td><td>Backend systems, infrastructure scaling, distributed systems, APIs and commerce rails.</td></tr>
-            <tr><td>Discovery, AI &amp; Creator Graph Infrastructure</td><td>$500,000</td><td>Discovery systems, creator graph intelligence, AI-assisted attribution context, compute and infrastructure support.</td></tr>
-            <tr><td>Security Audits / Penetration Testing / Hardening</td><td>$450,000</td><td>Security reviews, audits, threat modeling, payment hardening and penetration testing.</td></tr>
-            <tr><td>QA / Reliability / Testing Infrastructure</td><td>$300,000</td><td>Regression testing, onboarding testing, payout verification, reliability and load testing.</td></tr>
-            <tr><td>Infrastructure / Hosting / Scaling / DevOps</td><td>$500,000</td><td>Cloud infrastructure, monitoring, uptime, deployment systems and provider-node operations.</td></tr>
-            <tr><td>Legal / Compliance / Corporate Structure</td><td>$250,000</td><td>Corporate structure, legal, compliance, agreements, contracts and investor documentation.</td></tr>
-            <tr><td>Strategic Partnerships / Creator Growth</td><td>$350,000</td><td>Creator onboarding, partnership development, commercialization and network expansion.</td></tr>
-            <tr><td>Operating Reserve / Runway</td><td>$300,000</td><td>Operational runway, risk buffer and emergency reserve.</td></tr>
-            <tr><td>Total Raise</td><td>$5,000,000</td><td>Scale capital for Certifyd infrastructure.</td></tr>
-          </tbody></table></div>
+          <div class="section-head fade-up"><div><p class="eyebrow">Use of Funds</p><h2 id="fundsTitle">$5M infrastructure raise.</h2><p>The raise is focused on engineering, security, infrastructure, commercialization and legal readiness.</p></div></div>
+          <div class="investor-grid">
+            <article class="surface investor-card fade-up"><h3>$1.25M</h3><p>Founder-built IP, core architecture, prior development and platform consolidation.</p></article>
+            <article class="surface investor-card fade-up"><h3>$1.1M</h3><p>Core engineering, backend systems, APIs, scaling and commerce rails.</p></article>
+            <article class="surface investor-card fade-up"><h3>$1.25M</h3><p>Discovery, AI, security, QA, reliability and infrastructure operations.</p></article>
+            <article class="surface investor-card fade-up"><h3>$650K</h3><p>Legal readiness, corporate structure, agreements and investor documentation.</p></article>
+            <article class="surface investor-card fade-up"><h3>$650K</h3><p>Creator growth, partnerships, commercialization and operating reserve.</p></article>
+          </div>
         </div>
       </section>
 

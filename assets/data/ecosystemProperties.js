@@ -34,7 +34,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     displayUrl: "vassal.certifyd.me",
     actionLabel: "View Profile",
     summary:
-      "Live Certifyd profile showing creator identity and publishing in action.",
+      "A live creator profile on Certifyd.",
     signals: ["Creator relationship", "Music and entertainment", "Independent domain"],
     screenshot: "assets/screenshots/desktop/vassal-certifyd.png",
     imagePosition: "center 18%",
@@ -66,7 +66,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     url: "https://certifyd.me",
     actionLabel: "Visit Certifyd",
     summary:
-      "Public entry point for creator identity, publishing and ownership.",
+      "Creator identity and publishing.",
     signals: ["Creator identity", "Publishing", "Ownership"],
     screenshot: "assets/screenshots/desktop/certifyd.png",
     mobileScreenshot: "assets/screenshots/mobile/certifyd.png",
@@ -85,7 +85,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     url: "https://fan.certifyd.me",
     actionLabel: "Open Fan",
     summary:
-      "Discovery, playback, library, bundles and direct creator support.",
+      "Fan discovery, playback and creator support.",
     signals: ["Discovery", "Playback", "Library and bundles"],
     screenshot: "assets/screenshots/desktop/fan.png",
     mobileScreenshot: "assets/screenshots/mobile/fan.png",
@@ -104,7 +104,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     url: "https://network.certifyd.me",
     actionLabel: "Explore the Network",
     summary:
-      "Public network layer for node discovery and infrastructure services.",
+      "Node discovery and network services.",
     signals: ["Node discovery", "Network services", "Operator path"],
     screenshot: "assets/screenshots/desktop/network.png",
     mobileScreenshot: "assets/screenshots/mobile/network.png",
@@ -123,7 +123,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     url: "https://awards.certifyd.me",
     actionLabel: "Explore the Awards",
     summary:
-      "Awards platform for creators, categories, nominees and public submissions.",
+      "Awards, nominees and public submissions.",
     signals: ["Awards directory", "Nominee pages", "Submissions"],
     screenshot: "assets/screenshots/desktop/awards.png",
     mobileScreenshot: "assets/screenshots/mobile/awards.png",
@@ -141,7 +141,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     url: "https://darrylhillock.com",
     actionLabel: "Visit Website",
     summary:
-      "Founder background in product systems, music technology and creator commerce.",
+      "Founder background and product work.",
     signals: ["Product systems", "Music technology", "Creator commerce"],
     screenshot: "assets/screenshots/desktop/darrylhillock-portrait.png",
     imagePosition: "center 34%",
@@ -154,7 +154,7 @@ window.CERTIFYD_CORE_ENGINE = {
   headline: "The creator node engine.",
   summary:
     "Local node software for creators and operators.",
-  availability: "Core is the foundation for every participating Certifyd node.",
+  availability: "Every node starts with Core.",
   manages: ["Identity", "Publishing", "Files", "Catalogs", "Distribution", "Creator ownership"],
 };
 
