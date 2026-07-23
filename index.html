@@ -762,9 +762,9 @@
       }
 
       .leader-card {
-        display: grid;
-        grid-template-columns: 0.9fr 1fr;
-        min-height: 460px;
+        display: flex;
+        min-height: 0;
+        flex-direction: column;
       }
 
       .leader-copy {
@@ -772,6 +772,11 @@
         flex-direction: column;
         justify-content: flex-end;
         padding: 30px;
+      }
+
+      .leader-media {
+        display: block;
+        aspect-ratio: 16 / 10;
       }
 
       .leader-copy h3 {

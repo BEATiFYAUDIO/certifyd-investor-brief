@@ -144,7 +144,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
       "Founder profile.",
     signals: ["Product systems", "Music technology", "Company-building context"],
     screenshot: "assets/screenshots/desktop/darrylhillock-portrait.png",
-    imagePosition: "center center",
+    imagePosition: "center 34%",
   },
 ];
 
