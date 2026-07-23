@@ -229,14 +229,15 @@
       h3,
       p {
         margin-top: 0;
-        overflow-wrap: break-word;
+        overflow-wrap: normal;
       }
 
       h1 {
         margin-bottom: 24px;
-        font-size: clamp(4.8rem, 10vw, 9.6rem);
-        line-height: 0.82;
-        letter-spacing: -0.085em;
+        font-size: clamp(4rem, 8.2vw, 8.2rem);
+        line-height: 0.86;
+        letter-spacing: -0.072em;
+        text-wrap: balance;
       }
 
       h1 span {
@@ -244,11 +245,12 @@
       }
 
       .hero-subtitle {
+        max-width: 760px;
         margin-bottom: 18px;
-        font-size: clamp(1.7rem, 3.2vw, 3.1rem);
-        line-height: 1.04;
-        letter-spacing: -0.055em;
-        overflow-wrap: anywhere;
+        font-size: clamp(1.45rem, 2.55vw, 2.35rem);
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+        text-wrap: balance;
       }
 
       .lead {
@@ -1081,8 +1083,7 @@
           <div>
             <p class="eyebrow fade-up">Certifyd · Private Investor Portal</p>
             <h1 id="heroTitle" class="fade-up">
-              <span>The</span>
-              <span>infrastructure</span>
+              <span>The infrastructure</span>
               <span>creators own.</span>
             </h1>
             <p class="hero-subtitle fade-up">
