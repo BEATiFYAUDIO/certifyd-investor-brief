@@ -206,8 +206,7 @@
       .hero-card,
       .section-head,
       .product-card,
-      .leader-card,
-      .evidence-card {
+      .leader-card {
         min-width: 0;
       }
 
@@ -358,8 +357,7 @@
 
       .feature-media,
       .product-media,
-      .leader-media,
-      .evidence-media {
+      .leader-media {
         position: relative;
         overflow: hidden;
         background: #05070d;
@@ -367,8 +365,7 @@
 
       .feature-media img,
       .product-media img,
-      .leader-media img,
-      .evidence-media img {
+      .leader-media img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -377,8 +374,7 @@
 
       .feature-media::after,
       .product-media::after,
-      .leader-media::after,
-      .evidence-media::after {
+      .leader-media::after {
         content: "";
         position: absolute;
         inset: 0;
@@ -403,8 +399,7 @@
       .feature-copy p,
       .product-body p,
       .leader-copy p,
-      .thesis-card p,
-      .evidence-copy p {
+      .thesis-card p {
         color: var(--muted);
       }
 
@@ -507,9 +502,7 @@
       }
 
       .product-card:hover,
-      .product-card:focus-within,
-      .evidence-card:hover,
-      .evidence-card:focus-within {
+      .product-card:focus-within {
         transform: translateY(-4px);
         border-color: rgba(255, 159, 28, 0.28);
         box-shadow: 0 34px 94px rgba(0, 0, 0, 0.44);
@@ -518,8 +511,7 @@
       .product-card:hover img,
       .product-card:focus-within img,
       .vassal-feature:hover img,
-      .leader-card:hover img,
-      .evidence-card:hover img {
+      .leader-card:hover img {
         transform: scale(1.028);
       }
 
@@ -879,31 +871,6 @@
         letter-spacing: -0.055em;
       }
 
-      .evidence-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .evidence-card {
-        transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-      }
-
-      .evidence-media {
-        display: block;
-        aspect-ratio: 16 / 9;
-      }
-
-      .evidence-copy {
-        padding: 22px;
-      }
-
-      .evidence-copy h3 {
-        margin-bottom: 10px;
-        font-size: 1.25rem;
-        letter-spacing: -0.03em;
-      }
-
       .site-footer {
         border-top: 1px solid var(--line);
         padding: 38px 0 48px;
@@ -1044,7 +1011,6 @@
 
         .product-grid,
         .leaders-grid,
-        .evidence-grid,
         .investor-grid,
         .investor-grid.two,
         .roadmap-grid,
@@ -1140,8 +1106,7 @@
         .architecture-card,
         .product-body,
         .leader-copy,
-        .thesis-card,
-        .evidence-copy {
+        .thesis-card {
           padding: 22px;
         }
 
@@ -1338,12 +1303,17 @@
           <div class="section-head fade-up">
             <div>
               <p class="eyebrow">Products</p>
-              <h2 id="productsTitle">Products built on the network.</h2>
+              <h2 id="productsTitle">Working products, public surfaces and infrastructure.</h2>
               <p>
-                Rather than operating as isolated websites, every Certifyd product builds on the
-                same shared infrastructure.
+                Certifyd already operates across creator nodes, public applications, founder
+                profiles and product surfaces investors can open.
               </p>
             </div>
+          </div>
+          <div class="execution-list fade-up" aria-label="Execution summary">
+            <strong>Working products.</strong>
+            <strong>Public applications.</strong>
+            <strong>Founder-led execution.</strong>
           </div>
           <div id="propertyGroups"></div>
         </div>
@@ -1379,27 +1349,6 @@
             </div>
           </div>
           <div class="leaders-grid" id="leaderGrid"></div>
-        </div>
-      </section>
-
-      <section id="evidence" aria-labelledby="evidenceTitle">
-        <div class="shell">
-          <div class="section-head fade-up">
-            <div>
-              <p class="eyebrow">Execution</p>
-              <h2 id="evidenceTitle">Working products, public surfaces and infrastructure.</h2>
-              <p>
-                Certifyd already operates across creator nodes, public applications, founder
-                profiles and product surfaces investors can open.
-              </p>
-            </div>
-          </div>
-          <div class="execution-list fade-up" aria-label="Execution summary">
-            <strong>Working products.</strong>
-            <strong>Public applications.</strong>
-            <strong>Founder-led execution.</strong>
-          </div>
-          <div class="evidence-grid" id="evidenceGrid"></div>
         </div>
       </section>
 
@@ -1559,7 +1508,14 @@
       const propertyGroups = document.querySelector("#propertyGroups");
       if (propertyGroups) {
         propertyGroups.innerHTML = [
-          renderGroup("Applications", ["vassal-certifyd", "certifyd-site", "fan", "awards"]),
+          renderGroup("Applications and public surfaces", [
+            "vassal-certifyd",
+            "certifyd-site",
+            "fan",
+            "network",
+            "awards",
+            "darrylhillock",
+          ]),
         ].join("");
       }
 
@@ -1660,29 +1616,6 @@
                   <p class="relationship">${property.relationshipLabel}</p>
                   <p>${bio}</p>
                   ${textPublicLink(property, action)}
-                </div>
-              </article>
-            `;
-          })
-          .join("");
-      }
-
-      const evidenceGrid = document.querySelector("#evidenceGrid");
-      if (evidenceGrid) {
-        evidenceGrid.innerHTML = ["certifyd-site", "fan", "network", "awards", "darrylhillock"]
-          .map((id) => {
-            const property = byId[id];
-            return `
-              <article class="surface evidence-card fade-up">
-                ${mediaMarkup(property, "evidence-media")}
-                <div class="evidence-copy">
-                  <h3>${property.name}</h3>
-                  <p>${property.displayUrl || property.url.replace("https://", "")}</p>
-                  <p class="relationship">${property.category}</p>
-                  <div class="meta-row">
-                    ${statusBadge(property)}
-                  </div>
-                  ${textPublicLink(property, "Open")}
                 </div>
               </article>
             `;
