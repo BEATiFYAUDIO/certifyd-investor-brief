@@ -595,6 +595,17 @@
         letter-spacing: -0.065em;
       }
 
+      .network-showcase {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(24px, 4vw, 54px);
+        align-items: center;
+      }
+
+      .network-copy {
+        min-width: 0;
+      }
+
       .managed-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -636,16 +647,17 @@
 
       .architecture-stack {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: 1fr;
         gap: 16px;
         margin-top: 28px;
       }
 
       .architecture-layer {
-        border: 1px solid var(--line);
-        border-radius: 26px;
-        padding: 22px;
-        background: rgba(255, 255, 255, 0.035);
+        border: 0;
+        border-left: 1px solid rgba(255, 159, 28, 0.42);
+        border-radius: 0;
+        padding: 0 0 0 18px;
+        background: transparent;
       }
 
       .architecture-layer strong {
@@ -665,6 +677,32 @@
         color: var(--gold);
         text-align: center;
         font-weight: 900;
+      }
+
+      .architecture-connector {
+        display: none;
+      }
+
+      .network-media {
+        display: block;
+        aspect-ratio: 16 / 10;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        overflow: hidden;
+        background: #05070d;
+      }
+
+      .network-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left top;
+        transition: transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .network-media:hover img,
+      .network-media:focus-visible img {
+        transform: scale(1.025);
       }
 
       .thesis-arrow {
@@ -901,7 +939,8 @@
         .leaders-grid,
         .evidence-grid,
         .foundation-grid,
-        .network-grid {
+        .network-grid,
+        .network-showcase {
           grid-template-columns: 1fr;
         }
 
@@ -1183,46 +1222,8 @@
             </div>
           </div>
           <div class="network-grid">
-            <article class="surface architecture-card fade-up">
-              <p class="eyebrow">Architecture</p>
-              <h3>Shared infrastructure beneath every application.</h3>
-              <p class="lead">
-                Certifyd is positioned as infrastructure first. Public products create demand;
-                Core and Network services make the system reusable across creators, operators and
-                future applications.
-              </p>
-              <div class="architecture-stack" aria-label="Certifyd architecture layers">
-                <div class="architecture-layer">
-                  <strong>Applications</strong>
-                  <div class="architecture-pills">
-                    <span class="architecture-pill">Fan</span>
-                    <span class="architecture-pill">Awards</span>
-                    <span class="architecture-pill">Profiles</span>
-                    <span class="architecture-pill">Commerce</span>
-                  </div>
-                </div>
-                <div class="architecture-connector">↓</div>
-                <div class="architecture-layer">
-                  <strong>Certifyd Network</strong>
-                  <div class="architecture-pills">
-                    <span class="architecture-pill">Identity</span>
-                    <span class="architecture-pill">Discovery</span>
-                    <span class="architecture-pill">Routing</span>
-                    <span class="architecture-pill">Publishing</span>
-                  </div>
-                </div>
-                <div class="architecture-connector">↓</div>
-                <div class="architecture-layer">
-                  <strong>Certifyd Core</strong>
-                  <div class="architecture-pills">
-                    <span class="architecture-pill">Creator nodes</span>
-                    <span class="architecture-pill">Operator nodes</span>
-                  </div>
-                </div>
-              </div>
-            </article>
+            <article class="surface architecture-card fade-up" id="networkShowcase"></article>
           </div>
-          <div id="networkProduct"></div>
         </div>
       </section>
 
@@ -1436,9 +1437,53 @@
         ].join("");
       }
 
-      const networkProduct = document.querySelector("#networkProduct");
-      if (networkProduct) {
-        networkProduct.innerHTML = renderGroup("Network Product", ["network"]);
+      const networkShowcase = document.querySelector("#networkShowcase");
+      if (networkShowcase) {
+        const network = byId["network"];
+        networkShowcase.innerHTML = `
+          <div class="network-showcase">
+            <div class="network-copy">
+              <p class="eyebrow">Architecture</p>
+              <h3>Shared infrastructure beneath every application.</h3>
+              <p class="lead">
+                Certifyd is positioned as infrastructure first. Public products create demand;
+                Core and Network services make the system reusable across creators, operators and
+                future applications.
+              </p>
+              <div class="architecture-stack" aria-label="Certifyd architecture layers">
+                <div class="architecture-layer">
+                  <strong>Applications</strong>
+                  <div class="architecture-pills">
+                    <span class="architecture-pill">Fan</span>
+                    <span class="architecture-pill">Awards</span>
+                    <span class="architecture-pill">Profiles</span>
+                    <span class="architecture-pill">Commerce</span>
+                  </div>
+                </div>
+                <div class="architecture-layer">
+                  <strong>Certifyd Network</strong>
+                  <div class="architecture-pills">
+                    <span class="architecture-pill">Identity</span>
+                    <span class="architecture-pill">Discovery</span>
+                    <span class="architecture-pill">Routing</span>
+                    <span class="architecture-pill">Publishing</span>
+                  </div>
+                </div>
+                <div class="architecture-layer">
+                  <strong>Certifyd Core</strong>
+                  <div class="architecture-pills">
+                    <span class="architecture-pill">Creator nodes</span>
+                    <span class="architecture-pill">Operator nodes</span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-actions">
+                ${publicLink(network, network.actionLabel)}
+              </div>
+            </div>
+            ${mediaMarkup(network, "network-media")}
+          </div>
+        `;
       }
 
       const thesisGrid = document.querySelector("#thesisGrid");
