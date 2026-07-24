@@ -463,6 +463,9 @@
       }
 
       .revenue-surfaces article {
+        display: grid;
+        grid-template-rows: minmax(38px, auto) 1fr;
+        align-content: start;
         min-height: 128px;
         border: 1px solid var(--line);
         border-radius: 22px;
@@ -480,6 +483,7 @@
       }
 
       .revenue-surfaces span {
+        align-self: start;
         color: var(--gold-soft);
         font-size: 0.78rem;
         font-weight: 850;
