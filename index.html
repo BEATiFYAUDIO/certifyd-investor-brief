@@ -497,6 +497,8 @@
       }
 
       .product-card {
+        display: flex;
+        flex-direction: column;
         transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
       }
 
@@ -520,6 +522,9 @@
       }
 
       .product-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
         padding: 24px;
       }
 
@@ -572,7 +577,8 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        margin-top: 24px;
+        margin-top: auto;
+        padding-top: 24px;
       }
 
       .foundation-grid,
