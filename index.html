@@ -560,6 +560,14 @@
         font-weight: 820;
       }
 
+      .product-url {
+        display: block;
+        margin-top: 3px;
+        color: var(--quiet);
+        font-size: 0.82rem;
+        font-weight: 720;
+      }
+
       .product-actions {
         display: flex;
         flex-wrap: wrap;
@@ -1396,6 +1404,7 @@
                 <div>
                   <h3>${property.name}</h3>
                   <span class="relationship">${property.category}</span>
+                  ${property.displayUrl ? `<span class="product-url">${property.displayUrl}</span>` : ""}
                 </div>
               </div>
               ${statusBadge(property)}
