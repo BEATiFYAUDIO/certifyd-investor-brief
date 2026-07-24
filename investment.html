@@ -455,6 +455,38 @@
         color: var(--muted);
       }
 
+      .revenue-surfaces {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .revenue-surfaces article {
+        min-height: 128px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 18px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.022));
+      }
+
+      .revenue-surfaces strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text);
+        font-size: 1rem;
+        line-height: 1.05;
+        letter-spacing: -0.025em;
+      }
+
+      .revenue-surfaces span {
+        color: var(--gold-soft);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
       .property-group {
         margin-top: 76px;
         padding-top: 30px;
@@ -1013,6 +1045,7 @@
         .evidence-grid,
         .investor-grid,
         .investor-grid.two,
+        .revenue-surfaces,
         .roadmap-grid,
         .foundation-grid,
         .network-grid,
@@ -1217,6 +1250,13 @@
           <figure class="surface ecosystem-art fade-up">
             <img src="assets/hero/certifyd-money-cycle.png" alt="Certifyd monetization ecosystem diagram showing revenue streams, network nodes and value flow" loading="lazy" decoding="async" />
             <figcaption class="caption">Simple version: money comes in through creator activity, moves through Certifyd rails, and supports creators, operators and the network.</figcaption>
+            <div class="revenue-surfaces" aria-label="Revenue-generating Certifyd surfaces">
+              <article><strong>Media and campaigns</strong><span>Promo fees</span></article>
+              <article><strong>Fan discovery and player</strong><span>Subscriptions</span></article>
+              <article><strong>Certifyd Awards</strong><span>Registration fees</span></article>
+              <article><strong>Infrastructure assist</strong><span>Service fees</span></article>
+              <article><strong>Developer ecosystem tools</strong><span>Usage fees</span></article>
+            </div>
           </figure>
           <div class="investor-grid" style="margin-top: 24px;">
             <article class="surface investor-card fade-up"><h3>Revenue comes in.</h3><p>Fans, buyers, partners and campaigns pay for creator access, services and products.</p></article>
