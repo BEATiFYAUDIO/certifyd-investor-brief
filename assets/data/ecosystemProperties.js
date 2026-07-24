@@ -31,6 +31,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     group: "featured",
     category: "Applications",
     relationshipLabel: "Creator profile",
+    url: "https://vassal.certifyd.me",
     displayUrl: "vassal.certifyd.me",
     actionLabel: "View Profile",
     summary:
