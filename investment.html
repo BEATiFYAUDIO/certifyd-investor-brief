@@ -457,18 +457,27 @@
         color: var(--muted);
       }
 
+      .model-closing {
+        max-width: 820px;
+        margin: 30px auto 0;
+        text-align: center;
+        color: var(--text);
+        font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+        line-height: 1.35;
+      }
+
       .revenue-surfaces {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
         margin-top: 22px;
       }
 
       .revenue-surfaces article {
         display: grid;
-        grid-template-rows: minmax(38px, auto) 1fr;
+        grid-template-rows: auto 1fr auto;
         align-content: start;
-        min-height: 128px;
+        min-height: 170px;
         border: 1px solid var(--line);
         border-radius: 22px;
         padding: 18px;
@@ -484,8 +493,15 @@
         letter-spacing: -0.025em;
       }
 
+      .revenue-surfaces p {
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.42;
+      }
+
       .revenue-surfaces span {
-        align-self: start;
+        align-self: end;
         color: var(--gold-soft);
         font-size: 0.78rem;
         font-weight: 850;
@@ -1197,7 +1213,6 @@
           <a href="index.html">Overview</a>
           <a href="#opportunity">Opportunity</a>
           <a href="#model">Model</a>
-          <a href="#earns">Revenue</a>
           <a href="#funds">Transaction</a>
           <a href="#contact">Ask</a>
         </nav>
@@ -1208,7 +1223,6 @@
         <a href="index.html">Overview</a>
         <a href="#opportunity">Opportunity</a>
         <a href="#model">Model</a>
-        <a href="#earns">Revenue</a>
         <a href="#funds">Transaction</a>
         <a href="#contact">Ask</a>
       </nav>
@@ -1242,12 +1256,20 @@
 
       <section id="model" aria-labelledby="modelTitle">
         <div class="shell">
-          <div class="section-head fade-up"><div><p class="eyebrow">The Model</p><h2 id="modelTitle">Creators own more. Certifyd earns when they do business.</h2><p>Fan, Awards, profiles, commerce and enterprise products all run on the same foundation.</p></div></div>
-          <div class="roadmap-grid">
-            <article class="surface roadmap-phase fade-up"><strong>More revenue</strong><p>Each product creates another way to sell.</p></article>
-            <article class="surface roadmap-phase fade-up"><strong>Less duplication</strong><p>New products reuse the same foundation.</p></article>
-            <article class="surface roadmap-phase fade-up"><strong>Faster expansion</strong><p>Certifyd can add new surfaces faster.</p></article>
-          </div>
+          <div class="section-head fade-up"><div><p class="eyebrow">The Model</p><h2 id="modelTitle">One creator. Multiple revenue streams.</h2><p>Certifyd connects the businesses around creators into one economy. Every service creates value for creators while creating another opportunity for Certifyd to earn.</p></div></div>
+          <figure class="surface ecosystem-art fade-up">
+            <img src="assets/hero/certifyd-money-cycle.png" alt="Certifyd monetization ecosystem diagram showing revenue streams, network nodes and value flow" loading="lazy" decoding="async" />
+            <figcaption class="caption">Bitcoin and Lightning give Certifyd a neutral settlement base today. Other payment rails can be added over time.</figcaption>
+            <div class="revenue-surfaces" aria-label="Revenue-generating Certifyd surfaces">
+              <article><strong>Promotion</strong><p>Marketing, campaigns and promotion help creators reach new audiences.</p><span>Promotion fees</span></article>
+              <article><strong>Discovery</strong><p>Fans discover, follow and support creators through Certifyd.</p><span>Subscriptions</span></article>
+              <article><strong>Recognition</strong><p>Awards recognize achievement and increase visibility.</p><span>Registration fees</span></article>
+              <article><strong>Commerce</strong><p>Creators sell directly to their audience.</p><span>Transaction revenue</span></article>
+              <article><strong>Services</strong><p>Businesses provide tools, integrations and support to creators.</p><span>Service fees</span></article>
+              <article><strong>Developer Ecosystem</strong><p>Developers build products that expand the economy.</p><span>Usage fees</span></article>
+            </div>
+          </figure>
+          <p class="model-closing fade-up">Every new business strengthens the creator economy, giving creators more opportunities to earn while expanding Certifyd's revenue streams.</p>
         </div>
       </section>
 
@@ -1257,29 +1279,6 @@
           <div class="investor-grid">
             <article class="surface investor-card fade-up"><h3>Creator businesses are growing.</h3><p>Creators now sell memberships, merchandise, licensing, events and direct access—not just content.</p></article>
             <article class="surface investor-card fade-up"><h3>AI changes the economics.</h3><p>AI lowers the cost of onboarding while increasing the value of trusted identity and ownership.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section id="earns" aria-labelledby="earnsTitle">
-        <div class="shell">
-          <div class="section-head fade-up"><div><p class="eyebrow">How Certifyd Earns</p><h2 id="earnsTitle">Creators get more ways to sell. Certifyd gets more ways to earn.</h2></div></div>
-          <figure class="surface ecosystem-art fade-up">
-            <img src="assets/hero/certifyd-money-cycle.png" alt="Certifyd monetization ecosystem diagram showing revenue streams, network nodes and value flow" loading="lazy" decoding="async" />
-            <figcaption class="caption">Bitcoin and Lightning give Certifyd a neutral settlement base today. Other payment rails can be added over time.</figcaption>
-            <div class="revenue-surfaces" aria-label="Revenue-generating Certifyd surfaces">
-              <article><strong>Media and campaigns</strong><span>Promo fees</span></article>
-              <article><strong>Fan discovery and player</strong><span>Subscriptions</span></article>
-              <article><strong>Certifyd Awards</strong><span>Registration fees</span></article>
-              <article><strong>Infrastructure assist</strong><span>Service fees</span></article>
-              <article><strong>Developer ecosystem tools</strong><span>Usage fees</span></article>
-            </div>
-          </figure>
-          <div class="investor-grid two">
-            <article class="surface investor-card fade-up"><h3>Commerce.</h3><p>Unlocks, premium releases and paid access.</p></article>
-            <article class="surface investor-card fade-up"><h3>Software.</h3><p>Tools for publishing, selling and customer ownership.</p></article>
-            <article class="surface investor-card fade-up"><h3>Services.</h3><p>Commercial support for creators, catalogs and partners.</p></article>
-            <article class="surface investor-card fade-up"><h3>Enterprise.</h3><p>Managed products, white-label options and reporting.</p></article>
           </div>
         </div>
       </section>
