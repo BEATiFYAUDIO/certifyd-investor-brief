@@ -598,7 +598,7 @@
 
       .network-showcase {
         display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
+        grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.18fr);
         gap: clamp(24px, 4vw, 54px);
         align-items: center;
       }
@@ -616,8 +616,7 @@
         list-style: none;
       }
 
-      .managed-grid li,
-      .architecture-pill {
+      .managed-grid li {
         border: 1px solid var(--line);
         border-radius: 999px;
         padding: 12px 14px;
@@ -648,38 +647,27 @@
       .architecture-stack {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 16px;
-        margin-top: 28px;
+        gap: 10px;
+        margin-top: 24px;
       }
 
       .architecture-layer {
-        border: 0;
-        border-left: 1px solid rgba(255, 159, 28, 0.42);
-        border-radius: 0;
-        padding: 0 0 0 18px;
-        background: transparent;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.032);
       }
 
       .architecture-layer strong {
         display: block;
-        margin-bottom: 12px;
+        margin-bottom: 6px;
         font-size: 1.1rem;
       }
 
-      .architecture-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 9px;
-      }
-
-      .architecture-connector {
-        color: var(--gold);
-        text-align: center;
-        font-weight: 900;
-      }
-
-      .architecture-connector {
-        display: none;
+      .architecture-layer span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.95rem;
       }
 
       .network-media {
@@ -1446,35 +1434,22 @@
           <div class="network-showcase">
             <div class="network-copy">
               <p class="eyebrow">Architecture</p>
-              <h3>Many nodes. One connected network.</h3>
+              <h3>One network beneath every product.</h3>
               <p class="lead">
-                The public products are the front end. The real leverage is the node network underneath them.
+                Fan, Awards, profiles and commerce all run on shared Certifyd infrastructure.
               </p>
               <div class="architecture-stack" aria-label="Certifyd architecture layers">
                 <div class="architecture-layer">
-                  <strong>Applications</strong>
-                  <div class="architecture-pills">
-                    <span class="architecture-pill">Fan</span>
-                    <span class="architecture-pill">Awards</span>
-                    <span class="architecture-pill">Profiles</span>
-                    <span class="architecture-pill">Commerce</span>
-                  </div>
+                  <strong>Public products</strong>
+                  <span>Fan, Awards, Profiles and Commerce.</span>
                 </div>
                 <div class="architecture-layer">
                   <strong>Certifyd Network</strong>
-                  <div class="architecture-pills">
-                    <span class="architecture-pill">Identity</span>
-                    <span class="architecture-pill">Discovery</span>
-                    <span class="architecture-pill">Routing</span>
-                    <span class="architecture-pill">Publishing</span>
-                  </div>
+                  <span>Identity, discovery, routing and publishing services.</span>
                 </div>
                 <div class="architecture-layer">
                   <strong>Certifyd Core</strong>
-                  <div class="architecture-pills">
-                    <span class="architecture-pill">Creator nodes</span>
-                    <span class="architecture-pill">Operator nodes</span>
-                  </div>
+                  <span>Creator and operator nodes running locally.</span>
                 </div>
               </div>
               <div class="product-actions">
