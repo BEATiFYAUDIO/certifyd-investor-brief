@@ -221,8 +221,10 @@
       }
 
       .eyebrow {
-        margin: 0 0 16px;
+        margin: 0 0 20px;
         color: var(--gold);
+        font-size: clamp(0.82rem, 0.88vw, 0.95rem);
+        line-height: 1.2;
       }
 
       h1,
@@ -323,14 +325,14 @@
         justify-content: space-between;
         align-items: flex-end;
         gap: 28px;
-        margin-bottom: 36px;
+        margin-bottom: 48px;
       }
 
       .section-head h2 {
         max-width: 870px;
-        margin-bottom: 12px;
+        margin-bottom: 18px;
         font-size: clamp(2.8rem, 5.6vw, 5.9rem);
-        line-height: 0.88;
+        line-height: 0.94;
         letter-spacing: -0.07em;
       }
 
@@ -1035,11 +1037,12 @@
 
         .section-head {
           display: block;
-          margin-bottom: 24px;
+          margin-bottom: 34px;
         }
 
         .section-head h2 {
           font-size: clamp(2.45rem, 13vw, 4.15rem);
+          line-height: 1;
         }
 
         .feature-media {
