@@ -523,6 +523,15 @@
         aspect-ratio: 16 / 10;
       }
 
+      .feature-media picture,
+      .product-media picture,
+      .network-media picture,
+      .leader-media picture {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
       .product-body {
         display: flex;
         flex: 1;
@@ -1046,7 +1055,8 @@
         }
 
         .feature-media {
-          min-height: 320px;
+          min-height: 0;
+          aspect-ratio: 16 / 10;
         }
 
         .feature-copy,
@@ -1057,12 +1067,85 @@
           padding: 22px;
         }
 
-        .product-media {
-          aspect-ratio: 4 / 3;
+        .product-card,
+        .architecture-card,
+        .leader-card,
+        .vassal-feature {
+          border-radius: 28px;
+        }
+
+        .feature-media,
+        .product-media,
+        .network-media {
+          max-height: 270px;
+          background:
+            radial-gradient(circle at 50% 0%, rgba(139, 183, 255, 0.14), transparent 42%),
+            #05070d;
+        }
+
+        .product-media,
+        .network-media {
+          aspect-ratio: 16 / 10;
+        }
+
+        .feature-media img,
+        .product-media img,
+        .network-media img {
+          object-fit: contain;
+          object-position: center top !important;
+        }
+
+        .product-body {
+          gap: 10px;
+        }
+
+        .product-top {
+          gap: 12px;
+          margin-bottom: 10px;
+        }
+
+        .product-title {
+          align-items: flex-start;
+        }
+
+        .product-logo {
+          width: 34px;
+          height: 34px;
+          border-radius: 11px;
+          padding: 6px;
+        }
+
+        .product-title h3 {
+          font-size: clamp(1.35rem, 8vw, 2rem);
+          line-height: 1.02;
+        }
+
+        .product-body p {
+          margin-bottom: 8px;
+          font-size: 1rem;
+          line-height: 1.38;
+        }
+
+        .product-actions {
+          padding-top: 14px;
         }
 
         .leader-media {
           min-height: 340px;
+        }
+
+        .network-showcase {
+          gap: 22px;
+        }
+
+        .architecture-card h3 {
+          font-size: clamp(2.15rem, 10vw, 3.25rem);
+          line-height: 0.98;
+        }
+
+        .architecture-layer {
+          padding: 13px 14px;
+          border-radius: 14px;
         }
 
         .ecosystem-art {
@@ -1100,6 +1183,26 @@
         .hero-card .lead,
         .hero-note {
           max-width: 300px;
+        }
+
+        .feature-media,
+        .product-media,
+        .network-media {
+          max-height: 238px;
+        }
+
+        .feature-copy,
+        .foundation-copy,
+        .architecture-card,
+        .product-body,
+        .leader-copy {
+          padding: 20px;
+        }
+
+        .button,
+        .text-link {
+          min-height: 44px;
+          padding: 11px 15px;
         }
       }
     </style>
