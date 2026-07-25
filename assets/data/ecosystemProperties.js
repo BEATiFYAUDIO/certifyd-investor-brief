@@ -140,7 +140,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     screenshot: "assets/screenshots/desktop/awards.png",
     mobileScreenshot: "assets/screenshots/mobile/awards-card.jpg",
     mediaAspect: "16 / 10",
-    mobileMediaAspect: "5 / 4",
+    mobileMediaAspect: "1079 / 2052",
     imagePosition: "left top",
     sourceRepo: "certifyd-awards-site",
     sourcePath: "src/data/awards.ts",

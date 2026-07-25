@@ -16,7 +16,7 @@
     />
     <meta property="og:image" content="assets/hero/certifyd-monetization-ecosystem.png" />
     <link rel="icon" type="image/svg+xml" href="assets/brand/certifyd-tab-icon.svg" />
-    <script src="assets/data/ecosystemProperties.js"></script>
+    <script src="assets/data/ecosystemProperties.js?v=20260724-2"></script>
     <style>
       :root {
         color-scheme: dark;
@@ -1396,11 +1396,11 @@
               class="ecosystem-button"
               type="button"
               data-open-image
-              data-image-src="assets/hero/certifyd-monetization-ecosystem.png"
+              data-image-src="assets/hero/certifyd-monetization-ecosystem.png?v=20260724-2"
               data-image-alt="Certifyd monetization ecosystem diagram enlarged"
             >
               <img
-                src="assets/hero/certifyd-monetization-ecosystem.png"
+                src="assets/hero/certifyd-monetization-ecosystem.png?v=20260724-2"
                 alt="Certifyd monetization ecosystem diagram showing products, revenue streams, network nodes and value flow"
                 loading="lazy"
                 decoding="async"
@@ -1429,11 +1429,11 @@
                 class="zoom-button"
                 type="button"
                 data-open-image
-                data-image-src="assets/screenshots/desktop/contentbox-core.png"
+                data-image-src="assets/screenshots/desktop/contentbox-core.png?v=20260724-2"
                 data-image-alt="Certifyd Core dashboard enlarged"
               >
                 <img
-                  src="assets/screenshots/desktop/contentbox-core.png"
+                  src="assets/screenshots/desktop/contentbox-core.png?v=20260724-2"
                   alt="Certifyd Core dashboard showing published works and node discovery status"
                   loading="lazy"
                   decoding="async"
@@ -1530,7 +1530,7 @@
         <button class="dialog-close" type="button" data-close-image>Close</button>
         <img
           id="dialogImage"
-          src="assets/hero/certifyd-monetization-ecosystem.png"
+          src="assets/hero/certifyd-monetization-ecosystem.png?v=20260724-2"
           alt="Certifyd monetization ecosystem diagram enlarged"
         />
       </div>
@@ -1539,7 +1539,10 @@
     <script>
       const properties = window.CERTIFYD_ECOSYSTEM_PROPERTIES || [];
       const coreEngine = window.CERTIFYD_CORE_ENGINE;
-      const brandIcon = "assets/brand/certifyd-tab-icon.svg";
+      const assetVersion = "20260724-2";
+      const versionedAsset = (src) =>
+        src && !/^https?:\/\//.test(src) ? `${src}${src.includes("?") ? "&" : "?"}v=${assetVersion}` : src;
+      const brandIcon = versionedAsset("assets/brand/certifyd-tab-icon.svg");
       const byId = Object.fromEntries(properties.map((property) => [property.id, property]));
 
       const publicLink = (property, label) => `
@@ -1566,11 +1569,11 @@
         <picture>
           ${
             property.mobileScreenshot
-              ? `<source media="(max-width: 720px)" srcset="${property.mobileScreenshot}">`
+              ? `<source media="(max-width: 720px)" srcset="${versionedAsset(property.mobileScreenshot)}">`
               : ""
           }
           <img
-            src="${property.screenshot}"
+            src="${versionedAsset(property.screenshot)}"
             alt="Screenshot of ${property.name}"
             loading="lazy"
             decoding="async"
