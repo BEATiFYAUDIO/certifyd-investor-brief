@@ -108,7 +108,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
       "Node discovery and network services.",
     signals: ["Node discovery", "Network services", "Operator path"],
     screenshot: "assets/screenshots/desktop/network.png",
-    mobileScreenshot: "assets/screenshots/mobile/network.png",
+    mobileScreenshot: "assets/screenshots/mobile/network-card.jpg",
     imagePosition: "left 20%",
     sourceRepo: "certifyd-network-map",
     sourcePath: "README.md",

@@ -1092,11 +1092,19 @@
           aspect-ratio: 4 / 5;
         }
 
+        .product-card[data-product-id="network"] .product-media {
+          aspect-ratio: 16 / 9;
+        }
+
         .feature-media img,
         .product-media img,
         .network-media img {
           object-fit: cover;
           object-position: center top !important;
+        }
+
+        .product-card[data-product-id="network"] .product-media img {
+          object-position: center center !important;
         }
 
         .product-body {
@@ -1215,9 +1223,21 @@
           grid-template-columns: 1fr;
         }
 
-        .core-visual,
+        .core-visual {
+          width: calc(100vw - 20px);
+          max-width: calc(100vw - 20px);
+          min-height: 0;
+          aspect-ratio: 16 / 9;
+          margin-left: calc((100% - (100vw - 20px)) / 2);
+          border-radius: 26px;
+          background: #05070d;
+        }
+
         .core-visual img {
-          min-height: 340px;
+          min-height: 0;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
         }
 
         .footer-row {
@@ -1242,6 +1262,13 @@
         .product-media,
         .network-media {
           max-height: 500px;
+        }
+
+        .core-visual {
+          width: calc(100vw - 14px);
+          max-width: calc(100vw - 14px);
+          margin-left: calc((100% - (100vw - 14px)) / 2);
+          border-radius: 24px;
         }
 
         .feature-copy,
@@ -1531,7 +1558,7 @@
           : `<div class="${className}">${pictureMarkup(property)}</div>`;
 
       const productCard = (property) => `
-        <article class="surface product-card fade-up">
+        <article class="surface product-card fade-up" data-product-id="${property.id}">
           ${mediaMarkup(property, "product-media")}
           <div class="product-body">
             <div class="product-top">
