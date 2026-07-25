@@ -1081,7 +1081,8 @@
         .feature-media,
         .product-media,
         .network-media {
-          max-height: none;
+          min-height: 260px;
+          max-height: 560px;
           background:
             radial-gradient(circle at 50% 0%, rgba(139, 183, 255, 0.14), transparent 42%),
             #05070d;
@@ -1089,17 +1090,20 @@
 
         .product-media,
         .network-media {
-          aspect-ratio: auto;
+          aspect-ratio: 4 / 5;
         }
 
         .product-card[data-product-id="network"] .product-media {
-          aspect-ratio: auto;
+          aspect-ratio: 16 / 10;
         }
 
         .feature-media picture,
         .product-media picture,
         .network-media picture {
-          height: auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
         }
 
         .feature-media img,
@@ -1107,7 +1111,7 @@
         .network-media img {
           display: block;
           width: 100%;
-          height: auto;
+          height: 100%;
           object-fit: contain;
           object-position: center center !important;
         }
@@ -1270,7 +1274,8 @@
         .feature-media,
         .product-media,
         .network-media {
-          max-height: none;
+          min-height: 240px;
+          max-height: 520px;
         }
 
         .core-visual {
