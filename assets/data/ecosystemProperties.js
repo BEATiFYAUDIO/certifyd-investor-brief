@@ -28,7 +28,7 @@
 window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
   {
     id: "vassal-certifyd",
-    name: "Vassal Certifyd",
+    name: "Live Profile",
     type: "profile",
     group: "featured",
     category: "Applications",
