@@ -520,7 +520,7 @@
 
       .product-media {
         display: block;
-        aspect-ratio: 16 / 10;
+        aspect-ratio: var(--media-aspect, 16 / 10);
       }
 
       .feature-media picture,
@@ -644,8 +644,8 @@
 
       .core-visual {
         display: block;
-        min-height: 520px;
-        padding: 0;
+        min-height: 0;
+        padding: clamp(10px, 1.2vw, 16px);
         background:
           radial-gradient(circle at 52% 42%, rgba(139, 183, 255, 0.24), transparent 36%),
           radial-gradient(circle at 72% 74%, rgba(255, 159, 28, 0.14), transparent 34%),
@@ -653,11 +653,12 @@
       }
 
       .core-visual img {
+        display: block;
         width: 100%;
-        height: 100%;
-        min-height: 520px;
-        object-fit: cover;
-        object-position: left top;
+        height: auto;
+        border-radius: calc(var(--radius-xl) - 10px);
+        object-fit: contain;
+        object-position: center center;
         filter: saturate(0.92) contrast(1.04);
       }
 
@@ -1090,11 +1091,7 @@
 
         .product-media,
         .network-media {
-          aspect-ratio: 4 / 5;
-        }
-
-        .product-card[data-product-id="network"] .product-media {
-          aspect-ratio: 16 / 10;
+          aspect-ratio: var(--mobile-media-aspect, var(--media-aspect, 4 / 5));
         }
 
         .feature-media picture,
@@ -1121,6 +1118,7 @@
         }
 
         .product-body {
+          min-height: 214px;
           gap: 8px;
           padding: 16px 18px 18px;
         }
@@ -1168,7 +1166,8 @@
         }
 
         .product-actions {
-          padding-top: 8px;
+          margin-top: auto;
+          padding-top: 10px;
         }
 
         .leader-media {
@@ -1239,18 +1238,18 @@
         .core-visual {
           width: calc(100vw - 20px);
           max-width: calc(100vw - 20px);
-          min-height: 0;
-          aspect-ratio: 16 / 9;
-          margin-left: calc((100% - (100vw - 20px)) / 2);
+          margin-left: 50%;
+          transform: translateX(-50%);
+          padding: 8px;
           border-radius: 26px;
-          background: #05070d;
         }
 
         .core-visual img {
-          min-height: 0;
-          height: 100%;
-          object-fit: cover;
-          object-position: center top;
+          width: 100%;
+          height: auto;
+          max-height: 72vh;
+          object-fit: contain;
+          object-position: center center;
         }
 
         .footer-row {
@@ -1262,8 +1261,7 @@
         .shell {
           width: min(calc(100vw - 28px), 362px);
           max-width: min(calc(100vw - 28px), 362px);
-          margin-left: 14px;
-          margin-right: auto;
+          margin-inline: auto;
         }
 
         .hero-card .lead,
@@ -1281,7 +1279,8 @@
         .core-visual {
           width: calc(100vw - 14px);
           max-width: calc(100vw - 14px);
-          margin-left: calc((100% - (100vw - 14px)) / 2);
+          margin-left: 50%;
+          transform: translateX(-50%);
           border-radius: 24px;
         }
 
@@ -1566,10 +1565,17 @@
       const statusBadge = (property) =>
         property.status ? `<span class="status-badge status-live">${property.status}</span>` : "";
 
+      const mediaStyle = (property) => {
+        const declarations = [];
+        if (property.mediaAspect) declarations.push(`--media-aspect: ${property.mediaAspect}`);
+        if (property.mobileMediaAspect) declarations.push(`--mobile-media-aspect: ${property.mobileMediaAspect}`);
+        return declarations.length ? ` style="${declarations.join("; ")}"` : "";
+      };
+
       const mediaMarkup = (property, className) =>
         property.url
-          ? `<a class="${className}" href="${property.url}" target="_blank" rel="noopener noreferrer">${pictureMarkup(property)}</a>`
-          : `<div class="${className}">${pictureMarkup(property)}</div>`;
+          ? `<a class="${className}"${mediaStyle(property)} href="${property.url}" target="_blank" rel="noopener noreferrer">${pictureMarkup(property)}</a>`
+          : `<div class="${className}"${mediaStyle(property)}>${pictureMarkup(property)}</div>`;
 
       const productCard = (property) => `
         <article class="surface product-card fade-up" data-product-id="${property.id}">

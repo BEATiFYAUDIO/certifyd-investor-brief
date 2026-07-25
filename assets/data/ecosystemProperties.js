@@ -17,6 +17,8 @@
  * @property {string[]} signals
  * @property {string} screenshot
  * @property {string=} mobileScreenshot
+ * @property {string=} mediaAspect
+ * @property {string=} mobileMediaAspect
  * @property {string=} imagePosition
  * @property {string=} sourceRepo
  * @property {string=} sourcePath
@@ -71,6 +73,8 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     signals: ["Creator identity", "Publishing", "Ownership"],
     screenshot: "assets/screenshots/desktop/certifyd.png",
     mobileScreenshot: "assets/screenshots/mobile/certifyd-card.jpg",
+    mediaAspect: "16 / 10",
+    mobileMediaAspect: "4 / 5",
     imagePosition: "center top",
     sourceRepo: "certifyd-me-site",
     sourcePath: "index.html",
@@ -90,6 +94,8 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     signals: ["Discovery", "Playback", "Library and bundles"],
     screenshot: "assets/screenshots/desktop/fan.png",
     mobileScreenshot: "assets/screenshots/mobile/fan-card.jpg",
+    mediaAspect: "16 / 10",
+    mobileMediaAspect: "4 / 5",
     imagePosition: "left 18%",
     sourceRepo: "certifyd-fan-pwa",
     sourcePath: "public/origins.json",
@@ -109,6 +115,8 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     signals: ["Node discovery", "Network services", "Operator path"],
     screenshot: "assets/screenshots/desktop/network.png",
     mobileScreenshot: "assets/screenshots/mobile/network-card.jpg",
+    mediaAspect: "16 / 10",
+    mobileMediaAspect: "16 / 9",
     imagePosition: "left 20%",
     sourceRepo: "certifyd-network-map",
     sourcePath: "README.md",
@@ -128,6 +136,8 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     signals: ["Awards directory", "Nominee pages", "Submissions"],
     screenshot: "assets/screenshots/desktop/awards.png",
     mobileScreenshot: "assets/screenshots/mobile/awards-card.jpg",
+    mediaAspect: "16 / 10",
+    mobileMediaAspect: "4 / 5",
     imagePosition: "left top",
     sourceRepo: "certifyd-awards-site",
     sourcePath: "src/data/awards.ts",
