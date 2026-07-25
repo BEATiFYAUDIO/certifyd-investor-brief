@@ -1081,7 +1081,7 @@
         .feature-media,
         .product-media,
         .network-media {
-          max-height: 520px;
+          max-height: none;
           background:
             radial-gradient(circle at 50% 0%, rgba(139, 183, 255, 0.14), transparent 42%),
             #05070d;
@@ -1089,18 +1089,27 @@
 
         .product-media,
         .network-media {
-          aspect-ratio: 4 / 5;
+          aspect-ratio: auto;
         }
 
         .product-card[data-product-id="network"] .product-media {
-          aspect-ratio: 16 / 9;
+          aspect-ratio: auto;
+        }
+
+        .feature-media picture,
+        .product-media picture,
+        .network-media picture {
+          height: auto;
         }
 
         .feature-media img,
         .product-media img,
         .network-media img {
-          object-fit: cover;
-          object-position: center top !important;
+          display: block;
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+          object-position: center center !important;
         }
 
         .product-card[data-product-id="network"] .product-media img {
@@ -1108,8 +1117,8 @@
         }
 
         .product-body {
-          gap: 6px;
-          padding-top: 14px;
+          gap: 8px;
+          padding: 16px 18px 18px;
         }
 
         .product-top {
@@ -1155,7 +1164,7 @@
         }
 
         .product-actions {
-          padding-top: 12px;
+          padding-top: 8px;
         }
 
         .leader-media {
@@ -1261,7 +1270,7 @@
         .feature-media,
         .product-media,
         .network-media {
-          max-height: 500px;
+          max-height: none;
         }
 
         .core-visual {
