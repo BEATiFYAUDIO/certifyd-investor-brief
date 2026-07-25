@@ -119,7 +119,7 @@ window.CERTIFYD_ECOSYSTEM_PROPERTIES = [
     screenshot: "assets/screenshots/desktop/network.png",
     mobileScreenshot: "assets/screenshots/mobile/network-card.jpg",
     mediaAspect: "16 / 10",
-    mobileMediaAspect: "5 / 4",
+    mobileMediaAspect: "1080 / 2187",
     imagePosition: "left 20%",
     sourceRepo: "certifyd-network-map",
     sourcePath: "README.md",
