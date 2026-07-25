@@ -433,6 +433,7 @@
         padding: 22px;
       }
 
+      .zoom-button,
       .ecosystem-button {
         width: 100%;
         display: block;
@@ -445,6 +446,7 @@
         box-shadow: 0 36px 120px rgba(26, 87, 165, 0.18), var(--shadow-lg);
       }
 
+      .zoom-button img,
       .ecosystem-button img {
         width: 100%;
         height: auto;
@@ -1236,10 +1238,10 @@
         }
 
         .core-visual {
-          width: calc(100vw - 20px);
-          max-width: calc(100vw - 20px);
-          margin-left: 50%;
-          transform: translateX(-50%);
+          width: 100%;
+          max-width: 100%;
+          margin-left: 0;
+          transform: none;
           padding: 8px;
           border-radius: 26px;
         }
@@ -1277,10 +1279,10 @@
         }
 
         .core-visual {
-          width: calc(100vw - 14px);
-          max-width: calc(100vw - 14px);
-          margin-left: 50%;
-          transform: translateX(-50%);
+          width: 100%;
+          max-width: 100%;
+          margin-left: 0;
+          transform: none;
           border-radius: 24px;
         }
 
@@ -1390,7 +1392,13 @@
             </div>
           </div>
           <figure class="surface ecosystem-art fade-up">
-            <button class="ecosystem-button" type="button" data-open-ecosystem>
+            <button
+              class="ecosystem-button"
+              type="button"
+              data-open-image
+              data-image-src="assets/hero/certifyd-monetization-ecosystem.png"
+              data-image-alt="Certifyd monetization ecosystem diagram enlarged"
+            >
               <img
                 src="assets/hero/certifyd-monetization-ecosystem.png"
                 alt="Certifyd monetization ecosystem diagram showing products, revenue streams, network nodes and value flow"
@@ -1417,12 +1425,20 @@
           <div class="foundation-grid">
             <article class="surface foundation-copy fade-up" id="coreEngineNote"></article>
             <figure class="surface core-visual fade-up">
-              <img
-                src="assets/screenshots/desktop/contentbox-core.png"
-                alt="Certifyd Core dashboard showing published works and node discovery status"
-                loading="lazy"
-                decoding="async"
-              />
+              <button
+                class="zoom-button"
+                type="button"
+                data-open-image
+                data-image-src="assets/screenshots/desktop/contentbox-core.png"
+                data-image-alt="Certifyd Core dashboard enlarged"
+              >
+                <img
+                  src="assets/screenshots/desktop/contentbox-core.png"
+                  alt="Certifyd Core dashboard showing published works and node discovery status"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
             </figure>
           </div>
         </div>
@@ -1509,10 +1525,11 @@
       </div>
     </footer>
 
-    <dialog id="ecosystemDialog" aria-label="Certifyd monetization ecosystem enlarged">
+    <dialog id="imageDialog" aria-label="Image enlarged">
       <div class="dialog-inner">
-        <button class="dialog-close" type="button" data-close-ecosystem>Close</button>
+        <button class="dialog-close" type="button" data-close-image>Close</button>
         <img
+          id="dialogImage"
           src="assets/hero/certifyd-monetization-ecosystem.png"
           alt="Certifyd monetization ecosystem diagram enlarged"
         />
@@ -1730,17 +1747,23 @@
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
           closeMenu();
-          document.querySelector("#ecosystemDialog")?.close();
+          document.querySelector("#imageDialog")?.close();
         }
       });
 
-      const dialog = document.querySelector("#ecosystemDialog");
-      const openEcosystem = document.querySelector("[data-open-ecosystem]");
-      const closeEcosystem = document.querySelector("[data-close-ecosystem]");
-      openEcosystem?.addEventListener("click", () => {
-        if (dialog?.showModal) dialog.showModal();
+      const dialog = document.querySelector("#imageDialog");
+      const dialogImage = document.querySelector("#dialogImage");
+      const closeImage = document.querySelector("[data-close-image]");
+      document.querySelectorAll("[data-open-image]").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (dialogImage && button.dataset.imageSrc) {
+            dialogImage.src = button.dataset.imageSrc;
+            dialogImage.alt = button.dataset.imageAlt || "Enlarged image";
+          }
+          if (dialog?.showModal) dialog.showModal();
+        });
       });
-      closeEcosystem?.addEventListener("click", () => dialog?.close());
+      closeImage?.addEventListener("click", () => dialog?.close());
       dialog?.addEventListener("click", (event) => {
         if (event.target === dialog) dialog.close();
       });
