@@ -1211,12 +1211,15 @@
         }
 
         .ecosystem-art {
+          width: calc(100vw - 20px);
+          max-width: calc(100vw - 20px);
+          margin-left: calc((100% - (100vw - 20px)) / 2);
           padding: 10px;
           border-radius: 22px;
         }
 
         .ecosystem-art img {
-          max-height: 62vh;
+          max-height: 72vh;
           object-fit: contain;
         }
 
@@ -1275,8 +1278,7 @@
         .shell {
           width: min(calc(100vw - 28px), 362px);
           max-width: min(calc(100vw - 28px), 362px);
-          margin-left: 14px;
-          margin-right: auto;
+          margin-inline: auto;
         }
 
         .hero-card .lead,
