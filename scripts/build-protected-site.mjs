@@ -40,6 +40,8 @@ async function writeTemplate() {
   let template = await fs.readFile(defaultTemplate, 'utf8');
   template = template.replace('<title>/*[|template_title|]*/0</title>', '<title>Certifyd Investor Access</title>');
   template = template.replace('<p class="staticrypt-title">/*[|template_title|]*/0</p>', '<p class="staticrypt-title">Private Investor Access</p>');
+  template = template.replace('name="password"\n                                placeholder=', 'name="password"\n                                autocapitalize="none"\n                                autocomplete="current-password"\n                                autocorrect="off"\n                                spellcheck="false"\n                                placeholder=');
+  template = template.replace('document.getElementById("staticrypt-password").value,', 'document.getElementById("staticrypt-password").value.trim(),');
   const templateFile = path.join(dist, '.staticrypt-template.html');
   await fs.writeFile(templateFile, template, 'utf8');
   return templateFile;
