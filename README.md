@@ -45,6 +45,14 @@ investor.certifyd.me
 
 GitHub Pages uses that file to bind the custom domain to the site.
 
+## Private investor password
+
+Create a GitHub Actions repository secret named `INVESTOR_PAGE_PASSWORD`.
+
+Push to `main` to deploy the encrypted GitHub Pages site. The workflow builds the static site into `dist`, encrypts the HTML pages with StatiCrypt, and uploads only the protected artifact.
+
+Changing `INVESTOR_PAGE_PASSWORD` and redeploying changes the shared investor password. Do not commit the password to the repository.
+
 ## Enforce HTTPS
 
 After DNS resolves:

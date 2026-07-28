@@ -23,12 +23,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Build protected investor site
+        run: npm run build
+        env:
+          INVESTOR_PAGE_PASSWORD: ${{ secrets.INVESTOR_PAGE_PASSWORD }}
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
