@@ -1308,7 +1308,343 @@
           padding: 11px 15px;
         }
       }
-    </style>
+    
+      /* Interactive network economics */
+      .economics-architecture {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 118px minmax(0, 1fr);
+        gap: 16px;
+        align-items: stretch;
+        margin-bottom: 22px;
+      }
+
+      .economics-side,
+      .economics-panel,
+      .economics-flow-step {
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(255,255,255,0.052), rgba(255,255,255,0.022)), var(--panel);
+      }
+
+      .economics-side {
+        border-radius: var(--radius-lg);
+        padding: 24px;
+      }
+
+      .economics-side.creator { border-top: 3px solid var(--blue); }
+      .economics-side.partner { border-top: 3px solid #b995ff; }
+
+      .economics-side-label,
+      .economics-subhead,
+      .economics-metric-label {
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.7rem;
+        font-weight: 850;
+      }
+
+      .economics-side.creator .economics-side-label { color: var(--blue); }
+      .economics-side.partner .economics-side-label { color: #c8adff; }
+
+      .economics-side h3 {
+        margin: 8px 0 10px;
+        font-size: clamp(1.55rem, 2.3vw, 2.2rem);
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+      }
+
+      .economics-side p,
+      .economics-hint,
+      .economics-flow-step p {
+        color: var(--muted);
+      }
+
+      .economics-node {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .economics-node span {
+        width: 112px;
+        height: 112px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line-strong);
+        border-radius: 50%;
+        padding: 14px;
+        text-align: center;
+        font-size: 0.75rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        color: var(--gold-soft);
+        background: rgba(255,159,28,0.06);
+      }
+
+      .economics-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .economics-chip {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 8px 10px;
+        color: var(--muted);
+        background: rgba(255,255,255,0.035);
+        font-size: 0.76rem;
+        font-weight: 740;
+      }
+
+      .economics-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 20px;
+      }
+
+      .economics-panel {
+        border-radius: var(--radius-xl);
+        padding: clamp(22px, 3vw, 32px);
+        box-shadow: var(--shadow);
+      }
+
+      .economics-panel h3 {
+        margin-bottom: 22px;
+        font-size: clamp(1.55rem, 2.3vw, 2.15rem);
+        letter-spacing: -0.04em;
+      }
+
+      .economics-subhead {
+        margin: 22px 0 10px;
+        color: var(--quiet);
+      }
+
+      .economics-control {
+        margin-bottom: 18px;
+      }
+
+      .economics-labelrow {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 8px;
+      }
+
+      .economics-labelrow label {
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .economics-value {
+        color: var(--gold-soft);
+        font-weight: 900;
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+      }
+
+      .economics-control input[type="range"] {
+        width: 100%;
+        accent-color: var(--gold);
+        cursor: pointer;
+      }
+
+      .economics-hint {
+        margin-top: 6px;
+        font-size: 0.78rem;
+      }
+
+      .economics-metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 12px;
+      }
+
+      .economics-metric {
+        min-width: 0;
+        min-height: 136px;
+        display: grid;
+        grid-template-rows: 34px auto 20px;
+        align-content: start;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        padding: 16px;
+        background: rgba(255,255,255,0.028);
+      }
+
+      .economics-metric:nth-child(1),
+      .economics-metric:nth-child(2) { border-top: 2px solid var(--gold); }
+      .economics-metric:nth-child(3),
+      .economics-metric:nth-child(4) { border-top: 2px solid var(--blue); }
+      .economics-metric:nth-child(5),
+      .economics-metric:nth-child(6) { border-top: 2px solid var(--green); }
+
+      .economics-metric-label {
+        color: var(--quiet);
+        line-height: 1.25;
+      }
+
+      .economics-metric-value {
+        align-self: end;
+        font-size: clamp(1.8rem, 3.4vw, 3rem);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.045em;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .economics-metric-sub {
+        align-self: end;
+        color: var(--quiet);
+        font-size: 0.76rem;
+      }
+
+      .economics-status {
+        margin-top: 14px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px 16px;
+        font-weight: 800;
+      }
+
+      .economics-status.good {
+        color: var(--green);
+        background: rgba(159,216,182,0.065);
+      }
+
+      .economics-status.bad {
+        color: #ffb0b0;
+        background: rgba(255,120,120,0.06);
+      }
+
+      .economics-mix {
+        margin-top: 20px;
+      }
+
+      .economics-bar {
+        height: 18px;
+        display: flex;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.06);
+      }
+
+      .economics-bar > span {
+        display: block;
+        transition: width 180ms ease;
+      }
+
+      .economics-creator-bar { background: var(--blue); }
+      .economics-partner-bar { background: #a983ef; }
+      .economics-profit-bar { background: var(--green); }
+      .economics-burn-bar { background: #6e7d91; }
+
+      .economics-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 8px;
+        color: var(--quiet);
+        font-size: 0.76rem;
+      }
+
+      .economics-dot {
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        margin-right: 5px;
+        border-radius: 50%;
+      }
+
+      .economics-surface-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .economics-surface-card {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 10px 12px;
+        background: rgba(255,255,255,0.025);
+      }
+
+      .economics-surface-card span { font-size: 0.8rem; }
+      .economics-surface-card b {
+        white-space: nowrap;
+        color: var(--quiet);
+        font-size: 0.7rem;
+      }
+
+      .economics-flow {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0,1fr));
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .economics-flow-step {
+        border-radius: 14px;
+        padding: 16px;
+      }
+
+      .economics-flow-step strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .economics-flow-step p {
+        margin: 0;
+        font-size: 0.78rem;
+      }
+
+      .economics-disclosure {
+        margin-top: 16px;
+        color: var(--quiet);
+        font-size: 0.76rem;
+      }
+
+      @media (max-width: 900px) {
+        .economics-architecture,
+        .economics-grid,
+        .economics-flow {
+          grid-template-columns: 1fr;
+        }
+
+        .economics-node span {
+          width: auto;
+          height: auto;
+          border-radius: 999px;
+        }
+      }
+
+      @media (max-width: 580px) {
+        .economics-metrics,
+        .economics-surface-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .economics-metric {
+          grid-template-rows: auto auto auto;
+        }
+
+        .economics-labelrow {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .economics-value { text-align: left; }
+      }
+
+</style>
   </head>
   <body>
     <header class="site-header">
@@ -1334,6 +1670,7 @@
         <a href="#ecosystem">Ecosystem</a>
         <a href="#foundation">Core</a>
         <a href="#network">Network</a>
+        <a href="#economics">Economics</a>
         <a href="#products">Products</a>
         <a href="investment.html">Investment Ask</a>
       </nav>
@@ -1458,6 +1795,206 @@
           <div class="network-grid">
             <article class="surface architecture-card fade-up" id="networkShowcase"></article>
           </div>
+        </div>
+      </section>
+
+
+      <section id="economics" aria-labelledby="economicsTitle">
+        <div class="shell">
+          <div class="section-head fade-up">
+            <div>
+              <p class="eyebrow">Network Economics</p>
+              <h2 id="economicsTitle">Certifyd monetizes both sides of the network.</h2>
+              <p>
+                Creators use Certifyd Core to control identity, catalog and infrastructure.
+                Partners pay to access, integrate with and build commercial activity around that network.
+                Certifyd earns from optional creator services and partner participation.
+              </p>
+            </div>
+          </div>
+
+          <div class="economics-architecture fade-up">
+            <article class="economics-side creator">
+              <div class="economics-side-label">Creator revenue</div>
+              <h3>Creators pay for optional network functions.</h3>
+              <p>Core remains free. Revenue comes from value-added services creators choose to use.</p>
+              <div class="economics-chips">
+                <span class="economics-chip">Registration</span>
+                <span class="economics-chip">Promotion</span>
+                <span class="economics-chip">Fan / Discovery</span>
+                <span class="economics-chip">Awards</span>
+                <span class="economics-chip">Infrastructure Assist</span>
+                <span class="economics-chip">Premium Network Services</span>
+              </div>
+            </article>
+
+            <div class="economics-node" aria-hidden="true"><span>CERTIFYD<br>NETWORK</span></div>
+
+            <article class="economics-side partner">
+              <div class="economics-side-label">Partner revenue</div>
+              <h3>Partners pay for commercial access and participation.</h3>
+              <p>Retailers, developers, brands, enterprises and strategic partners monetize the network from the other side.</p>
+              <div class="economics-chips">
+                <span class="economics-chip">Retail Partners</span>
+                <span class="economics-chip">Strategic Partnerships</span>
+                <span class="economics-chip">Developer / API</span>
+                <span class="economics-chip">Enterprise</span>
+                <span class="economics-chip">Licensing</span>
+                <span class="economics-chip">White-label</span>
+                <span class="economics-chip">Distribution / Integrations</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="economics-grid">
+            <article class="economics-panel fade-up">
+              <h3>Model the network</h3>
+
+              <div class="economics-subhead">Creator side</div>
+              <div class="economics-control">
+                <div class="economics-labelrow">
+                  <label for="econCreators">Active creators</label>
+                  <span class="economics-value" id="econCreatorsVal">40,000</span>
+                </div>
+                <input id="econCreators" type="range" min="1000" max="500000" step="1000" value="40000">
+              </div>
+
+              <div class="economics-control">
+                <div class="economics-labelrow">
+                  <label for="econCreatorYield">Creator-side network revenue</label>
+                  <span class="economics-value" id="econCreatorYieldVal">US$2.00 / creator / mo</span>
+                </div>
+                <input id="econCreatorYield" type="range" min="0" max="15" step="0.25" value="2">
+                <div class="economics-hint">Aggregate creator-side revenue ÷ active creators. This is not a mandatory creator fee.</div>
+              </div>
+
+              <div class="economics-subhead">Partner side</div>
+              <div class="economics-control">
+                <div class="economics-labelrow">
+                  <label for="econPartners">Active commercial partners</label>
+                  <span class="economics-value" id="econPartnersVal">250</span>
+                </div>
+                <input id="econPartners" type="range" min="0" max="5000" step="25" value="250">
+              </div>
+
+              <div class="economics-control">
+                <div class="economics-labelrow">
+                  <label for="econPartnerYield">Average partner revenue</label>
+                  <span class="economics-value" id="econPartnerYieldVal">US$500 / partner / mo</span>
+                </div>
+                <input id="econPartnerYield" type="range" min="0" max="5000" step="50" value="500">
+                <div class="economics-hint">Blended average across retail, partnerships, API, enterprise, licensing and other partner activity.</div>
+              </div>
+
+              <div class="economics-subhead">Company economics</div>
+              <div class="economics-control">
+                <div class="economics-labelrow">
+                  <label for="econBurn">Annual operating burn</label>
+                  <span class="economics-value" id="econBurnVal">US$2.00M</span>
+                </div>
+                <input id="econBurn" type="range" min="500000" max="6000000" step="100000" value="2000000">
+              </div>
+
+              <div class="economics-control">
+                <div class="economics-labelrow">
+                  <label for="econMargin">Blended gross margin</label>
+                  <span class="economics-value" id="econMarginVal">90%</span>
+                </div>
+                <input id="econMargin" type="range" min="50" max="98" step="1" value="90">
+              </div>
+            </article>
+
+            <article class="economics-panel fade-up">
+              <h3>What the model produces</h3>
+              <div class="economics-metrics">
+                <div class="economics-metric">
+                  <div class="economics-metric-label">Annual network revenue</div>
+                  <div class="economics-metric-value" id="econAnnualRevenue">US$2.46M</div>
+                  <div class="economics-metric-sub" id="econMonthlyRevenue">US$205K / month</div>
+                </div>
+                <div class="economics-metric">
+                  <div class="economics-metric-label">Revenue needed for break-even</div>
+                  <div class="economics-metric-value" id="econBreakEvenRevenue">US$2.22M</div>
+                  <div class="economics-metric-sub">at the selected gross margin</div>
+                </div>
+                <div class="economics-metric">
+                  <div class="economics-metric-label">Creator-side revenue</div>
+                  <div class="economics-metric-value" id="econCreatorRevenue">US$960K</div>
+                  <div class="economics-metric-sub" id="econCreatorShare">39% of total revenue</div>
+                </div>
+                <div class="economics-metric">
+                  <div class="economics-metric-label">Partner-side revenue</div>
+                  <div class="economics-metric-value" id="econPartnerRevenue">US$1.50M</div>
+                  <div class="economics-metric-sub" id="econPartnerShare">61% of total revenue</div>
+                </div>
+                <div class="economics-metric">
+                  <div class="economics-metric-label">Gross profit</div>
+                  <div class="economics-metric-value" id="econGrossProfit">US$2.21M</div>
+                  <div class="economics-metric-sub" id="econGrossMarginText">90% blended margin</div>
+                </div>
+                <div class="economics-metric">
+                  <div class="economics-metric-label">Operating profit</div>
+                  <div class="economics-metric-value" id="econOperatingProfit">US$214K</div>
+                  <div class="economics-metric-sub" id="econOperatingMargin">8.7% operating margin</div>
+                </div>
+              </div>
+
+              <div class="economics-status good" id="econStatus">At these assumptions, Certifyd is operating-profit positive.</div>
+
+              <div class="economics-mix">
+                <div class="economics-subhead">Revenue mix — by payer</div>
+                <div class="economics-bar" aria-label="Creator and partner revenue mix">
+                  <span class="economics-creator-bar" id="econCreatorBar" style="width:39%"></span>
+                  <span class="economics-partner-bar" id="econPartnerBar" style="width:61%"></span>
+                </div>
+                <div class="economics-legend">
+                  <span><i class="economics-dot" style="background:var(--blue)"></i>Creator-side revenue</span>
+                  <span><i class="economics-dot" style="background:#a983ef"></i>Partner-side revenue</span>
+                </div>
+              </div>
+
+              <div class="economics-mix">
+                <div class="economics-subhead">Gross profit vs. annual operating burn</div>
+                <div class="economics-bar" aria-label="Gross profit compared with annual operating burn">
+                  <span class="economics-profit-bar" id="econProfitBar" style="width:53%"></span>
+                  <span class="economics-burn-bar" id="econBurnBar" style="width:47%"></span>
+                </div>
+                <div class="economics-legend">
+                  <span><i class="economics-dot" style="background:var(--green)"></i>Gross profit</span>
+                  <span><i class="economics-dot" style="background:#6e7d91"></i>Operating burn</span>
+                </div>
+                <div class="economics-hint" id="econProfitabilityHint">Gross profit exceeds annual operating burn.</div>
+              </div>
+
+              <div class="economics-mix">
+                <div class="economics-subhead">Revenue mix — by monetization surface</div>
+                <div class="economics-surface-grid">
+                  <div class="economics-surface-card"><span>Registration</span><b>Creator</b></div>
+                  <div class="economics-surface-card"><span>Retail Partners</span><b>Partner</b></div>
+                  <div class="economics-surface-card"><span>Promotion</span><b>Creator / Partner</b></div>
+                  <div class="economics-surface-card"><span>Fan / Discovery</span><b>Creator</b></div>
+                  <div class="economics-surface-card"><span>Awards</span><b>Creator / Org</b></div>
+                  <div class="economics-surface-card"><span>Infrastructure Assist</span><b>Both</b></div>
+                  <div class="economics-surface-card"><span>Developer / API</span><b>Partner</b></div>
+                  <div class="economics-surface-card"><span>Enterprise</span><b>Partner</b></div>
+                  <div class="economics-surface-card"><span>Partnerships & Licensing</span><b>Partner</b></div>
+                  <div class="economics-surface-card"><span>Future Network Functions</span><b>Both</b></div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="economics-flow fade-up" aria-label="Certifyd network economics flow">
+            <div class="economics-flow-step"><strong>1. Free Core</strong><p>Creators control identity, catalog and infrastructure.</p></div>
+            <div class="economics-flow-step"><strong>2. Creator Network</strong><p>More creator-controlled nodes increase supply, utility and commercial surface area.</p></div>
+            <div class="economics-flow-step"><strong>3. Two-Sided Monetization</strong><p>Creators buy optional functions while partners pay for commercial access, integrations and services.</p></div>
+            <div class="economics-flow-step"><strong>4. Edge Cost Advantage</strong><p>Creator-side storage and compute scale with creators rather than becoming Certifyd's centralized hosting burden.</p></div>
+            <div class="economics-flow-step"><strong>5. Operating Leverage</strong><p>Revenue can grow across both sides while the centralized cost base remains comparatively lean.</p></div>
+          </div>
+
+          <p class="economics-disclosure fade-up">
+            Illustrative investor model. Creator-side and partner-side revenue are blended network averages, not guaranteed pricing or adoption assumptions. Actual results depend on adoption, pricing, deal mix, margins and operating costs.
+          </p>
         </div>
       </section>
 
@@ -1789,5 +2326,122 @@
         });
       }
     </script>
-  </body>
+  
+    <script>
+      (() => {
+        const byId = (id) => document.getElementById(id);
+        const controls = {
+          creators: byId("econCreators"),
+          creatorYield: byId("econCreatorYield"),
+          partners: byId("econPartners"),
+          partnerYield: byId("econPartnerYield"),
+          burn: byId("econBurn"),
+          margin: byId("econMargin"),
+        };
+        if (!controls.creators) return;
+
+        const nodes = {
+          creatorsVal: byId("econCreatorsVal"),
+          creatorYieldVal: byId("econCreatorYieldVal"),
+          partnersVal: byId("econPartnersVal"),
+          partnerYieldVal: byId("econPartnerYieldVal"),
+          burnVal: byId("econBurnVal"),
+          marginVal: byId("econMarginVal"),
+          annualRevenue: byId("econAnnualRevenue"),
+          monthlyRevenue: byId("econMonthlyRevenue"),
+          creatorRevenue: byId("econCreatorRevenue"),
+          creatorShare: byId("econCreatorShare"),
+          partnerRevenue: byId("econPartnerRevenue"),
+          partnerShare: byId("econPartnerShare"),
+          grossProfit: byId("econGrossProfit"),
+          grossMarginText: byId("econGrossMarginText"),
+          operatingProfit: byId("econOperatingProfit"),
+          operatingMargin: byId("econOperatingMargin"),
+          breakEvenRevenue: byId("econBreakEvenRevenue"),
+          status: byId("econStatus"),
+          creatorBar: byId("econCreatorBar"),
+          partnerBar: byId("econPartnerBar"),
+          profitBar: byId("econProfitBar"),
+          burnBar: byId("econBurnBar"),
+          profitabilityHint: byId("econProfitabilityHint"),
+        };
+
+        const money = (value) => {
+          const n = Number.isFinite(value) ? value : 0;
+          const a = Math.abs(n);
+          let label;
+          if (a >= 1e9) label = "US$" + (a / 1e9).toFixed(2) + "B";
+          else if (a >= 1e6) label = "US$" + (a / 1e6).toFixed(2) + "M";
+          else if (a >= 1e3) label = "US$" + Math.round(a / 1e3).toLocaleString() + "K";
+          else label = "US$" + Math.round(a).toLocaleString();
+          return n < 0 ? "−" + label : label;
+        };
+
+        const integer = (value) => Math.round(value).toLocaleString();
+
+        const update = () => {
+          const creators = Math.max(0, Number(controls.creators.value));
+          const creatorYield = Math.max(0, Number(controls.creatorYield.value));
+          const partners = Math.max(0, Number(controls.partners.value));
+          const partnerYield = Math.max(0, Number(controls.partnerYield.value));
+          const burn = Math.max(0, Number(controls.burn.value));
+          const margin = Math.min(0.999, Math.max(0.01, Number(controls.margin.value) / 100));
+
+          const creatorMonthly = creators * creatorYield;
+          const partnerMonthly = partners * partnerYield;
+          const monthlyRevenue = creatorMonthly + partnerMonthly;
+          const annualCreator = creatorMonthly * 12;
+          const annualPartner = partnerMonthly * 12;
+          const annualRevenue = monthlyRevenue * 12;
+          const grossProfit = annualRevenue * margin;
+          const operatingProfit = grossProfit - burn;
+          const operatingMargin = annualRevenue > 0 ? operatingProfit / annualRevenue : 0;
+          const breakEvenRevenue = burn / margin;
+          const creatorPct = annualRevenue > 0 ? annualCreator / annualRevenue : 0;
+          const partnerPct = annualRevenue > 0 ? annualPartner / annualRevenue : 0;
+
+          nodes.creatorsVal.textContent = integer(creators);
+          nodes.creatorYieldVal.textContent = "US$" + creatorYield.toFixed(2) + " / creator / mo";
+          nodes.partnersVal.textContent = integer(partners);
+          nodes.partnerYieldVal.textContent = "US$" + Math.round(partnerYield).toLocaleString() + " / partner / mo";
+          nodes.burnVal.textContent = money(burn);
+          nodes.marginVal.textContent = Math.round(margin * 100) + "%";
+
+          nodes.annualRevenue.textContent = money(annualRevenue);
+          nodes.monthlyRevenue.textContent = money(monthlyRevenue) + " / month";
+          nodes.creatorRevenue.textContent = money(annualCreator);
+          nodes.creatorShare.textContent = (creatorPct * 100).toFixed(0) + "% of total revenue";
+          nodes.partnerRevenue.textContent = money(annualPartner);
+          nodes.partnerShare.textContent = (partnerPct * 100).toFixed(0) + "% of total revenue";
+          nodes.grossProfit.textContent = money(grossProfit);
+          nodes.grossMarginText.textContent = Math.round(margin * 100) + "% blended margin";
+          nodes.operatingProfit.textContent = money(operatingProfit);
+          nodes.operatingMargin.textContent = (operatingMargin * 100).toFixed(1) + "% operating margin";
+          nodes.breakEvenRevenue.textContent = money(breakEvenRevenue);
+
+          nodes.creatorBar.style.width = (creatorPct * 100) + "%";
+          nodes.partnerBar.style.width = (partnerPct * 100) + "%";
+
+          const total = Math.max(grossProfit + burn, 1);
+          const grossPct = Math.max(0, Math.min(100, (grossProfit / total) * 100));
+          nodes.profitBar.style.width = grossPct + "%";
+          nodes.burnBar.style.width = (100 - grossPct) + "%";
+
+          if (operatingProfit >= 0) {
+            nodes.status.className = "economics-status good";
+            nodes.status.textContent = "At these assumptions, Certifyd is operating-profit positive.";
+            nodes.profitabilityHint.textContent = "Gross profit exceeds annual operating burn by " + money(operatingProfit) + ".";
+          } else {
+            nodes.status.className = "economics-status bad";
+            nodes.status.textContent = "At these assumptions, Certifyd is below operating break-even by " + money(Math.abs(operatingProfit)) + " per year.";
+            nodes.profitabilityHint.textContent = "Gross profit is short of annual operating burn by " + money(Math.abs(operatingProfit)) + ".";
+          }
+        };
+
+        Object.values(controls).forEach((control) => control.addEventListener("input", update));
+        update();
+      })();
+    </script>
+
+</body>
 </html>
