@@ -1948,19 +1948,20 @@
               <div class="economics-subhead">Company economics</div>
               <div class="economics-control">
                 <div class="economics-labelrow">
-                  <label for="econBurn">Annual operating burn</label>
-                  <span class="economics-value" id="econBurnVal">US$2.00M</span>
-                </div>
-                <input id="econBurn" type="range" min="500000" max="6000000" step="100000" value="2000000">
-              </div>
-
-              <div class="economics-control">
-                <div class="economics-labelrow">
                   <label for="econMargin">Blended gross margin</label>
                   <span class="economics-value" id="econMarginVal">90%</span>
                 </div>
                 <input id="econMargin" type="range" min="50" max="98" step="1" value="90">
-                <div class="economics-hint">The percentage of total revenue remaining after direct costs to deliver creator and partner services. This blended rate combines all revenue streams before operating expenses such as salaries, sales, legal and administration.</div>
+                <div class="economics-hint">Percentage of revenue remaining after direct delivery costs.</div>
+              </div>
+
+              <div class="economics-control">
+                <div class="economics-labelrow">
+                  <label for="econBurn">Annual operating burn</label>
+                  <span class="economics-value" id="econBurnVal">US$2.00M</span>
+                </div>
+                <input id="econBurn" type="range" min="500000" max="6000000" step="100000" value="2000000">
+                <div class="economics-hint">Annual company operating expenses used to calculate operating profit.</div>
               </div>
             </article>
 
