@@ -1772,6 +1772,126 @@
         }
       }
 
+
+      .forecast-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin: 0 0 18px;
+        padding: 16px 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255,255,255,0.03);
+      }
+
+      .forecast-toolbar-main {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .forecast-label {
+        margin-right: 4px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .forecast-years {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .forecast-year,
+      .forecast-action {
+        min-height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 9px 13px;
+        color: var(--muted);
+        background: rgba(255,255,255,0.025);
+        font: inherit;
+        font-size: 0.8rem;
+        font-weight: 820;
+        cursor: pointer;
+      }
+
+      .forecast-year:hover,
+      .forecast-year:focus-visible,
+      .forecast-action:hover,
+      .forecast-action:focus-visible {
+        border-color: rgba(255,255,255,0.30);
+        color: var(--text);
+        outline: none;
+      }
+
+      .forecast-year.is-active {
+        border-color: rgba(255,159,28,0.5);
+        color: var(--gold-soft);
+        background: rgba(255,159,28,0.09);
+      }
+
+      .forecast-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .forecast-status {
+        display: inline-flex;
+        align-items: center;
+        min-height: 40px;
+        border: 1px solid rgba(159,216,182,0.28);
+        border-radius: 999px;
+        padding: 9px 12px;
+        color: var(--green);
+        background: rgba(159,216,182,0.06);
+        font-size: 0.76rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .forecast-status.unlocked {
+        border-color: rgba(255,159,28,0.34);
+        color: var(--gold-soft);
+        background: rgba(255,159,28,0.07);
+      }
+
+      .forecast-action.primary {
+        border-color: rgba(255,159,28,0.38);
+        color: var(--gold-soft);
+        background: rgba(255,159,28,0.07);
+      }
+
+      .economics-control input[type="range"]:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+
+      @media (max-width: 720px) {
+        .forecast-toolbar {
+          align-items: stretch;
+        }
+
+        .forecast-toolbar,
+        .forecast-toolbar-main,
+        .forecast-actions {
+          width: 100%;
+        }
+
+        .forecast-actions {
+          justify-content: space-between;
+        }
+      }
+
 </style>
   </head>
   <body>
@@ -1905,6 +2025,23 @@
             </article>
           </div>
 
+          <div class="forecast-toolbar fade-up" aria-label="Base case forecast controls">
+            <div class="forecast-toolbar-main">
+              <span class="forecast-label">Base Case Forecast</span>
+              <div class="forecast-years" role="group" aria-label="Forecast year">
+                <button class="forecast-year is-active" type="button" data-forecast-year="1">Y1</button>
+                <button class="forecast-year" type="button" data-forecast-year="2">Y2</button>
+                <button class="forecast-year" type="button" data-forecast-year="3">Y3</button>
+                <button class="forecast-year" type="button" data-forecast-year="4">Y4</button>
+              </div>
+            </div>
+            <div class="forecast-actions">
+              <span class="forecast-status" id="forecastStatus">Forecast locked</span>
+              <button class="forecast-action primary" id="forecastUnlock" type="button">Unlock model</button>
+              <button class="forecast-action" id="forecastReset" type="button">Reset to forecast</button>
+            </div>
+          </div>
+
           <div class="economics-grid">
             <article class="economics-panel fade-up">
               <h3>Model the network</h3>
@@ -1913,17 +2050,17 @@
               <div class="economics-control">
                 <div class="economics-labelrow">
                   <label for="econCreators">Active creators</label>
-                  <span class="economics-value" id="econCreatorsVal">40,000</span>
+                  <span class="economics-value" id="econCreatorsVal">25,000</span>
                 </div>
-                <input id="econCreators" type="range" min="1000" max="500000" step="1000" value="40000">
+                <input id="econCreators" type="range" min="1000" max="1000000" step="1000" value="25000" disabled>
               </div>
 
               <div class="economics-control">
                 <div class="economics-labelrow">
                   <label for="econCreatorYield">Creator-side network revenue</label>
-                  <span class="economics-value" id="econCreatorYieldVal">US$2.00 / creator / mo</span>
+                  <span class="economics-value" id="econCreatorYieldVal">US$1.50 / creator / mo</span>
                 </div>
-                <input id="econCreatorYield" type="range" min="0" max="15" step="0.25" value="2">
+                <input id="econCreatorYield" type="range" min="0" max="15" step="0.25" value="1.5" disabled>
                 <div class="economics-hint">Aggregate creator-side revenue ÷ active creators. This is not a mandatory creator fee.</div>
               </div>
 
@@ -1931,9 +2068,9 @@
               <div class="economics-control">
                 <div class="economics-labelrow">
                   <label for="econPartners">Active commercial partners</label>
-                  <span class="economics-value" id="econPartnersVal">250</span>
+                  <span class="economics-value" id="econPartnersVal">100</span>
                 </div>
-                <input id="econPartners" type="range" min="0" max="5000" step="25" value="250">
+                <input id="econPartners" type="range" min="0" max="5000" step="25" value="100" disabled>
               </div>
 
               <div class="economics-control">
@@ -1941,7 +2078,7 @@
                   <label for="econPartnerYield">Average partner revenue</label>
                   <span class="economics-value" id="econPartnerYieldVal">US$500 / partner / mo</span>
                 </div>
-                <input id="econPartnerYield" type="range" min="0" max="5000" step="50" value="500">
+                <input id="econPartnerYield" type="range" min="0" max="5000" step="50" value="500" disabled>
                 <div class="economics-hint">Blended average across retail, partnerships, API, enterprise, licensing and other partner activity.</div>
               </div>
 
@@ -1949,18 +2086,18 @@
               <div class="economics-control">
                 <div class="economics-labelrow">
                   <label for="econMargin">Blended gross margin</label>
-                  <span class="economics-value" id="econMarginVal">90%</span>
+                  <span class="economics-value" id="econMarginVal">75%</span>
                 </div>
-                <input id="econMargin" type="range" min="50" max="98" step="1" value="90">
+                <input id="econMargin" type="range" min="50" max="98" step="1" value="75" disabled>
                 <div class="economics-hint">Percentage of revenue remaining after direct delivery costs.</div>
               </div>
 
               <div class="economics-control">
                 <div class="economics-labelrow">
                   <label for="econBurn">Annual operating burn</label>
-                  <span class="economics-value" id="econBurnVal">US$2.00M</span>
+                  <span class="economics-value" id="econBurnVal">US$3.00M</span>
                 </div>
-                <input id="econBurn" type="range" min="500000" max="6000000" step="100000" value="2000000">
+                <input id="econBurn" type="range" min="500000" max="6000000" step="100000" value="3000000" disabled>
                 <div class="economics-hint">Annual company operating expenses used to calculate operating profit.</div>
               </div>
             </article>
@@ -1970,37 +2107,37 @@
               <div class="economics-metrics">
                 <div class="economics-metric">
                   <div class="economics-metric-label">Annual network revenue</div>
-                  <div class="economics-metric-value" id="econAnnualRevenue">US$2.46M</div>
-                  <div class="economics-metric-sub" id="econMonthlyRevenue">US$205K / month</div>
+                  <div class="economics-metric-value" id="econAnnualRevenue">US$1.05M</div>
+                  <div class="economics-metric-sub" id="econMonthlyRevenue">US$88K / month</div>
                 </div>
                 <div class="economics-metric">
                   <div class="economics-metric-label">Revenue needed for break-even</div>
-                  <div class="economics-metric-value" id="econBreakEvenRevenue">US$2.22M</div>
+                  <div class="economics-metric-value" id="econBreakEvenRevenue">US$4.00M</div>
                   <div class="economics-metric-sub">at the selected gross margin</div>
                 </div>
                 <div class="economics-metric">
                   <div class="economics-metric-label">Creator-side revenue</div>
-                  <div class="economics-metric-value" id="econCreatorRevenue">US$960K</div>
-                  <div class="economics-metric-sub" id="econCreatorShare">39% of total revenue</div>
+                  <div class="economics-metric-value" id="econCreatorRevenue">US$450K</div>
+                  <div class="economics-metric-sub" id="econCreatorShare">43% of total revenue</div>
                 </div>
                 <div class="economics-metric">
                   <div class="economics-metric-label">Partner-side revenue</div>
-                  <div class="economics-metric-value" id="econPartnerRevenue">US$1.50M</div>
-                  <div class="economics-metric-sub" id="econPartnerShare">61% of total revenue</div>
+                  <div class="economics-metric-value" id="econPartnerRevenue">US$600K</div>
+                  <div class="economics-metric-sub" id="econPartnerShare">57% of total revenue</div>
                 </div>
                 <div class="economics-metric">
                   <div class="economics-metric-label">Gross profit</div>
-                  <div class="economics-metric-value" id="econGrossProfit">US$2.21M</div>
-                  <div class="economics-metric-sub" id="econGrossMarginText">90% blended margin</div>
+                  <div class="economics-metric-value" id="econGrossProfit">US$788K</div>
+                  <div class="economics-metric-sub" id="econGrossMarginText">75% blended margin</div>
                 </div>
                 <div class="economics-metric">
                   <div class="economics-metric-label">Operating profit</div>
-                  <div class="economics-metric-value" id="econOperatingProfit">US$214K</div>
-                  <div class="economics-metric-sub" id="econOperatingMargin">8.7% operating margin</div>
+                  <div class="economics-metric-value" id="econOperatingProfit">−US$2.21M</div>
+                  <div class="economics-metric-sub" id="econOperatingMargin">−210.7% operating margin</div>
                 </div>
               </div>
 
-              <div class="economics-status good" id="econStatus">At these assumptions, Certifyd is operating-profit positive.</div>
+              <div class="economics-status bad" id="econStatus">At these assumptions, Certifyd is below operating break-even by US$2.21M per year.</div>
 
               <div class="economics-mix">
                 <div class="economics-subhead">Revenue mix — by payer</div>
@@ -2054,7 +2191,7 @@
           </div>
 
           <p class="economics-disclosure fade-up">
-            Illustrative investor model. Creator-side and partner-side revenue are blended network averages, not guaranteed pricing or adoption assumptions. Actual results depend on adoption, pricing, deal mix, margins and operating costs.
+            Base case forecast assumptions are management estimates for planning purposes, not guarantees. Unlock the model to explore alternative scenarios. Actual results depend on adoption, pricing, deal mix, margins and operating costs.
           </p>
         </div>
       </section>
@@ -2215,6 +2352,48 @@
         };
         if (!controls.creators) return;
 
+        const forecasts = {
+          1: { creators: 25000, creatorYield: 1.5, partners: 100, partnerYield: 500, margin: 75, burn: 3000000 },
+          2: { creators: 100000, creatorYield: 2, partners: 400, partnerYield: 600, margin: 77, burn: 4000000 },
+          3: { creators: 350000, creatorYield: 2.5, partners: 1200, partnerYield: 750, margin: 80, burn: 4500000 },
+          4: { creators: 1000000, creatorYield: 3, partners: 3000, partnerYield: 900, margin: 82, burn: 5000000 },
+        };
+
+        let selectedForecastYear = 1;
+        let forecastLocked = true;
+
+        const forecastButtons = Array.from(document.querySelectorAll("[data-forecast-year]"));
+        const forecastStatus = byId("forecastStatus");
+        const forecastUnlock = byId("forecastUnlock");
+        const forecastReset = byId("forecastReset");
+
+        const setLocked = (locked) => {
+          forecastLocked = locked;
+          Object.values(controls).forEach((control) => { control.disabled = locked; });
+          if (forecastStatus) {
+            forecastStatus.classList.toggle("unlocked", !locked);
+            forecastStatus.textContent = locked ? "Forecast locked" : "Scenario mode";
+          }
+          if (forecastUnlock) forecastUnlock.textContent = locked ? "Unlock model" : "Lock model";
+        };
+
+        const loadForecast = (year, lockAfter = true) => {
+          const forecast = forecasts[year];
+          if (!forecast) return;
+          selectedForecastYear = year;
+          controls.creators.value = String(forecast.creators);
+          controls.creatorYield.value = String(forecast.creatorYield);
+          controls.partners.value = String(forecast.partners);
+          controls.partnerYield.value = String(forecast.partnerYield);
+          controls.margin.value = String(forecast.margin);
+          controls.burn.value = String(forecast.burn);
+          forecastButtons.forEach((button) => {
+            button.classList.toggle("is-active", Number(button.dataset.forecastYear) === year);
+          });
+          if (lockAfter) setLocked(true);
+          update();
+        };
+
         const nodes = {
           creatorsVal: byId("econCreatorsVal"),
           creatorYieldVal: byId("econCreatorYieldVal"),
@@ -2314,7 +2493,21 @@
         };
 
         Object.values(controls).forEach((control) => control.addEventListener("input", update));
-        update();
+
+        forecastButtons.forEach((button) => {
+          button.addEventListener("click", () => loadForecast(Number(button.dataset.forecastYear), true));
+        });
+
+        forecastUnlock?.addEventListener("click", () => {
+          setLocked(!forecastLocked);
+        });
+
+        forecastReset?.addEventListener("click", () => {
+          loadForecast(selectedForecastYear, true);
+        });
+
+        setLocked(true);
+        loadForecast(1, true);
       })();
     </script>
 </body>
