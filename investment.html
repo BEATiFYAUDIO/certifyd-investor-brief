@@ -312,7 +312,7 @@
 
       section {
         scroll-margin-top: 94px;
-        padding: 104px 0;
+        padding: 76px 0;
       }
 
       .section-head {
@@ -320,7 +320,7 @@
         justify-content: space-between;
         align-items: flex-end;
         gap: 28px;
-        margin-bottom: 48px;
+        margin-bottom: 34px;
       }
 
       .section-head h2 {
@@ -1664,6 +1664,114 @@
       }
 
 
+
+      .portal-cta {
+        cursor: pointer;
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      }
+
+      .portal-cta:hover,
+      .portal-cta:focus-visible {
+        transform: translateY(-1px);
+        border-color: rgba(255, 159, 28, 0.68);
+        background: rgba(255, 159, 28, 0.13);
+        outline: none;
+      }
+
+      .proof-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .proof-card {
+        padding: 24px;
+      }
+
+      .proof-stat {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--gold-soft);
+        font-size: clamp(2.2rem, 4vw, 3.8rem);
+        line-height: 0.9;
+        letter-spacing: -0.055em;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .proof-card h3 {
+        margin-bottom: 8px;
+        font-size: 1.2rem;
+        letter-spacing: -0.025em;
+      }
+
+      .proof-card p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .investment-split {
+        display: grid;
+        grid-template-columns: 3fr 17fr;
+        gap: 10px;
+        margin: 4px 0 28px;
+      }
+
+      .investment-split-card {
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 22px;
+        background: rgba(255,255,255,0.035);
+      }
+
+      .investment-split-card.acquisition {
+        border-color: rgba(255,159,28,0.34);
+        background: rgba(255,159,28,0.055);
+      }
+
+      .investment-split-card.growth {
+        border-color: rgba(139,183,255,0.28);
+        background: rgba(139,183,255,0.045);
+      }
+
+      .investment-split-card strong {
+        display: block;
+        font-size: clamp(2rem, 4vw, 4rem);
+        line-height: 0.95;
+        letter-spacing: -0.055em;
+      }
+
+      .investment-split-card span {
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 760;
+      }
+
+      @media (max-width: 900px) {
+        .proof-grid {
+          grid-template-columns: repeat(2, minmax(0,1fr));
+        }
+
+        .investment-split {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        section { padding: 54px 0; }
+        .section-head { margin-bottom: 28px; }
+      }
+
+      @media (max-width: 580px) {
+        .proof-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
 </style>
   </head>
   <body>
@@ -1672,23 +1780,21 @@
         <a class="brand" href="index.html" aria-label="Certifyd Investor Portal"><img src="assets/brand/certifyd-logo-long.svg" alt="Certifyd" /></a>
         <nav class="nav-links" aria-label="Investment sections">
           <a href="index.html">Overview</a>
-          <a href="#opportunity">Opportunity</a>
           <a href="#model">Model</a>
-        <a href="#economics">Economics</a>
-        <a href="#proof">Proof</a>
-          <a href="#funds">Transaction</a>
+          <a href="#economics">Economics</a>
+          <a href="#proof">Proof</a>
+          <a href="#funds">Investment</a>
           <a href="#contact">Ask</a>
         </nav>
-        <span class="portal-badge">Investment Ask</span>
+        <a class="portal-badge portal-cta" href="#contact" aria-label="Jump to the investment ask">Investment Ask</a>
         <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
       </div>
       <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile investment sections">
         <a href="index.html">Overview</a>
-        <a href="#opportunity">Opportunity</a>
         <a href="#model">Model</a>
         <a href="#economics">Economics</a>
         <a href="#proof">Proof</a>
-        <a href="#funds">Transaction</a>
+        <a href="#funds">Investment</a>
         <a href="#contact">Ask</a>
       </nav>
     </header>
@@ -1977,41 +2083,36 @@
       </section>
 
 
+
       <section id="proof" aria-labelledby="proofTitle">
         <div class="shell">
           <div class="section-head fade-up">
             <div>
               <p class="eyebrow">Proof of Execution</p>
               <h2 id="proofTitle">The technology exists. External testing is underway.</h2>
-              <p>
-                The investment is intended to scale an operating product and network, not fund a first prototype.
-              </p>
+              <p>The investment is intended to scale an operating product and network, not fund a first prototype.</p>
             </div>
           </div>
-          <div class="investor-grid">
-            <article class="surface investor-card fade-up">
-              <h3>Live ecosystem.</h3>
+          <div class="proof-grid">
+            <article class="surface proof-card fade-up">
+              <strong class="proof-stat">Live</strong>
+              <h3>Operating ecosystem</h3>
               <p>Core, Network, Fan, Awards and creator-facing surfaces already operate as parts of the Certifyd ecosystem.</p>
             </article>
-            <article class="surface investor-card fade-up">
-              <h3>External beta operation.</h3>
-              <p>Beta users have installed and run Certifyd Core on their own machines, producing direct evidence about installation, operation and support needs.</p>
+            <article class="surface proof-card fade-up">
+              <strong class="proof-stat">10 days</strong>
+              <h3>External node operation</h3>
+              <p>A beta node ran continuously outside the founding team, producing real installation, operation and support evidence.</p>
             </article>
-            <article class="surface investor-card fade-up">
-              <h3>Upgrade path exercised.</h3>
-              <p>A beta node ran for roughly ten days and successfully completed a multi-migration upgrade while database integrity checks passed.</p>
+            <article class="surface proof-card fade-up">
+              <strong class="proof-stat">25/25</strong>
+              <h3>Migrations applied</h3>
+              <p>A multi-migration upgrade completed successfully while integrity and foreign-key checks passed.</p>
             </article>
-            <article class="surface investor-card fade-up">
-              <h3>Commercial surfaces already defined.</h3>
-              <p>Creator services, retail participation, API access, enterprise services, licensing and strategic partnerships provide multiple monetization paths.</p>
-            </article>
-            <article class="surface investor-card fade-up">
-              <h3>Edge architecture tested in practice.</h3>
-              <p>Creator-side storage and compute run on creator-controlled infrastructure rather than requiring every workload to be centralized by Certifyd.</p>
-            </article>
-            <article class="surface investor-card fade-up">
-              <h3>Beta feedback changes the product.</h3>
-              <p>Real-world testing has already surfaced installation and identity-recovery issues that have been turned into product fixes.</p>
+            <article class="surface proof-card fade-up">
+              <strong class="proof-stat">Real beta</strong>
+              <h3>Feedback becomes product fixes</h3>
+              <p>External testing has already exposed installation and identity-recovery issues that were turned into concrete product work.</p>
             </article>
           </div>
         </div>
@@ -2033,6 +2134,17 @@
       <section id="funds" aria-labelledby="fundsTitle">
         <div class="shell">
           <div class="section-head fade-up"><div><p class="eyebrow">Investment Structure</p><h2 id="fundsTitle">$20M Investment Structure</h2><p>$3M is purchase consideration for the existing Certifyd technology and IP. The remaining $17M is growth capital retained by the company and allocated across the operating categories below.</p></div></div>
+          <div class="investment-split fade-up" aria-label="$20 million investment split">
+            <div class="investment-split-card acquisition">
+              <strong>$3M</strong>
+              <span>Existing Certifyd technology &amp; IP acquisition</span>
+            </div>
+            <div class="investment-split-card growth">
+              <strong>$17M</strong>
+              <span>Growth capital retained by the company</span>
+            </div>
+          </div>
+
           <div class="investor-grid">
             <article class="surface investor-card fade-up"><h3>$3M — Core Technology &amp; IP</h3><p>Acquisition of the Certifyd software, architecture, codebase, trademarks and related intellectual property forming the foundation of the business.</p></article>
             <article class="surface investor-card fade-up"><h3>$5M — Product and Network Engineering</h3><p>Engineering hires, Certifyd Core, backend systems, APIs, commerce, public products and enterprise tooling.</p></article>
