@@ -10,22 +10,16 @@ investor.certifyd.me
 
 ## Files
 
-- `index.html` — single-page investor portal, plain HTML/CSS only.
+- `index.html` — investor ecosystem and product overview.
+- `investment.html` — investment thesis, economics, proof of execution, use of funds and ask.
 - `assets/data/ecosystemProperties.js` — typed public property data used by the homepage.
 - `assets/screenshots/` — local screenshots captured from verified public URLs.
 - `CNAME` — custom GitHub Pages domain.
 - `README.md` — deployment notes.
 
-## Enable GitHub Pages
+## Deployment
 
-1. Open the GitHub repository settings.
-2. Go to **Pages**.
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-4. Select branch: `main`.
-5. Select folder: `/ (root)`.
-6. Save.
-
-GitHub Pages will publish the static site from `index.html`.
+Pushes to `main` trigger `.github/workflows/pages.yml`. The workflow installs dependencies, builds the password-protected site into `dist`, and deploys that artifact to GitHub Pages.
 
 ## Configure DNS for `investor.certifyd.me`
 
